@@ -21,7 +21,8 @@ namespace GUI
         private ChiTietHoaDonNhapBLL _chiTietHoaDonNhapBLL;
 
         private int countHdn;
-
+        private int countPt;
+        
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
         public int CornerRadius { get; set; } = 20;
@@ -48,6 +49,7 @@ namespace GUI
         {
             List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
             ThemDuLieuPhuTung(listPhuTung);
+            countPt = listPhuTung.Count;
         }
         private void fKho_Load(object sender, EventArgs e)
         {
@@ -312,6 +314,7 @@ namespace GUI
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
             whatIsRunning = 0;
+           lblShowResult.Text = countHdn.ToString(); 
         }
 
         private void btnPhuTung_Click(object sender, EventArgs e)
@@ -351,6 +354,7 @@ namespace GUI
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
             whatIsRunning = 1; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
+            lblShowResult.Text = countPt.ToString();
         }
 
 

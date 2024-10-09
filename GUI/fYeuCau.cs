@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
-	public partial class fTestYeuCau : Form
+	public partial class fYeuCau : Form
 	{
 		string idLogin;
 		private DatYeuCauBLL datYeuCauBLL;
@@ -30,7 +30,7 @@ namespace GUI
 		private int status = 1;
 		private bool isAddNew = true;
 		private int rowIndex = -1;
-		public fTestYeuCau(string idLogin)
+		public fYeuCau(string idLogin)
 		{
 			InitializeComponent();
 

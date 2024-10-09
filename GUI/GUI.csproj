@@ -146,11 +146,11 @@
     <Compile Include="fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="fTestYeuCau.cs">
+    <Compile Include="fYeuCau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fTestYeuCau.Designer.cs">
-      <DependentUpon>fTestYeuCau.cs</DependentUpon>
+    <Compile Include="fYeuCau.Designer.cs">
+      <DependentUpon>fYeuCau.cs</DependentUpon>
     </Compile>
     <Compile Include="fTrangChu.cs">
       <SubType>Form</SubType>
@@ -212,8 +212,8 @@
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fTestYeuCau.resx">
-      <DependentUpon>fTestYeuCau.cs</DependentUpon>
+    <EmbeddedResource Include="fYeuCau.resx">
+      <DependentUpon>fYeuCau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTrangChu.resx">
       <DependentUpon>fTrangChu.cs</DependentUpon>
@@ -371,6 +371,8 @@
     <None Include="Resources\ChamCong.png" />
     <None Include="Resources\avtToVai.png" />
     <None Include="Resources\Chart.png" />
+    <None Include="Resources\card1.png" />
+    <None Include="Resources\card2.png" />
     <Content Include="Resources\page_info_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\page_info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\person_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />

@@ -9,14 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\btl\\btl_lttq\\dal\\nhanviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\nhanviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,9 +36,9 @@
               "RelativeDocumentMoniker": "GUI\\fKho.cs",
               "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
               "RelativeToolTip": "GUI\\fKho.cs",
-              "ViewState": "AgIAAF0BAAAAAAAAAAAewH8BAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAEABAAAAAAAAAAAnwGQBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T14:01:42.918Z",
+              "WhenOpened": "2024-10-09T15:03:36.064Z",
               "EditorCaption": ""
             },
             {
@@ -58,34 +50,8 @@
               "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs [Design]",
               "RelativeToolTip": "GUI\\fKho.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T14:02:05.22Z",
+              "WhenOpened": "2024-10-09T15:03:34.94Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NhanVienDAL.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\DAL\\NhanVienDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\NhanVienDAL.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\DAL\\NhanVienDAL.cs",
-              "RelativeToolTip": "DAL\\NhanVienDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T14:01:17.112Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "fBase.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fBase.cs",
-              "RelativeDocumentMoniker": "GUI\\fBase.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fBase.cs",
-              "RelativeToolTip": "GUI\\fBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T14:00:46.736Z",
-              "EditorCaption": ""
             }
           ]
         }

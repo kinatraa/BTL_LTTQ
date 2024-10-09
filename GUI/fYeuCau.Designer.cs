@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class fTestYeuCau
+    partial class fYeuCau
     {
         /// <summary>
         /// Required designer variable.

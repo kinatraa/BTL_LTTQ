@@ -17,6 +17,7 @@ namespace GUI
 {
     public partial class fHoaDon : Form
     {
+        string idLogin;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
         public int CornerRadius { get; set; } = 20;
@@ -24,7 +25,7 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private int rowIndex = -1;
         private Point panelPos = new Point(48, 118);
-        public fHoaDon()
+        public fHoaDon(string idLogin)
         {
             InitializeComponent();
 
@@ -36,6 +37,7 @@ namespace GUI
             panelChiTiet.Visible = false;
 
             cmbOrder.SelectedIndex = 0;
+            this.idLogin = idLogin;
         }
 
         private void SetupDataGridView()

@@ -33,6 +33,7 @@ namespace GUI
             RoundedControlHelper.SetRoundedCorners(pnXe, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnKhach, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnYeuCau, 20, true, true, true, true);
+            RoundedControlHelper.SetRoundedCorners(pnHoaDon, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnNhanVien, 20, true, true, true, true);
 
             picTrangChu.Image = Properties.Resources.grid1;
@@ -43,13 +44,14 @@ namespace GUI
             picNhanVien.Image = Properties.Resources.alt1;
 
 
-            forms = new Form[6];
+            forms = new Form[7];
             forms[0] = new fTrangChu(idLogin);
             forms[1] = new fKho(idLogin);
             forms[2] = new fXeMay(idLogin);
             forms[3] = new fKhachHang(idLogin);
-            forms[4] = new fTestYeuCau(idLogin);
-            forms[5] = new fNhanVien(idLogin);
+            forms[4] = new fYeuCau(idLogin);
+            forms[5] = new fHoaDon(idLogin);    
+            forms[6] = new fNhanVien(idLogin);
 
             btnTrangChu_Click(sender, e);
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.FromArgb(210, 224, 251), Properties.Resources.grid2, FontStyle.Bold);
@@ -144,6 +146,7 @@ namespace GUI
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
 
@@ -196,10 +199,10 @@ namespace GUI
             activeBtn = btnKho;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
-            //changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
         // END KHO
@@ -255,6 +258,7 @@ namespace GUI
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
 
@@ -311,6 +315,7 @@ namespace GUI
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
         // END KHACH
@@ -366,10 +371,69 @@ namespace GUI
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
 
         // END YEUCAU
+
+        // BEGIN HOADON
+
+
+        private void btnHoaDon_MouseEnter(object sender, EventArgs e)
+        {
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                Color.FromArgb(210, 224, 251), Properties.Resources.card2, FontStyle.Bold);
+        }
+
+        private void btnHoaDon_MouseLeave(object sender, EventArgs e)
+        {
+            if (activeBtn != btnHoaDon)
+                changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                    Color.White, Properties.Resources.card1, FontStyle.Regular);
+        }
+
+        private void picHoaDon_MouseEnter(object sender, EventArgs e)
+        {
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                Color.FromArgb(210, 224, 251), Properties.Resources.card2, FontStyle.Bold);
+        }
+
+        private void picHoaDon_MouseLeave(object sender, EventArgs e)
+        {
+            if (activeBtn != btnHoaDon)
+                changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                    Color.White, Properties.Resources.card1, FontStyle.Regular);
+        }
+
+        private void pnHoaDon_MouseEnter(object sender, EventArgs e)
+        {
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                Color.FromArgb(210, 224, 251), Properties.Resources.card2, FontStyle.Bold);
+        }
+
+        private void pnHoaDon_MouseLeave(object sender, EventArgs e)
+        {
+            if (activeBtn != btnHoaDon)
+                changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
+                    Color.White, Properties.Resources.card1, FontStyle.Regular);
+        }
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            if (activeBtn == btnHoaDon) return;
+            ShowForm(5);
+            lbTitle.Text = "Hoá đơn";
+            activeBtn = btnHoaDon;
+
+            changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
+            changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
+            changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
+            changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
+            changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
+        }
+        // END HOADON
+
 
         // BEGIN NHANVIEN
         private void pnNhanVien_MouseEnter(object sender, EventArgs e)
@@ -412,7 +476,7 @@ namespace GUI
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             if (activeBtn == btnNhanVien) return;
-            ShowForm(5);
+            ShowForm(6);
             lbTitle.Text = "Nhân viên";
             activeBtn = btnNhanVien;
 
@@ -420,6 +484,7 @@ namespace GUI
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
 
