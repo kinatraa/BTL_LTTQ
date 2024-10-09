@@ -1,0 +1,111 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq - copy\\gui\\ftestyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\ftestyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ - Copy\\gui\\ftestyeucau.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\ftestyeucau.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|D:\\Games\\New folder\\BTL_LTTQ - Copy\\dal\\datyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\datyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ - Copy\\gui\\ftestyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\ftestyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|D:\\Games\\New folder\\BTL_LTTQ - Copy\\bll\\datyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|solutionrelative:bll\\datyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fTestYeuCau.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fTestYeuCau.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.cs",
+              "RelativeToolTip": "GUI\\fTestYeuCau.cs",
+              "ViewState": "AgIAAC8CAAAAAAAAAAAjwFcCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T07:13:22.615Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fTestYeuCau.Designer.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\fTestYeuCau.Designer.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.Designer.cs",
+              "RelativeToolTip": "GUI\\fTestYeuCau.Designer.cs",
+              "ViewState": "AgIAAL4BAAAAAAAAAAAWwMIBAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T07:59:58.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatYeuCauDAL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\DAL\\DatYeuCauDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\DatYeuCauDAL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\DAL\\DatYeuCauDAL.cs",
+              "RelativeToolTip": "DAL\\DatYeuCauDAL.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T12:19:40.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DatYeuCauBLL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\BLL\\DatYeuCauBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DatYeuCauBLL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\BLL\\DatYeuCauBLL.cs",
+              "RelativeToolTip": "BLL\\DatYeuCauBLL.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCkAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T10:20:10.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "fTestYeuCau.cs [Design]",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fTestYeuCau.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ - Copy\\GUI\\fTestYeuCau.cs [Design]",
+              "RelativeToolTip": "GUI\\fTestYeuCau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T07:13:04.213Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
