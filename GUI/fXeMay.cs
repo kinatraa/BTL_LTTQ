@@ -17,6 +17,7 @@ namespace GUI
 {
     public partial class fXeMay : Form
     {
+        string idLogin;
         private XeMayBLL _xeMayBLL;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -25,7 +26,7 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private bool addNewClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
-        public fXeMay()
+        public fXeMay(string idLogin)
         {
             InitializeComponent();
 
@@ -37,9 +38,8 @@ namespace GUI
             SetupAddPanel();
             dgvXeMay.Height += (227 - 80);
 
-            
-
             cmbOrder.SelectedIndex = 0;
+            this.idLogin = idLogin;
         }
         private void fXeMay_Load(object sender, EventArgs e)
         {

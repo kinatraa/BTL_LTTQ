@@ -17,6 +17,7 @@ namespace GUI
 {
 	public partial class fTestYeuCau : Form
 	{
+		string idLogin;
 		private DatYeuCauBLL datYeuCauBLL;
 		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
 		private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -29,7 +30,7 @@ namespace GUI
 		private int status = 1;
 		private bool isAddNew = true;
 		private int rowIndex = -1;
-		public fTestYeuCau()
+		public fTestYeuCau(string idLogin)
 		{
 			InitializeComponent();
 
@@ -51,6 +52,7 @@ namespace GUI
 			DoubleBuffering();
 
 			SetStatus();
+			this.idLogin = idLogin;
 		}
 
 		private void SetupAddPanel()

@@ -8,17 +8,22 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
     public partial class fBase : Form
     {
+        private string idLogin;
+
+        private NhanVienBLL _nhanVienBLL;
         private Form[] forms;
         private Button activeBtn;
-        public fBase()
+        public fBase(string tenDangNhap)
         {
             InitializeComponent();
-
+            this.idLogin = tenDangNhap;
+            _nhanVienBLL = new NhanVienBLL();
         }
 
         private void fBase_Load(object sender, EventArgs e)
@@ -36,20 +41,23 @@ namespace GUI
             picKhach.Image = Properties.Resources.user1;
             picYeuCau.Image = Properties.Resources.cal1;
             picNhanVien.Image = Properties.Resources.alt1;
-            
+
 
             forms = new Form[6];
-            forms[0] = new fTrangChu();
-            forms[1] = new fKho();
-            forms[2] = new fXeMay();
-            forms[3] = new fKhachHang();    
-            forms[4] = new fTestYeuCau();
-            forms[5] = new fNhanVien();
+            forms[0] = new fTrangChu(idLogin);
+            forms[1] = new fKho(idLogin);
+            forms[2] = new fXeMay(idLogin);
+            forms[3] = new fKhachHang(idLogin);
+            forms[4] = new fTestYeuCau(idLogin);
+            forms[5] = new fNhanVien(idLogin);
 
             btnTrangChu_Click(sender, e);
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.FromArgb(210, 224, 251), Properties.Resources.grid2, FontStyle.Bold);
+
+            lbTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+            if (idLogin.Contains("MNV")) lbChucVu.Text = "Nhân viên";
         }
-        private void ShowForm(int index)
+        private async void ShowForm(int index)
         {
             foreach (var form in forms)
             {
@@ -60,9 +68,11 @@ namespace GUI
                 }
             }
 
+            await Task.Delay(100);
+
             if (forms[index] != null && forms[index].IsDisposed)
             {
-                forms[index] = (Form)Activator.CreateInstance(forms[index].GetType());
+                forms[index] = (Form)Activator.CreateInstance(forms[index].GetType(), new object[] { idLogin });
             }
 
             if (forms[index] != null)
@@ -74,6 +84,7 @@ namespace GUI
                 pnPage.Update();
             }
         }
+
 
         private void changeBackgroundColor(Button btn, Panel pn, PictureBox pic, Color cl, Image img, FontStyle fs)
         {
@@ -185,7 +196,7 @@ namespace GUI
             activeBtn = btnKho;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
-            changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
+            //changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);

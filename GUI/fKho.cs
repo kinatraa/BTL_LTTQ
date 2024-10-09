@@ -8,31 +8,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 using DTO;
-
+using BLL;
 namespace GUI
 {
     public partial class fKho : Form
     {
+        private string idLogin;
+        private PhuTungBLL _phuTungBLL;
+        private HoaDonNhapBLL _hoaDonNhapBLL;
+        private ChiTietHoaDonNhapBLL _chiTietHoaDonNhapBLL;
+
+        private int countHdn;
+
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
-        private int whatIsRunning = 1;
-        public fKho()
+        private int whatIsRunning = 1; // 0 là ds hđn, 1 là ds phụ tùng
+        public fKho(string idLogin)
         {
             InitializeComponent();
+            _phuTungBLL = new PhuTungBLL();
+            _hoaDonNhapBLL = new HoaDonNhapBLL();
+            _chiTietHoaDonNhapBLL = new ChiTietHoaDonNhapBLL();
+            this.idLogin = idLogin;
+
+
+        }
+        public void HienThiDSHoaDon()
+        {
+            List<HoaDonNhapDTO> listHoaDon = _hoaDonNhapBLL.LayHoaDonNhap();
+            ThemDuLieuHoaDon(listHoaDon);
+            countHdn = listHoaDon.Count;
+        }
+        private void HienThiDSPhuTung()
+        {
+            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
+            ThemDuLieuPhuTung(listPhuTung);
+        }
+        private void fKho_Load(object sender, EventArgs e)
+        {
 
             SetupDGVPhuTung();
             SetupDGVHDN();
+
+            HienThiDSHoaDon();
+            HienThiDSPhuTung();
+
             SetupPanelHDN();
 
-            btnHDN_Click(this, EventArgs.Empty);
-
+            btnPhuTung_Click(this, EventArgs.Empty);
             cmbOrder.SelectedIndex = 0;
         }
-
         private void SetupPanelHDN()
         {
             panelHDN.Location = new Point(48, 118);
@@ -44,7 +74,60 @@ namespace GUI
 
             panelHDN.Visible = false;
         }
+        private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
+        {
+            dgvPhuTung.Rows.Clear();
 
+            foreach (var phuTung in dsPhuTung)
+            {
+                dgvPhuTung.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
+            }
+        }
+        private void ThemDuLieuHoaDon(List<HoaDonNhapDTO> dsHoaDonNhap)
+        {
+            dgvHDN.Rows.Clear();
+
+            foreach (var hdn in dsHoaDonNhap)
+            {
+                // Định dạng ngày theo kiểu "dd/MM/yyyy"
+                string formattedDate = hdn.NgayNhap.ToString("dd/MM/yyyy");
+
+                dgvHDN.Rows.Add(hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
+            }
+        }
+        // tìm bị nhảy nhảy
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (whatIsRunning == 1)
+            {
+                if (txtSearchBar.Text != "")
+                {
+                    List<PhuTungDTO> listPhuTung = _phuTungBLL.TimDsTheoTen(txtSearchBar.Text);
+                    ThemDuLieuPhuTung(listPhuTung);
+                }
+                else
+                {
+                    HienThiDSPhuTung();
+                }
+            }
+
+        }
+        private void txtSearchBar_Click(object sender, EventArgs e)
+        {
+            if (txtSearchBar.Text == "Search...")
+            {
+                txtSearchBar.Text = "";
+            }
+        }
+
+
+        private void txtSearchBar_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchBar.Text == "")
+            {
+                txtSearchBar.Text = "Search...";
+            }
+        }
         private void SetupDGVPhuTung()
         {
 
@@ -67,34 +150,18 @@ namespace GUI
             dgvPhuTung.Columns.Add(actionsColumn);
 
 
-            dgvPhuTung.Columns["MaPhuTung_PhuTung"].FillWeight = 15;
+            dgvPhuTung.Columns["MaPhuTung_PhuTung"].FillWeight = 17;
             dgvPhuTung.Columns["TenPhuTung"].FillWeight = 23;
             dgvPhuTung.Columns["DonGiaNhap_PhuTung"].FillWeight = 17;
             dgvPhuTung.Columns["DonGiaBan"].FillWeight = 17;
-            dgvPhuTung.Columns["GhiChu"].FillWeight = 23;
+            dgvPhuTung.Columns["SoLuong"].FillWeight = 15;
             dgvPhuTung.Columns["Actions"].FillWeight = 5;
 
             dgvPhuTung.RowTemplate.Height = 60;
             dgvPhuTung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPhuTung.ColumnHeadersHeight = 60;
 
-            dgvPhuTung.Rows.Add("PT001", "Lốp xe", "1,000,000 VND", "1,200,000 VND", "Chính hãng");
-            dgvPhuTung.Rows.Add("PT002", "Bộ phanh", "800,000 VND", "1,000,000 VND", "Chính hãng");
-            dgvPhuTung.Rows.Add("PT003", "Đèn pha", "500,000 VND", "700,000 VND", "Hàng nhập khẩu");
-            dgvPhuTung.Rows.Add("PT004", "Gương chiếu hậu", "300,000 VND", "500,000 VND", "Chính hãng");
-            dgvPhuTung.Rows.Add("PT005", "Lọc gió", "200,000 VND", "350,000 VND", "Hàng nội địa");
-            dgvPhuTung.Rows.Add("PT006", "Bộ giảm xóc", "1,500,000 VND", "1,800,000 VND", "Chính hãng");
-            dgvPhuTung.Rows.Add("PT007", "Bình ắc quy", "1,200,000 VND", "1,500,000 VND", "Hàng nhập khẩu");
-            dgvPhuTung.Rows.Add("PT008", "Động cơ", "5,000,000 VND", "5,500,000 VND", "Hàng mới");
-            dgvPhuTung.Rows.Add("PT009", "Hệ thống điều hòa", "3,000,000 VND", "3,500,000 VND", "Chính hãng");
-            dgvPhuTung.Rows.Add("PT010", "Bộ đề xe", "900,000 VND", "1,100,000 VND", "Hàng nội địa");
 
-            //dgvPhuTung.Rows.Clear();
-
-            //foreach(var phuTung  in dsPhuTung)
-            //{
-            //    dgvPhuTung.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung);
-            //}
 
         }
 
@@ -120,29 +187,16 @@ namespace GUI
             dgvHDN.Columns.Add(actionsColumn);
 
 
-            dgvHDN.Columns["MaHDN"].FillWeight = 12;
-            dgvHDN.Columns["MaPhuTung_HDN"].FillWeight = 12;
-            dgvHDN.Columns["MaNV"].FillWeight = 13;
+            dgvHDN.Columns["MaHDN"].FillWeight = 15;
+            dgvHDN.Columns["MaNV"].FillWeight = 15;
             dgvHDN.Columns["NgayNhap"].FillWeight = 15;
-            dgvHDN.Columns["DonGiaNhap_HDN"].FillWeight = 15;
-            dgvHDN.Columns["SoLuong"].FillWeight = 10;
-            dgvHDN.Columns["ThanhTien"].FillWeight = 18;
+            dgvHDN.Columns["Tien"].FillWeight = 15;
             dgvHDN.Columns["Actions"].FillWeight = 5;
 
             dgvHDN.RowTemplate.Height = 60;
             dgvHDN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvHDN.ColumnHeadersHeight = 60;
 
-            dgvHDN.Rows.Add("HDN001", "PT001", "NV001", "2024-10-01", "1,000,000", 10, "10,000,000");
-            dgvHDN.Rows.Add("HDN002", "PT002", "NV002", "2024-09-28", "800,000", 5, "4,000,000");
-            dgvHDN.Rows.Add("HDN003", "PT003", "NV003", "2024-09-30", "500,000", 7, "3,500,000");
-            dgvHDN.Rows.Add("HDN004", "PT004", "NV001", "2024-09-29", "300,000", 12, "3,600,000");
-            dgvHDN.Rows.Add("HDN005", "PT005", "NV002", "2024-10-02", "200,000", 20, "4,000,000");
-            dgvHDN.Rows.Add("HDN006", "PT006", "NV003", "2024-10-01", "1,500,000", 6, "9,000,000");
-            dgvHDN.Rows.Add("HDN007", "PT007", "NV001", "2024-09-25", "1,200,000", 4, "4,800,000");
-            dgvHDN.Rows.Add("HDN008", "PT008", "NV002", "2024-09-27", "5,000,000", 2, "10,000,000");
-            dgvHDN.Rows.Add("HDN009", "PT009", "NV003", "2024-09-26", "3,000,000", 3, "9,000,000");
-            dgvHDN.Rows.Add("HDN010", "PT010", "NV001", "2024-10-01", "900,000", 8, "7,200,000");
 
 
         }
@@ -186,9 +240,44 @@ namespace GUI
         {
             MessageBox.Show("Delete selected!");
         }
+        private void txtMaPhuTung_Leave(object sender, EventArgs e)
+        {
+            if (txtMaPhuTung.Text != "")
+            {
+                string maPt = txtMaPhuTung.Text;
+                bool kiemtraPt = _phuTungBLL.TimPhuTung(maPt);
+                if (kiemtraPt)
+                {
+                    MessageBox.Show("Phu tung da co roi");
+                    coPhuTung = true;
+                    PhuTungDTO phuTung = _phuTungBLL.LayPhuTung(maPt);
 
+                    if (phuTung != null)
+                    {
+                        // Gán giá trị vào các TextBox
+                        txtTenPhuTung.Text = phuTung.TenPhuTung;
+                        // txtSoLuong.Text = phuTung.SoLuong.ToString();
+                        txtDonGiaNhap.Text = phuTung.DonGiaNhap.ToString("N0"); // Định dạng số nếu cần
+                        txtDonGiaBan.Text = phuTung.DonGiaBan.ToString("N0"); // Định dạng số nếu cần
+                    }
+                    else
+                    {
+                        // Nếu không tìm thấy, làm sạch các TextBox
+                        txtTenPhuTung.Text = string.Empty;
+                        txtSoLuong.Text = string.Empty;
+                        txtDonGiaNhap.Text = string.Empty;
+                        txtDonGiaBan.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    coPhuTung = false;
+                }
+            }
+        }
         private void btnHDN_Click(object sender, EventArgs e)
         {
+
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -222,16 +311,18 @@ namespace GUI
             btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
+            whatIsRunning = 0;
         }
 
         private void btnPhuTung_Click(object sender, EventArgs e)
         {
-            if(panelDS.Visible == false)
+
+            if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
             }
 
-            if(panelHDN.Visible == true)
+            if (panelHDN.Visible == true)
             {
                 panelHDN.Visible = false;
             }
@@ -259,6 +350,7 @@ namespace GUI
             btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
+            whatIsRunning = 1; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
         }
 
 
@@ -279,11 +371,134 @@ namespace GUI
             btnPhuTung.BackgroundColor = SystemColors.GradientActiveCaption;
             btnPhuTung.ForeColor = SystemColors.ControlText;
             panel1.BackColor = SystemColors.GradientActiveCaption;
-        }
+            txtManv.Text = idLogin;
+            txtHdn.Text = "MDN" + countHdn.ToString();
+            txtNgayNhap.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy");
+            thanhTien = 0;
 
+            txtMaPhuTung.Clear();
+            txtTenPhuTung.Clear();
+            txtDonGiaNhap.Clear();
+            txtDonGiaBan.Clear();
+            txtSoLuong.Clear();
+            txtThanhTien.Clear();   
+        }
+        bool coPhuTung;
+        private void txtMaPhuTung_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtMaPhuTung.Text != "")
+            {
+                string maPt = txtMaPhuTung.Text;
+                bool kiemtraPt = _phuTungBLL.TimPhuTung(maPt);
+                if (kiemtraPt)
+                {
+                    MessageBox.Show("Phu tung da co roi");
+                    coPhuTung = true;
+                    PhuTungDTO phuTung = _phuTungBLL.LayPhuTung(maPt);
+
+                    if (phuTung != null)
+                    {
+                        // Gán giá trị vào các TextBox
+                        txtTenPhuTung.Text = phuTung.TenPhuTung;
+                        // txtSoLuong.Text = phuTung.SoLuong.ToString();
+                        txtDonGiaNhap.Text = phuTung.DonGiaNhap.ToString("N0"); // Định dạng số nếu cần
+                        txtDonGiaBan.Text = phuTung.DonGiaBan.ToString("N0"); // Định dạng số nếu cần
+                    }
+                    else
+                    {
+                        // Nếu không tìm thấy, làm sạch các TextBox
+                        txtTenPhuTung.Text = string.Empty;
+                        txtSoLuong.Text = string.Empty;
+                        txtDonGiaNhap.Text = string.Empty;
+                        txtDonGiaBan.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    coPhuTung = false;
+                }
+            }
+        }
+        decimal thanhTien;
         private void btnThemPhuTung_Click(object sender, EventArgs e)
         {
+            // kiem tra xem co chua
 
+            if (txtMaPhuTung.Text == "") { lbWarning2.Visible = true; return; }
+            if (txtTenPhuTung.Text == "") { lbWarning3.Visible = true; return; }
+            if (txtDonGiaNhap.Text == "") { lbWarning4.Visible = true; return; }
+            if (txtSoLuong.Text == "") { lbWarning5.Visible = true; return; }
+            if (txtDonGiaBan.Text == "") { lbWarning6.Visible = true; return; }
+            if (txtNgayNhap.Text == "") { lbWarning7.Visible = true; return; }
+
+            string mahdn = txtHdn.Text;
+            string maPt = txtMaPhuTung.Text;
+            string tenPt = txtTenPhuTung.Text;
+            string dgNhap = txtDonGiaNhap.Text;
+            string dgBan = txtDonGiaBan.Text;
+            string ngayNhap = txtNgayNhap.Text;
+            decimal donGiaNhap = decimal.Parse(txtDonGiaNhap.Text);
+            int soLuong = int.Parse(txtSoLuong.Text);
+
+            thanhTien += donGiaNhap * soLuong;
+            txtThanhTien.Text = thanhTien.ToString();
+
+            foreach (Control ct in panelHDN.Controls)
+            {
+                if (ct is Label lb)
+                {
+                    if (lb.Name.Contains("lbWarning"))
+                    {
+                        lb.Visible = false;
+                    }
+                }
+            }
+
+            // HDN -> PHUTUNG -> CHITIET
+            // HIEN TAI LA THEM
+            bool themHdn = _hoaDonNhapBLL.ThemHoaDonNhap(new HoaDonNhapDTO(mahdn, idLogin, DateTime.Parse(ngayNhap), thanhTien));
+
+
+
+            if (themHdn)
+            {
+                MessageBox.Show("Them duoc HDN");
+            }
+            // ton tai phu tung roi
+            if (coPhuTung)
+            {
+
+                bool suaPt = _phuTungBLL.SuaPhuTung(maPt, soLuong);
+                if (suaPt)
+                {
+                    MessageBox.Show("Them so luong thanh cong");
+                }
+            }
+            else
+            {
+                bool themPt = _phuTungBLL.ThemPhuTung(new PhuTungDTO(maPt, tenPt, soLuong, decimal.Parse(dgNhap), decimal.Parse(dgBan)));
+                if (themPt)
+                {
+                    MessageBox.Show("Them duoc phu tung");
+                }
+            }
+
+            bool themCt = _chiTietHoaDonNhapBLL.ThemHDN(new ChiTietHDNDTO(mahdn, maPt, soLuong));
+            if (themCt)
+            {
+                MessageBox.Show("Them duoc chi tiet hdn");
+            }
+
+            //txtHdn.Clear();
+            txtMaPhuTung.Clear();
+            txtTenPhuTung.Clear();
+            txtDonGiaNhap.Clear();
+            txtDonGiaBan.Clear();
+            txtSoLuong.Clear();
+            //txtNgayNhap.Clear();
+
+            HienThiDSHoaDon();
+            HienThiDSPhuTung();
         }
 
         private void DrawRoundedPanel(Panel panel, int radius, Color borderColor, float borderThickness, PaintEventArgs e)
@@ -398,5 +613,7 @@ namespace GUI
         {
             DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
         }
+
+
     }
 }

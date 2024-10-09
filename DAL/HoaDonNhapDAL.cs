@@ -10,6 +10,26 @@ namespace DAL
 {
     public class HoaDonNhapDAL
     {
+        public bool ThemHoaDonNhap(HoaDonNhapDTO hoaDonNhap)
+        {
+
+            string query = "SELECT COUNT(*) FROM HOADONNHAPPHUTUNG WHERE MaHDN = @mahdn ";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { hoaDonNhap.MaHDN });
+            if(Convert.ToInt32(result) <= 0)
+            {
+                string query1 = "INSERT INTO HOADONNHAPPHUTUNG (MaHDN, NgayNhap, MaNhanVien, TongTien) VALUES ( @maHDN , @ngayNhap , @maNV , @thanhTien )";
+                int result1 = DataProvider.Instance.ExecuteNonQuery(query1, new object[] { hoaDonNhap.MaHDN, hoaDonNhap.NgayNhap, hoaDonNhap.MaNV, hoaDonNhap.TongTien });
+                return result1 > 0;
+
+            }
+            else
+            {
+                string query2 = "UPDATE HOADONNHAPPHUTUNG SET TongTien = @thanhTien WHERE MaHDN = @mahdn ";
+                int result2 = DataProvider.Instance.ExecuteNonQuery(query2, new object[] { hoaDonNhap.TongTien, hoaDonNhap.MaHDN });
+                return result2 > 0;
+            }
+
+        }
         public List<HoaDonNhapDTO> LayHoaDonNhap()
         {           
             string query = "SELECT * FROM HOADONNHAPPHUTUNG";

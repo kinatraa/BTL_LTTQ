@@ -50,12 +50,13 @@
             this.btnTrangChu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbTen = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnPage = new System.Windows.Forms.Panel();
+            this.lbChucVu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnNhanVien.SuspendLayout();
@@ -372,22 +373,23 @@
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lbChucVu);
+            this.panel4.Controls.Add(this.lbTen);
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(1012, 16);
+            this.panel4.Location = new System.Drawing.Point(909, 16);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(142, 56);
+            this.panel4.Size = new System.Drawing.Size(249, 56);
             this.panel4.TabIndex = 1;
             // 
-            // label2
+            // lbTen
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14F);
-            this.label2.Location = new System.Drawing.Point(70, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Admin";
+            this.lbTen.AutoSize = true;
+            this.lbTen.Font = new System.Drawing.Font("Arial", 14F);
+            this.lbTen.Location = new System.Drawing.Point(70, 11);
+            this.lbTen.Name = "lbTen";
+            this.lbTen.Size = new System.Drawing.Size(173, 22);
+            this.lbTen.TabIndex = 1;
+            this.lbTen.Text = "Nguyễn Mạnh Hùng";
             // 
             // pictureBox1
             // 
@@ -434,6 +436,15 @@
             this.pnPage.Name = "pnPage";
             this.pnPage.Size = new System.Drawing.Size(1184, 869);
             this.pnPage.TabIndex = 2;
+            // 
+            // lbChucVu
+            // 
+            this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Location = new System.Drawing.Point(91, 34);
+            this.lbChucVu.Name = "lbChucVu";
+            this.lbChucVu.Size = new System.Drawing.Size(36, 13);
+            this.lbChucVu.TabIndex = 2;
+            this.lbChucVu.Text = "Admin";
             // 
             // fBase
             // 
@@ -499,7 +510,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lbChucVu;
     }
 }

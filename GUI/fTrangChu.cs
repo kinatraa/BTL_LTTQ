@@ -15,19 +15,22 @@ namespace GUI
 {
 	public partial class fTrangChu : Form
 	{
+		string idLogin;
 		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
 		private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
 		public int CornerRadius { get; set; } = 20;
 		public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
 		public float BorderThickness { get; set; } = 0.5f;
         private Image[] avatars = new Image[5];
-        public fTrangChu()
+        public fTrangChu(string idLogin)
 		{
 			InitializeComponent();
 
             ImportAvatar();
 
             SetupDataGridView();
+
+			this.idLogin = idLogin;
 		}
 
         private void ImportAvatar()

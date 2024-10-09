@@ -18,6 +18,7 @@ namespace GUI
 {
     public partial class fKhachHang : Form
     {
+        string idLogin;
         private KhachHangBLL khachHangBLL;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -26,7 +27,7 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private bool addNewClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
-        public fKhachHang()
+        public fKhachHang(string idLogin)
         {
             InitializeComponent();
 
@@ -40,6 +41,7 @@ namespace GUI
             SetupDataGridView();
 
             cmbOrder.SelectedIndex = 0;
+            this.idLogin = idLogin;
         }
 
         private void SetupAddPanel()
