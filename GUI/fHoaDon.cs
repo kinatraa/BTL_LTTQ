@@ -193,21 +193,6 @@ namespace GUI
 
             dgvCMSHoaDon.Rows.Clear();
 
-            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "50000000");
-            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            //dgvHoaDon.Rows.Add("01", "YR456", "L02", "KH654321", "202020", "100000");
-
-            //dgvHoaDon.Rows.Add("Suzuki Hayabusa", "SH789", "L01", "KH987654", "M987654", "29A-789.01", "MM03");
-            //dgvHoaDon.Rows.Add("Kawasaki Ninja", "KN012", "L03", "KH111222", "M111222", "29A-012.34", "MM04");
-            //dgvHoaDon.Rows.Add("BMW S1000RR", "BS345", "L01", "KH333444", "M333444", "29A-345.67", "MM05");
-            //dgvHoaDon.Rows.Add("Ducati Panigale", "DP678", "L02", "KH555666", "M555666", "29A-678.90", "MM06");
-            //dgvHoaDon.Rows.Add("Harley Davidson", "HD901", "L03", "KH777888", "M777888", "29A-901.12", "MM07");
-            //dgvHoaDon.Rows.Add("Triumph Bonneville", "TB234", "L01", "KH999000", "M999000", "29A-234.56", "MM08");
-            //dgvHoaDon.Rows.Add("Aprilia RS660", "AR567", "L02", "KH123456", "M123456", "29A-567.89", "MM09");
-            //dgvHoaDon.Rows.Add("KTM RC390", "KT890", "L03", "KH789012", "M789012", "29A-890.23", "MM10");
-
         }
 
         private void dgvHoaDon_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -308,7 +293,7 @@ namespace GUI
             txtMaNV.Text = idLogin;
             txtNgayIn.Text = selectedRow.Cells["NgayIn"].Value.ToString();
 
-            //lay thong tin bang rowIndex
+
             txtMaHoaDon.Text = "HD" + amountHdYeuCau.ToString().PadLeft(3, '0');
         }
 
@@ -347,7 +332,7 @@ namespace GUI
                 DateTime ngayIn = DateTime.Parse(txtNgayIn.Text); // Ensure it's a valid DateTime
 
                 // Gọi hàm ThemHoaDon với các giá trị đã lấy
-                bool themHd = _hoaDonYeuCauBLL.ThemHoaDon("HD001", idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
                 if (themHd)
                 {                 
                     MessageBox.Show("Them hoa don thanh cong");

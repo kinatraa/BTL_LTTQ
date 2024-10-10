@@ -1,6 +1,5 @@
 ﻿create database QLSuaXe
 use QLSuaXe
-
 CREATE TABLE TAIKHOAN(
 	TaiKhoan nvarchar(50) not null,
 	MatKhau nvarchar(50) not null
@@ -68,20 +67,28 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
-
 CREATE TABLE [dbo].[HOADON](
-	MaHoaDon nvarchar(10) not null,
-	MaNhanVien nvarchar(10) not null,
-	MaPhuTung nvarchar(10) not null,
-	MaKhachHang nvarchar(10) not null,
-	NgayIn date not null,
-	GiaiPhap nvarchar(100) not null,
-	TongTien money null,
+	[MaHoaDon] [nvarchar](10) NOT NULL,
+	[MaNhanVien] [nvarchar](10) NOT NULL,
+	[MaPhuTung] [nvarchar](10) NOT NULL,
+	[MaSuaChua] [nvarchar](10) NOT NULL,
+	[NgayIn] [date] NOT NULL,
+	[GiaiPhap] [nvarchar](100) NOT NULL,
+	[SoLuong] [int] NULL,
+	[TongTien] [money] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	MaHoaDon asc
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	[MaHoaDon] ASC,
+	[MaPhuTung] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[HOADON]  WITH CHECK ADD  CONSTRAINT [FK_HOADON_YEUCAUSUACHUA] FOREIGN KEY([MaSuaChua])
+REFERENCES [dbo].[YEUCAUSUACHUA] ([MaSuaChua])
+GO
+
+ALTER TABLE [dbo].[HOADON] CHECK CONSTRAINT [FK_HOADON_YEUCAUSUACHUA]
 GO
 
 CREATE TABLE [dbo].[PHUTUNG](
@@ -160,9 +167,6 @@ ALTER TABLE [dbo].[YEUCAUSUACHUA]  WITH CHECK ADD  CONSTRAINT [FK_2] FOREIGN KEY
 REFERENCES [dbo].[XEMAY] ([MaXe])
 GO
 ALTER TABLE [dbo].[YEUCAUSUACHUA]  WITH CHECK ADD  CONSTRAINT [FK_3] FOREIGN KEY([MaKhachHang])
-REFERENCES [dbo].[KHACHHANG] ([MaKhachHang])
-GO
-ALTER TABLE [dbo].[HOADON]  WITH CHECK ADD  CONSTRAINT [FK_4] FOREIGN KEY([MaKhachHang])
 REFERENCES [dbo].[KHACHHANG] ([MaKhachHang])
 GO
 
@@ -764,109 +768,8 @@ INSERT INTO CHITIETHDN(MaHDN,MaPhuTung,SoLuongNhap) VALUES
 ('HDN099', 'MPT055', 10),
 ('HDN100', 'MPT056', 11);
 go
-alter table HOADON 
-alter column GiaiPhap nvarchar(50)
-insert into HOADON (MaHoaDon,MaNhanVien,MaPhuTung,MaKhachHang,NgayIn,GiaiPhap,TongTien) values
-('HD001', 'MNV001', 'MPT001', 'MK001', '2023-09-01', N'Bảo dưỡng định kỳ xe máy', NULL),
-('HD002', 'MNV002', 'MPT002', 'MK002', '2023-09-02', N'Thay nhớt và lọc gió', NULL),
-('HD003', 'MNV003', 'MPT003', 'MK003', '2023-09-03', N'Thay phanh xe', NULL),
-('HD004', 'MNV004', 'MPT004', 'MK004', '2023-09-04', N'Sửa chữa hệ thống đèn xe', NULL),
-('HD005', 'MNV005', 'MPT005', 'MK005', '2023-09-05', N'Thay bugi', NULL),
-('HD006', 'MNV006', 'MPT006', 'MK006', '2023-09-06', N'Sửa chữa hệ thống làm mát', NULL),
-('HD007', 'MNV007', 'MPT007', 'MK007', '2023-09-07', N'Thay lốp xe', NULL),
-('HD008', 'MNV008', 'MPT008', 'MK008', '2023-09-08', N'Sửa chữa động cơ xe', NULL),
-('HD009', 'MNV009', 'MPT009', 'MK009', '2023-09-09', N'Thay dầu phanh', NULL),
-('HD010', 'MNV010', 'MPT010', 'MK010', '2023-09-10', N'Thay xi-nhan', NULL),
-('HD011', 'MNV011', 'MPT011', 'MK011', '2023-09-11', N'Thay ắc quy xe', NULL),
-('HD012', 'MNV012', 'MPT012', 'MK012', '2023-09-12', N'Sửa chữa hệ thống xả', NULL),
-('HD013', 'MNV013', 'MPT013', 'MK013', '2023-09-13', N'Thay bộ lọc xăng', NULL),
-('HD014', 'MNV014', 'MPT014', 'MK014', '2023-09-14', N'Thay đồng hồ tốc độ', NULL),
-('HD015', 'MNV015', 'MPT015', 'MK015', '2023-09-15', N'Thay gương chiếu hậu', NULL),
-('HD016', 'MNV016', 'MPT016', 'MK016', '2023-09-16', N'Thay nhông xích', NULL),
-('HD017', 'MNV017', 'MPT017', 'MK017', '2023-09-17', N'Sửa chữa phanh ABS', NULL),
-('HD018', 'MNV018', 'MPT018', 'MK018', '2023-09-18', N'Thay đèn pha', NULL),
-('HD019', 'MNV019', 'MPT019', 'MK019', '2023-09-19', N'Sửa chữa hộp số', NULL),
-('HD020', 'MNV020', 'MPT020', 'MK020', '2023-09-20', N'Thay chắn bùn', NULL),
-('HD021', 'MNV021', 'MPT021', 'MK021', '2023-09-21', N'Thay tay côn', NULL),
-('HD022', 'MNV022', 'MPT022', 'MK022', '2023-09-22', N'Thay bình xăng con', NULL),
-('HD023', 'MNV023', 'MPT023', 'MK023', '2023-09-23', N'Sửa chữa cảm biến nhiên liệu', NULL),
-('HD024', 'MNV024', 'MPT024', 'MK024', '2023-09-24', N'Thay tay ga', NULL),
-('HD025', 'MNV025', 'MPT025', 'MK025', '2023-09-25', N'Thay vòng bi', NULL),
-('HD026', 'MNV026', 'MPT026', 'MK026', '2023-09-26', N'Sửa chữa hệ thống phun xăng điện tử', NULL),
-('HD027', 'MNV027', 'MPT027', 'MK027', '2023-09-27', N'Thay chân chống xe', NULL),
-('HD028', 'MNV028', 'MPT028', 'MK028', '2023-09-28', N'Thay còi xe', NULL),
-('HD029', 'MNV029', 'MPT029', 'MK029', '2023-09-29', N'Sửa chữa hệ thống điện xe', NULL),
-('HD030', 'MNV030', 'MPT030', 'MK030', '2023-09-30', N'Thay dây curoa', NULL),
-('HD031', 'MNV031', 'MPT031', 'MK031', '2023-10-01', N'Sửa chữa hộp điều khiển điện tử ECU', NULL),
-('HD032', 'MNV032', 'MPT032', 'MK032', '2023-10-02', N'Thay lốp sau', NULL),
-('HD033', 'MNV033', 'MPT033', 'MK033', '2023-10-03', N'Sửa chữa hệ thống chống trộm', NULL),
-('HD034', 'MNV034', 'MPT034', 'MK034', '2023-10-04', N'Thay dây thắng', NULL),
-('HD035', 'MNV035', 'MPT035', 'MK035', '2023-10-05', N'Thay tay lái', NULL),
-('HD036', 'MNV036', 'MPT036', 'MK036', '2023-10-06', N'Sửa chữa bộ phận truyền động', NULL),
-('HD037', 'MNV037', 'MPT037', 'MK037', '2023-10-07', N'Thay ống xả', NULL),
-('HD038', 'MNV038', 'MPT038', 'MK038', '2023-10-08', N'Thay ống phuộc', NULL),
-('HD039', 'MNV039', 'MPT039', 'MK039', '2023-10-09', N'Sửa chữa bộ phận điều khiển từ xa', NULL),
-('HD040', 'MNV040', 'MPT040', 'MK040', '2023-10-10', N'Thay kính chắn gió', NULL),
-('HD041', 'MNV041', 'MPT041', 'MK041', '2023-10-11', N'Thay lốp trước', NULL),
-('HD042', 'MNV042', 'MPT042', 'MK042', '2023-10-12', N'Thay động cơ điện', NULL),
-('HD043', 'MNV043', 'MPT043', 'MK043', '2023-10-13', N'Sửa chữa hệ thống treo', NULL),
-('HD044', 'MNV044', 'MPT044', 'MK044', '2023-10-14', N'Thay đồng hồ báo xăng', NULL),
-('HD045', 'MNV045', 'MPT045', 'MK045', '2023-10-15', N'Sửa chữa hệ thống lái', NULL),
-('HD046', 'MNV046', 'MPT046', 'MK046', '2023-10-16', N'Thay lò xo phuộc', NULL),
-('HD047', 'MNV047', 'MPT047', 'MK047', '2023-10-17', N'Thay dây điện', NULL),
-('HD048', 'MNV048', 'MPT048', 'MK048', '2023-10-18', N'Thay yên xe', NULL),
-('HD049', 'MNV049', 'MPT049', 'MK049', '2023-10-19', N'Thay pô xe', NULL),
-('HD050', 'MNV050', 'MPT050', 'MK050', '2023-10-20', N'Sửa chữa hộp đen xe', NULL),
-('HD051', 'MNV001', 'MPT051', 'MK051', '2023-10-21', N'Thay ổ khóa xe', NULL),
-('HD052', 'MNV002', 'MPT052', 'MK052', '2023-10-22', N'Thay cảm biến nhiệt độ', NULL),
-('HD053', 'MNV003', 'MPT053', 'MK053', '2023-10-23', N'Sửa chữa hệ thống đèn chiếu sáng', NULL),
-('HD054', 'MNV004', 'MPT054', 'MK054', '2023-10-24', N'Thay bàn đạp phanh', NULL),
-('HD055', 'MNV005', 'MPT055', 'MK055', '2023-10-25', N'Thay vòng bi bánh xe', NULL),
-('HD056', 'MNV006', 'MPT056', 'MK056', '2023-10-26', N'Sửa chữa hệ thống cảm biến nhiên liệu', NULL),
-('HD057', 'MNV007', 'MPT057', 'MK057', '2023-10-27', N'Thay dây curoa dẫn động', NULL),
-('HD058', 'MNV008', 'MPT058', 'MK058', '2023-10-28', N'Thay bình ắc quy khô', NULL),
-('HD059', 'MNV009', 'MPT059', 'MK059', '2023-10-29', N'Thay bộ lọc dầu', NULL),
-('HD060', 'MNV010', 'MPT060', 'MK060', '2023-10-30', N'Thay tay thắng', NULL),
-('HD061', 'MNV011', 'MPT061', 'MK061', '2023-10-31', N'Thay lọc gió động cơ', NULL),
-('HD062', 'MNV012', 'MPT062', 'MK062', '2023-11-01', N'Sửa chữa hộp điều khiển phanh ABS', NULL),
-('HD063', 'MNV013', 'MPT063', 'MK063', '2023-11-02', N'Thay đĩa phanh', NULL),
-('HD064', 'MNV014', 'MPT064', 'MK064', '2023-11-03', N'Thay lọc dầu nhớt', NULL),
-('HD065', 'MNV015', 'MPT065', 'MK065', '2023-11-04', N'Thay lò xo giảm chấn', NULL),
-('HD066', 'MNV016', 'MPT066', 'MK066', '2023-11-05', N'Thay tấm chắn nhiệt', NULL),
-('HD067', 'MNV017', 'MPT067', 'MK067', '2023-11-06', N'Sửa chữa bơm nhiên liệu', NULL),
-('HD068', 'MNV018', 'MPT068', 'MK068', '2023-11-07', N'Thay xi-lanh phanh', NULL),
-('HD069', 'MNV019', 'MPT069', 'MK069', '2023-11-08', N'Thay hộp số tay', NULL),
-('HD070', 'MNV020', 'MPT070', 'MK070', '2023-11-09', N'Thay hệ thống treo sau', NULL),
-('HD071', 'MNV021', 'MPT071', 'MK071', '2023-11-10', N'Sửa chữa quạt gió', NULL),
-('HD072', 'MNV022', 'MPT072', 'MK072', '2023-11-11', N'Thay khóa điện xe', NULL),
-('HD073', 'MNV023', 'MPT073', 'MK073', '2023-11-12', N'Thay quạt tản nhiệt', NULL),
-('HD074', 'MNV024', 'MPT074', 'MK074', '2023-11-13', N'Thay bộ ly hợp', NULL),
-('HD075', 'MNV025', 'MPT075', 'MK075', '2023-11-14', N'Thay ống xăng', NULL),
-('HD076', 'MNV026', 'MPT076', 'MK076', '2023-11-15', N'Sửa chữa cảm biến tốc độ', NULL),
-('HD077', 'MNV027', 'MPT077', 'MK077', '2023-11-16', N'Thay đồng hồ đo nhiệt độ', NULL),
-('HD078', 'MNV028', 'MPT078', 'MK078', '2023-11-17', N'Thay hệ thống khởi động', NULL),
-('HD079', 'MNV029', 'MPT079', 'MK079', '2023-11-18', N'Thay đèn hậu', NULL),
-('HD080', 'MNV030', 'MPT080', 'MK080', '2023-11-19', N'Thay chén cổ xe', NULL),
-('HD081', 'MNV031', 'MPT081', 'MK081', '2023-11-20', N'Thay dây điện hệ thống ABS', NULL),
-('HD082', 'MNV032', 'MPT082', 'MK082', '2023-11-21', N'Thay lọc gió buồng lái', NULL),
-('HD083', 'MNV033', 'MPT083', 'MK083', '2023-11-22', N'Thay dây phanh tay', NULL),
-('HD084', 'MNV034', 'MPT084', 'MK084', '2023-11-23', N'Thay xi-nhan sau', NULL),
-('HD085', 'MNV035', 'MPT085', 'MK085', '2023-11-24', N'Thay hộp điều khiển hệ thống điện', NULL),
-('HD086', 'MNV036', 'MPT086', 'MK086', '2023-11-25', N'Thay còi điện', NULL),
-('HD087', 'MNV037', 'MPT087', 'MK087', '2023-11-26', N'Sửa chữa hộp điện', NULL),
-('HD088', 'MNV038', 'MPT088', 'MK088', '2023-11-27', N'Thay ống nước làm mát', NULL),
-('HD089', 'MNV039', 'MPT089', 'MK089', '2023-11-28', N'Thay bình dầu thắng', NULL),
-('HD090', 'MNV040', 'MPT090', 'MK090', '2023-11-29', N'Thay cảm biến oxy', NULL),
-('HD091', 'MNV041', 'MPT091', 'MK091', '2023-11-30', N'Sửa chữa mô tơ điện', NULL),
-('HD092', 'MNV042', 'MPT092', 'MK092', '2023-12-01', N'Thay chốt cửa xe', NULL),
-('HD093', 'MNV043', 'MPT093', 'MK093', '2023-12-02', N'Thay đèn soi biển số', NULL),
-('HD094', 'MNV044', 'MPT094', 'MK094', '2023-12-03', N'Thay lọc gió phụ', NULL),
-('HD095', 'MNV045', 'MPT095', 'MK095', '2023-12-04', N'Thay hệ thống thông hơi', NULL),
-('HD096', 'MNV046', 'MPT096', 'MK096', '2023-12-05', N'Thay dây điện hộp số', NULL),
-('HD097', 'MNV047', 'MPT097', 'MK097', '2023-12-06', N'Thay dây điện khởi động', NULL),
-('HD098', 'MNV048', 'MPT098', 'MK098', '2023-12-07', N'Thay hệ thống điều khiển kính xe', NULL),
-('HD099', 'MNV049', 'MPT099', 'MK099', '2023-12-08', N'Thay xi-lanh chính', NULL),
-('HD100', 'MNV050', 'MPT100', 'MK100', '2023-12-09', N'Thay dây điện hệ thống đèn', NULL);
+
+
 insert into XEMAY (MaXe,TenXe,LoaiXe,SoKhung,SoMay,BienSo,MaMau) values
 ('MX001', N'Yamaha Sirius', N'Xe số', 'SK001', 'SM001', '29A-00101', 'RED'),
 ('MX002', N'Honda Wave Alpha', N'Xe số', 'SK002', 'SM002', '29A-00102', 'BLUE'),
@@ -1070,4 +973,11 @@ insert into YEUCAUSUACHUA(MaSuaChua,MaXe,MaKhachHang,NgaySua,NguyenNhan) values
 ('MSC099', 'MX099', 'MK099', '2023-04-09', N'Hệ thống đèn hậu bị mờ'),
 ('MSC100', 'MX100', 'MK100', '2023-04-10', N'Rò rỉ dầu phanh');
 
-
+insert into HOADON (MaHoaDon,MaNhanVien,MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien) values
+('HD001', 'MNV001', 'MPT001', 'MSC001', '2023-09-01', N'Bảo dưỡng định kỳ xe máy',4, NULL),
+('HD002', 'MNV002', 'MPT002', 'MSC002', '2023-09-02', N'Thay nhớt và lọc gió',5,NULL),
+('HD003', 'MNV003', 'MPT003', 'MSC003', '2023-09-03', N'Thay phanh xe',2 ,NULL),
+('HD004', 'MNV004', 'MPT004', 'MSC004', '2023-09-04', N'Sửa chữa hệ thống đèn xe',4 ,NULL),
+('HD005', 'MNV005', 'MPT005', 'MSC005', '2023-09-05', N'Thay bugi', 4,NULL),
+('HD006', 'MNV006', 'MPT006', 'MSC006', '2023-09-06', N'Sửa chữa hệ thống làm mát',4,NULL),
+('HD001', 'MNV007', 'MPT003', 'MSC007', '2023-09-07', N'Thay lốp xe',4,NULL)
