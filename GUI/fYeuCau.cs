@@ -383,22 +383,25 @@ namespace GUI
 			}
 		}
 
-		private void Delete_Click(object sender, EventArgs e)
-		{
-			if(rowIndex >= 0)
-			{
-				string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
-				string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
-				datYeuCauBLL.DeleteYeuCau(MaSuaChua,MaXe);
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (rowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-				ListYeuCau();
-				dgvYeuCau.Refresh();
-
+                if (result == DialogResult.Yes)
+                {
+                    string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
+                    string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
+                    datYeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
+                    ListYeuCau();
+                    dgvYeuCau.Refresh();
+                }
             }
+        }
 
-		}
 
-		private void ClearAddNewPanel()
+        private void ClearAddNewPanel()
 		{
 			txtTenKH.Text = String.Empty;
 			txtSDT.Text = String.Empty;
@@ -556,26 +559,31 @@ namespace GUI
 			}
 		}
 
-        private void txtSearchBar_Leave(object sender, EventArgs e)
+		private void txtSearchBar_Leave(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
 			{
 				txtSearchBar.Text = "Search by name, email, or orthers ...";
 			}
+			if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search by name, email, or orthers ...")
+			{
+				ListYeuCau();
+			}
 		}
-
         #region
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
+
 			string searchText = txtSearchBar.Text.ToLower().Trim();
 
-			if (string.IsNullOrWhiteSpace(searchText))
+			if (string.IsNullOrWhiteSpace(searchText) || searchText == "Search by name, email, or orthers ...")
 			{
 				foreach(DataGridViewRow row in dgvYeuCau.Rows)
 				{
 					row.Visible = true;
 				}
 				ListYeuCau();
+
 			}
 			else
 			{

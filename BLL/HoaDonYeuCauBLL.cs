@@ -16,7 +16,11 @@ namespace BLL
         {
             hoaDonYeuCauDAL = new HoaDonYeuCauDAL();
         }
-
+        public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua
+            , DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
+        {
+            return hoaDonYeuCauDAL.ThemHoaDon(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien);
+        }
         public List<HoaDonYeuCauDTO> GetListHoaDon()
         {
             return hoaDonYeuCauDAL.GetListHoaDon();

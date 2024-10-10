@@ -28,7 +28,6 @@ namespace DAL
                 int result2 = DataProvider.Instance.ExecuteNonQuery(query2, new object[] { hoaDonNhap.TongTien, hoaDonNhap.MaHDN });
                 return result2 > 0;
             }
-
         }
         public List<HoaDonNhapDTO> LayHoaDonNhap()
         {           

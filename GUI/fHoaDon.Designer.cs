@@ -29,41 +29,55 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
+            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemSua = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDSHoaDon = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelChiTiet = new System.Windows.Forms.Panel();
+            this.lvKetQua = new System.Windows.Forms.ListView();
+            this.colMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnTroVe = new GUI.CustomDesign.CustomButton();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             this.label14 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtNgayIn = new System.Windows.Forms.TextBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.lbTongTien = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -82,24 +96,10 @@
             this.txtMaBooking = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCMSHoaDon = new System.Windows.Forms.DataGridView();
+            this.MaPhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnTroVe = new GUI.CustomDesign.CustomButton();
-            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
-            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,7 +111,6 @@
             this.panelChiTiet.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -128,21 +127,21 @@
             this.dgvHoaDon.AllowUserToDeleteRows = false;
             this.dgvHoaDon.AllowUserToResizeColumns = false;
             this.dgvHoaDon.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHoaDon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvHoaDon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaBooking,
@@ -158,14 +157,14 @@
             this.dgvHoaDon.MultiSelect = false;
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHoaDon.RowHeadersVisible = false;
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.RowTemplate.Height = 30;
@@ -175,6 +174,56 @@
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
             this.dgvHoaDon.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvHoaDon_CellPainting);
+            // 
+            // MaBooking
+            // 
+            this.MaBooking.DataPropertyName = "MaSuaChua";
+            this.MaBooking.HeaderText = "Mã Booking";
+            this.MaBooking.Name = "MaBooking";
+            this.MaBooking.ReadOnly = true;
+            // 
+            // TenKH
+            // 
+            this.TenKH.DataPropertyName = "TenKhachHang";
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            // 
+            // MaXe
+            // 
+            this.MaXe.DataPropertyName = "MaXe";
+            this.MaXe.HeaderText = "Mã Xe";
+            this.MaXe.Name = "MaXe";
+            this.MaXe.ReadOnly = true;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNhanVien";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            // 
+            // NgayIn
+            // 
+            this.NgayIn.DataPropertyName = "NgayIn";
+            this.NgayIn.HeaderText = "Ngày in";
+            this.NgayIn.Name = "NgayIn";
+            this.NgayIn.ReadOnly = true;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng tiền";
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.DataPropertyName = "MaKhachHang";
+            this.MaKhachHang.HeaderText = "MaKhachHang";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
+            this.MaKhachHang.Visible = false;
             // 
             // panel2
             // 
@@ -235,6 +284,24 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // btnNhapHoaDon
+            // 
+            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnNhapHoaDon.BorderThickness = 1.5F;
+            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
+            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
+            this.btnNhapHoaDon.TabIndex = 4;
+            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
+            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
+            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Enabled = false;
@@ -256,6 +323,23 @@
             this.panel4.Size = new System.Drawing.Size(153, 56);
             this.panel4.TabIndex = 7;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // btnDSHoaDon
+            // 
+            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnDSHoaDon.BorderThickness = 1.5F;
+            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnDSHoaDon.Name = "btnDSHoaDon";
+            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
+            this.btnDSHoaDon.TabIndex = 3;
+            this.btnDSHoaDon.Text = "DS hóa đơn";
+            this.btnDSHoaDon.UseVisualStyleBackColor = false;
+            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
             // 
             // cmsHoaDon
             // 
@@ -299,14 +383,26 @@
             this.panelDSHoaDon.Size = new System.Drawing.Size(1088, 725);
             this.panelDSHoaDon.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label2.Location = new System.Drawing.Point(59, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(202, 30);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Danh sách hóa đơn";
+            // 
             // panelChiTiet
             // 
             this.panelChiTiet.BackColor = System.Drawing.SystemColors.Window;
+            this.panelChiTiet.Controls.Add(this.lvKetQua);
+            this.panelChiTiet.Controls.Add(this.label18);
             this.panelChiTiet.Controls.Add(this.btnTroVe);
             this.panelChiTiet.Controls.Add(this.panel13);
             this.panelChiTiet.Controls.Add(this.label14);
             this.panelChiTiet.Controls.Add(this.panel12);
-            this.panelChiTiet.Controls.Add(this.panel11);
             this.panelChiTiet.Controls.Add(this.label13);
             this.panelChiTiet.Controls.Add(this.panel10);
             this.panelChiTiet.Controls.Add(this.panel9);
@@ -322,10 +418,73 @@
             this.panelChiTiet.Controls.Add(this.panel1);
             this.panelChiTiet.Controls.Add(this.label3);
             this.panelChiTiet.Controls.Add(this.dgvCMSHoaDon);
-            this.panelChiTiet.Location = new System.Drawing.Point(67, 91);
+            this.panelChiTiet.Location = new System.Drawing.Point(67, 103);
             this.panelChiTiet.Name = "panelChiTiet";
             this.panelChiTiet.Size = new System.Drawing.Size(1088, 725);
             this.panelChiTiet.TabIndex = 23;
+            this.panelChiTiet.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChiTiet_Paint);
+            // 
+            // lvKetQua
+            // 
+            this.lvKetQua.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvKetQua.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colMa,
+            this.colTen,
+            this.colSoLuong,
+            this.colThanhTien});
+            this.lvKetQua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lvKetQua.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lvKetQua.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvKetQua.HideSelection = false;
+            this.lvKetQua.Location = new System.Drawing.Point(100, 476);
+            this.lvKetQua.Name = "lvKetQua";
+            this.lvKetQua.Size = new System.Drawing.Size(900, 97);
+            this.lvKetQua.TabIndex = 43;
+            this.lvKetQua.UseCompatibleStateImageBehavior = false;
+            this.lvKetQua.View = System.Windows.Forms.View.Details;
+            // 
+            // colMa
+            // 
+            this.colMa.Width = 200;
+            // 
+            // colTen
+            // 
+            this.colTen.Width = 300;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.Width = 100;
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colThanhTien.Width = 200;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label18.Location = new System.Drawing.Point(97, 242);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(120, 17);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Phụ tùng đã dùng";
+            // 
+            // btnTroVe
+            // 
+            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
+            this.btnTroVe.BorderThickness = 1.5F;
+            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
+            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
+            this.btnTroVe.TabIndex = 40;
+            this.btnTroVe.Text = "<- Danh sách hóa đơn";
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
             // 
             // panel13
             // 
@@ -337,12 +496,27 @@
             this.panel13.TabIndex = 40;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
+            // btnOKHoaDon
+            // 
+            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnOKHoaDon.BorderThickness = 1.5F;
+            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnOKHoaDon.Name = "btnOKHoaDon";
+            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
+            this.btnOKHoaDon.TabIndex = 39;
+            this.btnOKHoaDon.Text = "Xuất hóa đơn";
+            this.btnOKHoaDon.UseVisualStyleBackColor = true;
+            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label14.Location = new System.Drawing.Point(786, 532);
+            this.label14.Location = new System.Drawing.Point(786, 585);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 17);
             this.label14.TabIndex = 38;
@@ -352,7 +526,7 @@
             // 
             this.panel12.BackColor = System.Drawing.SystemColors.Control;
             this.panel12.Controls.Add(this.txtNgayIn);
-            this.panel12.Location = new System.Drawing.Point(789, 552);
+            this.panel12.Location = new System.Drawing.Point(789, 605);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(206, 42);
             this.panel12.TabIndex = 37;
@@ -363,60 +537,17 @@
             this.txtNgayIn.BackColor = System.Drawing.SystemColors.Control;
             this.txtNgayIn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNgayIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayIn.Location = new System.Drawing.Point(15, 12);
+            this.txtNgayIn.Location = new System.Drawing.Point(9, 10);
             this.txtNgayIn.Name = "txtNgayIn";
             this.txtNgayIn.Size = new System.Drawing.Size(188, 22);
             this.txtNgayIn.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.lbTongTien);
-            this.panel11.Controls.Add(this.label17);
-            this.panel11.Controls.Add(this.textBox3);
-            this.panel11.Controls.Add(this.label16);
-            this.panel11.Controls.Add(this.label15);
-            this.panel11.Location = new System.Drawing.Point(100, 454);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(895, 67);
-            this.panel11.TabIndex = 36;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
-            // 
-            // lbTongTien
-            // 
-            this.lbTongTien.AutoSize = true;
-            this.lbTongTien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongTien.Location = new System.Drawing.Point(723, 41);
-            this.lbTongTien.Name = "lbTongTien";
-            this.lbTongTien.Size = new System.Drawing.Size(64, 21);
-            this.lbTongTien.TabIndex = 4;
-            this.lbTongTien.Text = "209000";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(723, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 21);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "190000";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(540, 41);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 21);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Tổng cộng";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(98, 532);
+            this.label13.Location = new System.Drawing.Point(98, 585);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 17);
             this.label13.TabIndex = 35;
@@ -426,7 +557,7 @@
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.Control;
             this.panel10.Controls.Add(this.textBox1);
-            this.panel10.Location = new System.Drawing.Point(101, 552);
+            this.panel10.Location = new System.Drawing.Point(101, 605);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(641, 42);
             this.panel10.TabIndex = 34;
@@ -445,21 +576,31 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Controls.Add(this.label11);
-            this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.label9);
-            this.panel9.Location = new System.Drawing.Point(100, 247);
+            this.panel9.Location = new System.Drawing.Point(100, 433);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(894, 40);
+            this.panel9.Size = new System.Drawing.Size(900, 40);
             this.panel9.TabIndex = 33;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 21);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Mã phụ tùng";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(723, 10);
+            this.label12.Location = new System.Drawing.Point(650, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 21);
             this.label12.TabIndex = 3;
@@ -469,27 +610,17 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(539, 10);
+            this.label11.Location = new System.Drawing.Point(460, 10);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "Số lượng";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(416, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 21);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Giá";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 10);
+            this.label9.Location = new System.Drawing.Point(205, 10);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 21);
             this.label9.TabIndex = 0;
@@ -551,6 +682,7 @@
             // 
             this.txtTenKH.BackColor = System.Drawing.SystemColors.Control;
             this.txtTenKH.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTenKH.Enabled = false;
             this.txtTenKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenKH.Location = new System.Drawing.Point(15, 8);
             this.txtTenKH.Name = "txtTenKH";
@@ -582,6 +714,7 @@
             // 
             this.txtMaKH.BackColor = System.Drawing.SystemColors.Control;
             this.txtMaKH.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaKH.Enabled = false;
             this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKH.Location = new System.Drawing.Point(15, 8);
             this.txtMaKH.Name = "txtMaKH";
@@ -624,6 +757,7 @@
             // 
             this.txtMaNV.BackColor = System.Drawing.SystemColors.Control;
             this.txtMaNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNV.Location = new System.Drawing.Point(15, 8);
             this.txtMaNV.Name = "txtMaNV";
@@ -644,6 +778,7 @@
             // 
             this.txtMaBooking.BackColor = System.Drawing.SystemColors.Control;
             this.txtMaBooking.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaBooking.Enabled = false;
             this.txtMaBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaBooking.Location = new System.Drawing.Point(15, 8);
             this.txtMaBooking.Name = "txtMaBooking";
@@ -667,50 +802,58 @@
             this.dgvCMSHoaDon.AllowUserToDeleteRows = false;
             this.dgvCMSHoaDon.AllowUserToResizeColumns = false;
             this.dgvCMSHoaDon.AllowUserToResizeRows = false;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCMSHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCMSHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCMSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvCMSHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCMSHoaDon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvCMSHoaDon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCMSHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCMSHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCMSHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCMSHoaDon.ColumnHeadersVisible = false;
             this.dgvCMSHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhuTung,
             this.PhuTung,
-            this.Gia,
             this.SoLuong,
-            this.ThanhTien});
+            this.Gia});
             this.dgvCMSHoaDon.GridColor = System.Drawing.SystemColors.Control;
             this.dgvCMSHoaDon.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvCMSHoaDon.Location = new System.Drawing.Point(100, 285);
+            this.dgvCMSHoaDon.Location = new System.Drawing.Point(100, 268);
             this.dgvCMSHoaDon.MultiSelect = false;
             this.dgvCMSHoaDon.Name = "dgvCMSHoaDon";
             this.dgvCMSHoaDon.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCMSHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCMSHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCMSHoaDon.RowHeadersVisible = false;
             this.dgvCMSHoaDon.RowHeadersWidth = 51;
             this.dgvCMSHoaDon.RowTemplate.Height = 30;
             this.dgvCMSHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvCMSHoaDon.Size = new System.Drawing.Size(895, 162);
+            this.dgvCMSHoaDon.Size = new System.Drawing.Size(900, 147);
             this.dgvCMSHoaDon.TabIndex = 2;
             this.dgvCMSHoaDon.TabStop = false;
+            this.dgvCMSHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCMSHoaDon_CellClick);
             this.dgvCMSHoaDon.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCMSHoaDon_CellPainting);
+            this.dgvCMSHoaDon.Click += new System.EventHandler(this.dgvCMSHoaDon_Click);
+            // 
+            // MaPhuTung
+            // 
+            this.MaPhuTung.HeaderText = "Mã phụ tùng";
+            this.MaPhuTung.Name = "MaPhuTung";
+            this.MaPhuTung.ReadOnly = true;
             // 
             // PhuTung
             // 
@@ -718,170 +861,17 @@
             this.PhuTung.Name = "PhuTung";
             this.PhuTung.ReadOnly = true;
             // 
-            // Gia
-            // 
-            this.Gia.HeaderText = "Giá";
-            this.Gia.Name = "Gia";
-            this.Gia.ReadOnly = true;
-            // 
             // SoLuong
             // 
-            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.HeaderText = "Số lượng trong kho";
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.ReadOnly = true;
             // 
-            // ThanhTien
+            // Gia
             // 
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(59, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 30);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Danh sách hóa đơn";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(576, 9);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 22);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "10%";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(540, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 21);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "VAT";
-            // 
-            // btnNhapHoaDon
-            // 
-            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnNhapHoaDon.BorderThickness = 1.5F;
-            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
-            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
-            this.btnNhapHoaDon.TabIndex = 4;
-            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
-            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
-            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
-            // 
-            // btnDSHoaDon
-            // 
-            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnDSHoaDon.BorderThickness = 1.5F;
-            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnDSHoaDon.Name = "btnDSHoaDon";
-            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
-            this.btnDSHoaDon.TabIndex = 3;
-            this.btnDSHoaDon.Text = "DS hóa đơn";
-            this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
-            // 
-            // btnTroVe
-            // 
-            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
-            this.btnTroVe.BorderThickness = 1.5F;
-            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
-            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
-            this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
-            this.btnTroVe.TabIndex = 40;
-            this.btnTroVe.Text = "<- Danh sách hóa đơn";
-            this.btnTroVe.UseVisualStyleBackColor = true;
-            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
-            // 
-            // btnOKHoaDon
-            // 
-            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnOKHoaDon.BorderThickness = 1.5F;
-            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnOKHoaDon.Name = "btnOKHoaDon";
-            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
-            this.btnOKHoaDon.TabIndex = 39;
-            this.btnOKHoaDon.Text = "Xuất hóa đơn";
-            this.btnOKHoaDon.UseVisualStyleBackColor = true;
-            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
-            // 
-            // MaBooking
-            // 
-            this.MaBooking.DataPropertyName = "MaSuaChua";
-            this.MaBooking.HeaderText = "Mã Booking";
-            this.MaBooking.Name = "MaBooking";
-            this.MaBooking.ReadOnly = true;
-            // 
-            // TenKH
-            // 
-            this.TenKH.DataPropertyName = "TenKhachHang";
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            // 
-            // MaXe
-            // 
-            this.MaXe.DataPropertyName = "MaXe";
-            this.MaXe.HeaderText = "Mã Xe";
-            this.MaXe.Name = "MaXe";
-            this.MaXe.ReadOnly = true;
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNhanVien";
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            // 
-            // NgayIn
-            // 
-            this.NgayIn.DataPropertyName = "NgayIn";
-            this.NgayIn.HeaderText = "Ngày in";
-            this.NgayIn.Name = "NgayIn";
-            this.NgayIn.ReadOnly = true;
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng tiền";
-            this.TongTien.Name = "TongTien";
-            this.TongTien.ReadOnly = true;
-            // 
-            // MaKhachHang
-            // 
-            this.MaKhachHang.DataPropertyName = "MaKhachHang";
-            this.MaKhachHang.HeaderText = "MaKhachHang";
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.ReadOnly = true;
-            this.MaKhachHang.Visible = false;
+            this.Gia.HeaderText = "Giá bán";
+            this.Gia.Name = "Gia";
+            this.Gia.ReadOnly = true;
             // 
             // fHoaDon
             // 
@@ -896,6 +886,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fHoaDon";
             this.Text = "fHoaDon";
+            this.Load += new System.EventHandler(this.fHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -912,8 +903,6 @@
             this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -953,10 +942,6 @@
         private System.Windows.Forms.Panel panelChiTiet;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCMSHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhuTung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -974,24 +959,17 @@
         private System.Windows.Forms.TextBox txtGiaiPhap;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txtNgayIn;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lbTongTien;
         private CustomDesign.CustomButton btnOKHoaDon;
         private System.Windows.Forms.Panel panel13;
         private CustomDesign.CustomButton btnTroVe;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaBooking;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaXe;
@@ -999,5 +977,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhachHang;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ListView lvKetQua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhuTung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhuTung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
+        private System.Windows.Forms.ColumnHeader colMa;
+        private System.Windows.Forms.ColumnHeader colTen;
+        private System.Windows.Forms.ColumnHeader colSoLuong;
+        private System.Windows.Forms.ColumnHeader colThanhTien;
+        private System.Windows.Forms.Label label10;
     }
 }

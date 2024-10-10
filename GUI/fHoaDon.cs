@@ -19,9 +19,14 @@ namespace GUI
     public partial class fHoaDon : Form
     {
         string idLogin;
+
+        PhuTungBLL _phuTungBLL;
+        DatYeuCauBLL _datYeuCauBLL;
+        private HoaDonYeuCauBLL _hoaDonYeuCauBLL;
+
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
-        private HoaDonYeuCauBLL hoaDonYeuCauBLL;
+
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
@@ -30,7 +35,8 @@ namespace GUI
         public fHoaDon(string idLogin)
         {
             InitializeComponent();
-            hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
+            _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
+            _phuTungBLL = new PhuTungBLL();
 
             SetupDataGridView();
 
@@ -44,7 +50,42 @@ namespace GUI
             cmbOrder.SelectedIndex = 0;
             this.idLogin = idLogin;
         }
+        private void fHoaDon_Load(object sender, EventArgs e)
+        {
+            HienThiDSPhuTung();
+            //// Đặt chế độ hiển thị cho ListView là Details
+            //lvKetQua.View = View.Details;
 
+            //// Xóa tất cả các cột trước đó (nếu cần)
+            //lvKetQua.Columns.Clear();
+
+            //// Thêm các cột (không có header)
+            //lvKetQua.Columns.Add("", 100);  // Cột 1, kích thước 100
+            //lvKetQua.Columns.Add("", 150);  // Cột 2, kích thước 150
+            //lvKetQua.Columns.Add("", 200);  // Cột 3, kích thước 200
+
+            //// Thêm dữ liệu vào ListView (ví dụ 3 hàng)
+            //ListViewItem item1 = new ListViewItem(new[] { "Row 1 Col 1", "Row 1 Col 2", "Row 1 Col 3" });
+            //ListViewItem item2 = new ListViewItem(new[] { "Row 2 Col 1", "Row 2 Col 2", "Row 2 Col 3" });
+            //ListViewItem item3 = new ListViewItem(new[] { "Row 3 Col 1", "Row 3 Col 2", "Row 3 Col 3" });
+
+            //// Thêm các item vào ListView
+            //lvKetQua.Items.AddRange(new[] { item1, item2, item3 });
+        }
+        private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
+        {
+            dgvCMSHoaDon.Rows.Clear();
+
+            foreach (var phuTung in dsPhuTung)
+            {
+                dgvCMSHoaDon.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong,  phuTung.DonGiaBan);
+            }
+        }
+        private void HienThiDSPhuTung()
+        {
+            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
+            ThemDuLieuPhuTung(listPhuTung);
+        }
         private void SetupDataGridView()
         {
 
@@ -107,15 +148,16 @@ namespace GUI
 
             dgvCMSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            dgvCMSHoaDon.Columns["MaPhuTung"].FillWeight = 20;
+            dgvCMSHoaDon.Columns["PhuTung"].FillWeight = 25;
+            dgvCMSHoaDon.Columns["SoLuong"].FillWeight = 10;
+            dgvCMSHoaDon.Columns["Gia"].FillWeight = 15;
 
-            dgvCMSHoaDon.Columns["PhuTung"].FillWeight = 46;
-            dgvCMSHoaDon.Columns["Gia"].FillWeight = 18;
-            dgvCMSHoaDon.Columns["SoLuong"].FillWeight = 18;
-            dgvCMSHoaDon.Columns["ThanhTien"].FillWeight = 18;
-
-            dgvCMSHoaDon.Columns["Gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvCMSHoaDon.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvCMSHoaDon.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //          dgvCMSHoaDon.Columns["ThanhTien"].FillWeight = 18;
+            dgvCMSHoaDon.Columns["PhuTung"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCMSHoaDon.Columns["Gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvCMSHoaDon.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+ //           dgvCMSHoaDon.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvCMSHoaDon.RowTemplate.Height = 60;
             dgvCMSHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -123,11 +165,12 @@ namespace GUI
 
             dgvCMSHoaDon.Rows.Clear();
 
-            dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "50000000");
-            dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
-            dgvHoaDon.Rows.Add("01", "YR456", "L02", "KH654321", "202020", "100000");
+            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "50000000");
+            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
+            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
+            //dgvCMSHoaDon.Rows.Add("helloasdasdllasdasdad", "500000", "01", "500000");
+            //dgvHoaDon.Rows.Add("01", "YR456", "L02", "KH654321", "202020", "100000");
+
             //dgvHoaDon.Rows.Add("Suzuki Hayabusa", "SH789", "L01", "KH987654", "M987654", "29A-789.01", "MM03");
             //dgvHoaDon.Rows.Add("Kawasaki Ninja", "KN012", "L03", "KH111222", "M111222", "29A-012.34", "MM04");
             //dgvHoaDon.Rows.Add("BMW S1000RR", "BS345", "L01", "KH333444", "M333444", "29A-345.67", "MM05");
@@ -234,9 +277,8 @@ namespace GUI
             txtMaBooking.Text = selectedRow.Cells["MaBooking"].Value.ToString();
             txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
             txtMaKH.Text = selectedRow.Cells["MaKhachHang"].Value.ToString();
-            txtMaNV.Text = selectedRow.Cells["MaNV"].Value.ToString();
+            txtMaNV.Text = idLogin;
             txtNgayIn.Text = selectedRow.Cells["NgayIn"].Value.ToString();
-            lbTongTien.Text = selectedRow.Cells["TongTien"].Value.ToString();
 
             //lay thong tin bang rowIndex
         }
@@ -259,8 +301,23 @@ namespace GUI
 
         private void btnOKHoaDon_Click(object sender, EventArgs e)
         {
+            foreach (ListViewItem item in lvKetQua.Items)
+            {
+                // Lấy giá trị từ từng cột (SubItems)
+                string maPhuTung = item.SubItems[0].Text; // Mã phụ tùng
+                string tenPhuTung = item.SubItems[1].Text; // Phụ tùng
+                int soLuong = int.Parse(item.SubItems[2].Text); // Số lượng
+                decimal thanhTien = decimal.Parse(item.SubItems[3].Text); // Thành tiền
 
+                // Parse NgayIn from the TextBox
+                DateTime ngayIn = DateTime.Parse(txtNgayIn.Text); // Ensure it's a valid DateTime
+
+                // Gọi hàm ThemHoaDon với các giá trị đã lấy
+                _hoaDonYeuCauBLL.ThemHoaDon("HD001", idLogin, maPhuTung, txtMaBooking.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+            }
         }
+
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -339,13 +396,70 @@ namespace GUI
         private void ListHoaDon()
         {
             dgvHoaDon.Rows.Clear();
-            List<HoaDonYeuCauDTO> dsHoaDon = hoaDonYeuCauBLL.GetListHoaDon();
+            List<HoaDonYeuCauDTO> dsHoaDon = _hoaDonYeuCauBLL.GetListHoaDon();
             foreach (var hoaDon in dsHoaDon)
             {
                 dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaNhanVien,hoaDon.NgayIn,hoaDon.TongTien,hoaDon.MaKhachHang);
             }
         }
 
+
         #endregion
+
+        private void dgvCMSHoaDon_Click(object sender, EventArgs e)
+        {
+            if (dgvCMSHoaDon.SelectedCells.Count > 0) {
+                
+            }
+        }
+        int[] soLuong = new int[100]; // thu 100 ptu truoc ty se lay size cua lisPhutung
+        private void dgvCMSHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvCMSHoaDon.Rows[e.RowIndex];
+                string maPhuTung = selectedRow.Cells["MaPhuTung"].Value?.ToString();
+                string tenPhuTung = selectedRow.Cells["PhuTung"].Value?.ToString();
+                decimal giaBan = decimal.Parse(selectedRow.Cells["Gia"].Value?.ToString());
+
+                soLuong[e.RowIndex]++;
+                _phuTungBLL.SuaPhuTung(maPhuTung, -1);
+                HienThiDSPhuTung();
+
+                decimal tongTien = giaBan * soLuong[e.RowIndex];
+
+                // Kiểm tra nếu mã phụ tùng đã tồn tại trong ListView
+                bool itemExists = false;
+
+                foreach (ListViewItem item in lvKetQua.Items)
+                {
+                    if (item.Text == maPhuTung) // Text chứa giá trị của cột đầu tiên (mã phụ tùng)
+                    {
+                        // Nếu tồn tại, cập nhật số lượng và tổng tiền
+                        item.SubItems[2].Text = soLuong[e.RowIndex].ToString();  // Cập nhật số lượng
+                        item.SubItems[3].Text = tongTien.ToString();             // Cập nhật tổng tiền
+                        itemExists = true;
+                        break;
+                    }
+                }
+
+                // Nếu mã phụ tùng chưa có, thêm mục mới vào ListView
+                if (!itemExists)
+                {
+                    ListViewItem listViewItem = new ListViewItem(maPhuTung);
+                    listViewItem.SubItems.Add(tenPhuTung);
+                    listViewItem.SubItems.Add(soLuong[e.RowIndex].ToString());
+                    listViewItem.SubItems.Add(tongTien.ToString());
+
+                    lvKetQua.Items.Add(listViewItem);
+                }
+                lvKetQua.EnsureVisible(lvKetQua.Items.Count - 1);
+            }
+        }
+
+        private void panelChiTiet_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

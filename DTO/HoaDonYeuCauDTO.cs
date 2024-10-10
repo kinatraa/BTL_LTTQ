@@ -10,7 +10,8 @@ namespace DTO
     {
         public HoaDonYeuCauDTO() { }
 
-        public HoaDonYeuCauDTO(string MaHoaDon,string MaNhanVien,string MaPhuTung,string MaSuaChua,string TenKhachHang,string MaXe,DateTime NgayIn,int SoLuong,decimal? TongTien,string MaKhachHang)
+        public HoaDonYeuCauDTO(string MaHoaDon,string MaNhanVien,string MaPhuTung,string MaSuaChua,string TenKhachHang,string MaXe,DateTime NgayIn,
+            string GiaiPhap,int SoLuong,decimal? TongTien,string MaKhachHang)
         {
             this.MaHoaDon = MaHoaDon;
             this.MaNhanVien = MaNhanVien;
@@ -18,6 +19,7 @@ namespace DTO
             this.MaSuaChua = MaSuaChua;
             this.TenKhachHang = TenKhachHang;
             this.MaXe = MaXe;
+            this.GiaiPhap = GiaiPhap;   
             this.NgayIn = NgayIn;
             this.SoLuong = SoLuong;
             this.TongTien = TongTien ?? 0;
@@ -32,7 +34,7 @@ namespace DTO
         public string TenKhachHang {  get; set; }
         public string MaXe {  get; set; }
         public DateTime NgayIn {  get; set; }
-
+        public string GiaiPhap { get; set; }
         public int SoLuong {  get; set; }
 
         public decimal? TongTien {  get; set; }
