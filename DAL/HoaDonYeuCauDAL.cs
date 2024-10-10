@@ -13,19 +13,29 @@ namespace DAL
     {
 
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua,
-    DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
+            DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
         {
-            string query = "INSERT INTO HOADON (MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien) " +
-               "VALUES ( @maHd , @maNv , @maPt , @maSc , @ngayIn , @giaiPhap , @soLuong , @tongTien )";
 
+            string query = "SELECT COUNT (*) FROM HOADON WHERE MaPhuTung = @maPt ";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] {MaPhuTung});
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaHoaDon, MaNhanVien, 
+            if(Convert.ToInt32(result) <= 0)
+            {
+                string query1 = "INSERT INTO HOADON (MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien) " +
+                    "VALUES ( @maHd , @maNv , @maPt , @maSc , @ngayIn , @giaiPhap , @soLuong , @tongTien )";
+
+                int result1 = DataProvider.Instance.ExecuteNonQuery(query1, new object[] { MaHoaDon, MaNhanVien,
                 MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
 
-            return result > 0;
+                return result1 > 0;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
-
-
 
         public List<HoaDonYeuCauDTO> GetListHoaDon()
         {
