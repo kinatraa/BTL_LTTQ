@@ -1,33 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\BTL\\BTL_LTTQ\\",
+  "WorkspaceRootPath": "D:\\Games\\New folder\\BTL_LTTQ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\BTL\\BTL_LTTQ\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\BTL\\BTL_LTTQ\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|D:\\BTL\\BTL_LTTQ\\dal\\hoadonyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\hoadonyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|D:\\BTL\\BTL_LTTQ\\bll\\hoadonyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|solutionrelative:bll\\hoadonyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\btl\\btl_lttq\\dal\\phutungdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|D:\\Games\\New folder\\BTL_LTTQ\\dal\\phutungdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\phutungdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ\\gui\\fhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|D:\\Games\\New folder\\BTL_LTTQ\\dal\\hoadonyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\hoadonyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|D:\\Games\\New folder\\BTL_LTTQ\\bll\\hoadonyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|solutionrelative:bll\\hoadonyeucaubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,15 +38,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "fHoaDon.cs [Design]",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeDocumentMoniker": "GUI\\fHoaDon.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs [Design]",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs [Design]",
               "RelativeToolTip": "GUI\\fHoaDon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T14:35:46.398Z",
@@ -55,13 +55,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "fHoaDon.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeDocumentMoniker": "GUI\\fHoaDon.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeToolTip": "GUI\\fHoaDon.cs",
-              "ViewState": "AgIAAD4BAAAAAAAAAIAwwF8BAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAkwF8BAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T08:38:27.957Z",
               "IsPinned": true,
@@ -77,68 +77,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "fHoaDon.Designer.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.Designer.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.Designer.cs",
               "RelativeDocumentMoniker": "GUI\\fHoaDon.Designer.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.Designer.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.Designer.cs",
               "RelativeToolTip": "GUI\\fHoaDon.Designer.cs",
               "ViewState": "AgIAAHABAAAAAAAAAAAIwIsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T13:16:26.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T13:16:26.763Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "fKho.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKho.cs",
               "RelativeDocumentMoniker": "GUI\\fKho.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKho.cs",
               "RelativeToolTip": "GUI\\fKho.cs",
               "ViewState": "AgIAAMkBAAAAAAAAAAAIwOIBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T13:13:36.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T13:13:36.889Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "PhuTungDAL.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\DAL\\PhuTungDAL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\PhuTungDAL.cs",
               "RelativeDocumentMoniker": "DAL\\PhuTungDAL.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\DAL\\PhuTungDAL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\PhuTungDAL.cs",
               "RelativeToolTip": "DAL\\PhuTungDAL.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wCUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAArwE8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T13:12:29.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HoaDonYeuCauBLL.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\BLL\\HoaDonYeuCauBLL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\BLL\\HoaDonYeuCauBLL.cs",
               "RelativeDocumentMoniker": "BLL\\HoaDonYeuCauBLL.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\BLL\\HoaDonYeuCauBLL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\BLL\\HoaDonYeuCauBLL.cs",
               "RelativeToolTip": "BLL\\HoaDonYeuCauBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T09:22:39.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T09:22:39.469Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HoaDonYeuCauDAL.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\DAL\\HoaDonYeuCauDAL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\HoaDonYeuCauDAL.cs",
               "RelativeDocumentMoniker": "DAL\\HoaDonYeuCauDAL.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\DAL\\HoaDonYeuCauDAL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\HoaDonYeuCauDAL.cs",
               "RelativeToolTip": "DAL\\HoaDonYeuCauDAL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T09:17:31.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T09:17:31.636Z"
             }
           ]
         }
