@@ -52,7 +52,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lblMaBooking = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.imgXe = new System.Windows.Forms.PictureBox();
             this.dgvYeuCau = new System.Windows.Forms.DataGridView();
             this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,7 +111,7 @@
             this.panelDone.SuspendLayout();
             this.panelDoing.SuspendLayout();
             this.panelToDo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgXe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYeuCau)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -276,7 +276,7 @@
             this.panelThongTin.Controls.Add(this.panelToDo);
             this.panelThongTin.Controls.Add(this.label16);
             this.panelThongTin.Controls.Add(this.lblMaBooking);
-            this.panelThongTin.Controls.Add(this.pictureBox5);
+            this.panelThongTin.Controls.Add(this.imgXe);
             this.panelThongTin.Location = new System.Drawing.Point(772, 227);
             this.panelThongTin.Name = "panelThongTin";
             this.panelThongTin.Size = new System.Drawing.Size(313, 614);
@@ -416,15 +416,15 @@
             this.lblMaBooking.TabIndex = 1;
             this.lblMaBooking.Text = "MaBooking";
             // 
-            // pictureBox5
+            // imgXe
             // 
-            this.pictureBox5.Image = global::GUI.Properties.Resources.bike;
-            this.pictureBox5.Location = new System.Drawing.Point(46, 45);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(221, 216);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
+            this.imgXe.Image = global::GUI.Properties.Resources.bike;
+            this.imgXe.Location = new System.Drawing.Point(46, 45);
+            this.imgXe.Name = "imgXe";
+            this.imgXe.Size = new System.Drawing.Size(221, 216);
+            this.imgXe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgXe.TabIndex = 0;
+            this.imgXe.TabStop = false;
             // 
             // dgvYeuCau
             // 
@@ -1027,7 +1027,7 @@
             this.lbBienSo.TabIndex = 5;
             this.lbBienSo.Text = "Biển Số";
             // 
-            // fTestYeuCau
+            // fYeuCau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1041,7 +1041,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "fTestYeuCau";
+            this.Name = "fYeuCau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -1057,7 +1057,7 @@
             this.panelDoing.PerformLayout();
             this.panelToDo.ResumeLayout(false);
             this.panelToDo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgXe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYeuCau)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -1148,7 +1148,7 @@
 		
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.Label lblMaBooking;
-		private System.Windows.Forms.PictureBox pictureBox5;
+		private System.Windows.Forms.PictureBox imgXe;
 		private System.Windows.Forms.Panel panelDone;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Panel panelDoing;

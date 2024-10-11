@@ -356,7 +356,22 @@ namespace GUI
 					addNewClicked = false;
 					updateClicked = false;
 				}
-				panelThongTin.Visible = true;
+
+                try
+                {
+                    imgXe.Image = (Image)Properties.Resources.ResourceManager.GetObject(maXeChon);
+
+                    if (imgXe.Image == null)
+                    {
+                        imgXe.Image = Properties.Resources.bike;
+                    }
+                }
+                catch
+                {
+                    imgXe.Image = Properties.Resources.bike;
+                }
+
+                panelThongTin.Visible = true;
 				await AnimateDataGridView2(smallerDGVSize.Width);
 				thongTinReveal = true;
 			}
@@ -367,19 +382,21 @@ namespace GUI
 				thongTinReveal = false;
 			}
 		}
-
+		string maXeChon;
 		private async void dgvYeuCau_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.ColumnIndex == dgvYeuCau.Columns["Actions"].Index && e.RowIndex >= 0)
 			{
 				var cellRectangle = dgvYeuCau.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 				rowIndex = e.RowIndex;
-				cmsYeuCau.Show(dgvYeuCau, cellRectangle.Left, cellRectangle.Bottom - 20);
+               
+                cmsYeuCau.Show(dgvYeuCau, cellRectangle.Left, cellRectangle.Bottom - 20);
 			}
 			else if(e.ColumnIndex != dgvYeuCau.Columns["Actions"].Index && e.RowIndex >= 0)
 			{
 				dgvYeuCau.BringToFront();
-				await ToggleThongTin();
+                maXeChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();
+                await ToggleThongTin();
 			}
 		}
 

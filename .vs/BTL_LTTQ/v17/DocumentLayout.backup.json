@@ -3,8 +3,14 @@
   "WorkspaceRootPath": "D:\\BTL\\BTL_LTTQ\\",
   "Documents": [
     {
+
       "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\btl\\btl_lttq\\dal\\phutungdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\phutungdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GUI||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\btl\\btl_lttq\\dal\\chitiethdndal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -20,6 +26,16 @@
     {
       "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\BTL\\BTL_LTTQ\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|D:\\BTL\\BTL_LTTQ\\dal\\nhanviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\nhanviendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|D:\\BTL\\BTL_LTTQ\\dto\\nhanviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|solutionrelative:dto\\nhanviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,6 +66,13 @@
               "ViewState": "AgIAAA0AAAAAAAAAAAA1wBEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T15:55:16.871Z",
+              "Title": "GUI",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\GUI.csproj",
+              "RelativeDocumentMoniker": "GUI\\GUI.csproj",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\GUI.csproj*",
+              "RelativeToolTip": "GUI\\GUI.csproj*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-11T21:42:31.016Z",
               "EditorCaption": ""
             },
             {
@@ -63,6 +86,14 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAACHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T15:38:44.228Z",
+              "Title": "fYeuCau.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeToolTip": "GUI\\fYeuCau.cs",
+              "ViewState": "AgIAAFkBAAAAAAAAAAAwwHIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T21:31:30.312Z",
               "EditorCaption": ""
             },
             {
@@ -98,6 +129,41 @@
               "RelativeToolTip": "GUI\\fKho.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T14:43:25.946Z"
+              "DocumentIndex": 2,
+              "Title": "fYeuCau.cs [Design]",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fYeuCau.cs [Design]",
+              "RelativeToolTip": "GUI\\fYeuCau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T21:29:58.972Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NhanVienDTO.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\DTO\\NhanVienDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\NhanVienDTO.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\DTO\\NhanVienDTO.cs",
+              "RelativeToolTip": "DTO\\NhanVienDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T21:22:32.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NhanVienDAL.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\DAL\\NhanVienDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\NhanVienDAL.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\DAL\\NhanVienDAL.cs",
+              "RelativeToolTip": "DAL\\NhanVienDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T21:22:26.271Z",
+              "EditorCaption": ""
             }
           ]
         }

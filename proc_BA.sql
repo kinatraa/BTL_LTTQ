@@ -1,4 +1,4 @@
-CREATE PROC addThings 
+﻿CREATE PROC addThings 
     @tenkhachhang NVARCHAR(25), 
     @bienso NVARCHAR(10),
     @tennguyennhan NVARCHAR(25), 
@@ -61,3 +61,58 @@ BEGIN
         VALUES (@masuachua, @maxe, @maKH, @ngaysua, @tennguyennhan);
     END;
 END;
+
+
+
+-- HOA DON
+
+create PROC addHoaDon 
+    @mahoadon NVARCHAR(25) = NULL,  -- Có thể nhận giá trị NULL
+    @manhanvien NVARCHAR(10), 
+    @maphutung NVARCHAR(10), 
+    @masuachua NVARCHAR(10), 
+    @ngayin DATETIME, 
+    @giaiphap NVARCHAR(100), 
+    @soluong INT, 
+    @tongtien MONEY
+AS
+BEGIN
+    DECLARE @lasthoadon NVARCHAR(25), 
+            @numberPart INT, 
+            @maHD NVARCHAR(25);
+
+    -- Nếu @mahoadon là NULL, tạo mã mới
+    IF @mahoadon IS NULL
+    BEGIN
+        -- Kiểm tra mã hóa đơn cuối cùng trong bảng
+        SELECT @lasthoadon = (SELECT TOP 1 MaHoaDon 
+                              FROM HOADON
+                              ORDER BY MaHoaDon DESC);
+
+        -- Nếu chưa có hóa đơn nào, tạo mã 'HD001'
+        IF @lasthoadon IS NULL
+        BEGIN
+            SET @maHD = 'HD001';
+        END
+        ELSE
+        BEGIN
+            -- Lấy phần số từ mã hóa đơn cuối cùng
+            SELECT @numberPart = CAST(SUBSTRING(@lasthoadon, 3, LEN(@lasthoadon) - 2) AS INT);
+
+            -- Tăng giá trị của phần số
+            SET @numberPart = @numberPart + 1;
+
+            -- Tạo mã hóa đơn mới
+            SET @maHD = 'HD' + RIGHT('000' + CAST(@numberPart AS NVARCHAR), 3);
+        END
+    END
+    ELSE
+    BEGIN
+        -- Nếu @mahoadon không NULL, sử dụng giá trị được truyền vào
+        SET @maHD = @mahoadon;
+    END
+
+    -- Thêm dữ liệu vào bảng HOADON
+    INSERT INTO HOADON(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien)
+    VALUES (@maHD, @manhanvien, @maphutung, @masuachua, @ngayin, @giaiphap, @soluong, @tongtien);
+END

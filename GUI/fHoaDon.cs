@@ -167,9 +167,7 @@ namespace GUI
             dgvHoaDon.Columns["MaBooking"].FillWeight = 13;
             dgvHoaDon.Columns["TenKH"].FillWeight = 20;
             dgvHoaDon.Columns["MaXe"].FillWeight = 12;
-            dgvHoaDon.Columns["MaNV"].FillWeight = 12;
-            dgvHoaDon.Columns["NgayIn"].FillWeight = 18;
-            dgvHoaDon.Columns["TongTien"].FillWeight = 20;
+            dgvHoaDon.Columns["MaKhachHang"].FillWeight = 5;
             dgvHoaDon.Columns["Actions"].FillWeight = 5;
 
             dgvHoaDon.RowTemplate.Height = 60;
@@ -340,6 +338,7 @@ namespace GUI
         {
             panelChiTiet.Visible = true;
             panelDSHoaDon.Visible = false;
+            txtNgayIn.Text = DateTime.Today.ToString();
 
             DataGridViewRow selectedRow = dgvHoaDon.Rows[rowIndex];
 
@@ -347,10 +346,7 @@ namespace GUI
             txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
             txtMaKH.Text = selectedRow.Cells["MaKhachHang"].Value.ToString();
             txtMaNV.Text = idLogin;
-            txtNgayIn.Text = selectedRow.Cells["NgayIn"].Value.ToString();
 
-
-            txtMaHoaDon.Text = "HD" + amountHdYeuCau.ToString().PadLeft(3, '0');
         }
 
         private void cmsItemSua_Click(object sender, EventArgs e)
@@ -376,7 +372,7 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập giải pháp!");
                 return;
             }
-
+            string maHoaDon_Chinh = null;
             foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
             {
                 if (!row.IsNewRow)
@@ -386,21 +382,24 @@ namespace GUI
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
                     decimal thanhTien = decimal.Parse(row.Cells["ThanhTien"].Value?.ToString() ?? "0"); 
 
-                    DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
 
-                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                    DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
+                   
+                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(maHoaDon_Chinh, idLogin, maPhuTung, txtMaSuaChua.Text, 
+                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
                     if (themHd)
                     {
-                        MessageBox.Show("Thêm hóa đơn thành công");
-                        //_yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
-                        HienThiDSHoaDonYeuCau();
+                         maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon(txtMaSuaChua.Text);
+                        txtMaHoaDon.Text = maHoaDon_Chinh;
+                        MessageBox.Show("Them thanh cong");
                     }
                     else
                     {
-                        MessageBox.Show("Thêm hóa đơn không thành công");
+
                     }
                 }
             }
+
         }
 
 
@@ -486,7 +485,7 @@ namespace GUI
             List<HoaDonYeuCauDTO> dsHoaDon = _hoaDonYeuCauBLL.GetListHoaDon();
             foreach (var hoaDon in dsHoaDon)
             {
-                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaNhanVien,hoaDon.NgayIn,hoaDon.TongTien,hoaDon.MaKhachHang);
+                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe, hoaDon.MaKhachHang);
             }
         }
 
@@ -516,7 +515,9 @@ namespace GUI
             }
         }
 
+        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
     }
 }
