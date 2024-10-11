@@ -16,20 +16,27 @@ namespace DAL
             DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
         {
             string query = "exec addHoaDon @mahoadon , @manhanvien , @maphutung , @masuachua , @ngayin , @giaiphap , @soluong , @tongtien ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query,new object[] {MaHoaDon,MaNhanVien,MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
+            int result = DataProvider.Instance.ExecuteNonQuery(query,new object[] { (object)MaHoaDon ?? DBNull.Value,MaNhanVien,MaPhuTung
+                ,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
             return result > 0;
 
         }
         public string GetMaHoaDon(string MaSuaChua)
         {
-            string query = "SELECT MaHoaDon FROM HoaDon WHERE MaSuaChua = @masuachua";
+            string query = "SELECT MaHoaDon FROM HoaDon WHERE MaSuaChua = @masuachua ";
 
-            // Thực hiện truy vấn và nhận kết quả
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { MaSuaChua });
+            // Sử dụng ExecuteQuery để lấy kết quả dưới dạng DataTable
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { MaSuaChua });
 
-            // Chuyển đổi kết quả sang string và kiểm tra null
-            return result != null ? result.ToString() : null;
+            if (dataTable.Rows.Count > 0) // Nếu có bản ghi
+            {
+                DataRow row = dataTable.Rows[0]; // Lấy hàng đầu tiên
+                return row["MaHoaDon"].ToString(); // Trả về giá trị MaHoaDon
+            }
+
+            return null; // Trả về null nếu không tìm thấy bản ghi
         }
+
 
         public List<HoaDonYeuCauDTO> GetListHoaDon()
         {

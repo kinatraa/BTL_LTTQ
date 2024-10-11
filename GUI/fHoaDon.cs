@@ -372,12 +372,11 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập giải pháp!");
                 return;
             }
-
+            string maHoaDon_Chinh = null;
             foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
             {
                 if (!row.IsNewRow)
                 {
-                    string maHoaDon = txtMaHoaDon.Text;
                     string maPhuTung = row.Cells["Ma"].Value?.ToString(); 
                     string tenPhuTung = row.Cells["Ten"].Value?.ToString(); 
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
@@ -385,17 +384,22 @@ namespace GUI
 
 
                     DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
-
-                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(null, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                   
+                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(maHoaDon_Chinh, idLogin, maPhuTung, txtMaSuaChua.Text, 
+                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
                     if (themHd)
                     {
-                        txtMaHoaDon.Text = _hoaDonYeuCauBLL.GetMaHoaDon(maHoaDon);
+                         maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon(txtMaSuaChua.Text);
+                        txtMaHoaDon.Text = maHoaDon_Chinh;
+                        MessageBox.Show("Them thanh cong");
                     }
                     else
                     {
+
                     }
                 }
             }
+
         }
 
 

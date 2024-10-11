@@ -62,7 +62,10 @@ BEGIN
     END;
 END;
 
---hoa don 
+
+
+-- HOA DON
+
 create PROC addHoaDon 
     @mahoadon NVARCHAR(25) = NULL,  -- Có thể nhận giá trị NULL
     @manhanvien NVARCHAR(10), 
@@ -104,7 +107,7 @@ BEGIN
         END
     END
     ELSE
-    BE,GIN
+    BEGIN
         -- Nếu @mahoadon không NULL, sử dụng giá trị được truyền vào
         SET @maHD = @mahoadon;
     END
