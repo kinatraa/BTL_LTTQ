@@ -371,32 +371,38 @@ namespace GUI
 
         private void btnOKHoaDon_Click(object sender, EventArgs e)
         {
-            if(txtGiaiPhap.Text == "")
+            if (txtGiaiPhap.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giải pháp!");
                 return;
             }
-            //foreach (ListViewItem item in lvKetQua.Items)
-            //{
-            //    // Lấy giá trị từ từng cột (SubItems)
-            //    string maPhuTung = item.SubItems[0].Text; // Mã phụ tùng
-            //    string tenPhuTung = item.SubItems[1].Text; // Phụ tùng
-            //    int soLuong = int.Parse(item.SubItems[2].Text); // Số lượng
-            //    decimal thanhTien = decimal.Parse(item.SubItems[3].Text); // Thành tiền
 
-            //    // Parse NgayIn from the TextBox
-            //    DateTime ngayIn = DateTime.Parse(txtNgayIn.Text); // Ensure it's a valid DateTime
+            foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string maPhuTung = row.Cells["Ma"].Value?.ToString(); 
+                    string tenPhuTung = row.Cells["Ten"].Value?.ToString(); 
+                    int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
+                    decimal thanhTien = decimal.Parse(row.Cells["ThanhTien"].Value?.ToString() ?? "0"); 
 
-            //    // Gọi hàm ThemHoaDon với các giá trị đã lấy
-            //    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
-            //    if (themHd)
-            //    {                 
-            //        MessageBox.Show("Them hoa don thanh cong");
-            //        _yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
-            //        HienThiDSHoaDonYeuCau();
-            //    }
-            //}
+                    DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
+
+                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                    if (themHd)
+                    {
+                        MessageBox.Show("Thêm hóa đơn thành công");
+                        //_yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
+                        HienThiDSHoaDonYeuCau();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm hóa đơn không thành công");
+                    }
+                }
+            }
         }
+
 
 
 
