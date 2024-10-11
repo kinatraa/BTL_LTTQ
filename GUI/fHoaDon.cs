@@ -338,6 +338,7 @@ namespace GUI
         {
             panelChiTiet.Visible = true;
             panelDSHoaDon.Visible = false;
+            txtNgayIn.Text = DateTime.Today.ToString();
 
             DataGridViewRow selectedRow = dgvHoaDon.Rows[rowIndex];
 
@@ -376,23 +377,22 @@ namespace GUI
             {
                 if (!row.IsNewRow)
                 {
+                    string maHoaDon = txtMaHoaDon.Text;
                     string maPhuTung = row.Cells["Ma"].Value?.ToString(); 
                     string tenPhuTung = row.Cells["Ten"].Value?.ToString(); 
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
                     decimal thanhTien = decimal.Parse(row.Cells["ThanhTien"].Value?.ToString() ?? "0"); 
 
+
                     DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
 
-                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(null, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
                     if (themHd)
                     {
-                        MessageBox.Show("Thêm hóa đơn thành công");
-                        //_yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
-                        HienThiDSHoaDonYeuCau();
+                        txtMaHoaDon.Text = _hoaDonYeuCauBLL.GetMaHoaDon(maHoaDon);
                     }
                     else
                     {
-                        MessageBox.Show("Thêm hóa đơn không thành công");
                     }
                 }
             }

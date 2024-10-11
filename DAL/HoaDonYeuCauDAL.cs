@@ -15,26 +15,20 @@ namespace DAL
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua,
             DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
         {
+            string query = "exec addHoaDon @mahoadon , @manhanvien , @maphutung , @masuachua , @ngayin , @giaiphap , @soluong , @tongtien ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query,new object[] {MaHoaDon,MaNhanVien,MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
+            return result > 0;
 
-            string query = "SELECT COUNT (*) FROM HOADON WHERE MaPhuTung = @maPt ";
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] {MaPhuTung});
+        }
+        public string GetMaHoaDon(string MaSuaChua)
+        {
+            string query = "SELECT MaHoaDon FROM HoaDon WHERE MaSuaChua = @masuachua";
 
-            if(Convert.ToInt32(result) <= 0)
-            {
-                string query1 = "INSERT INTO HOADON (MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien) " +
-                    "VALUES ( @maHd , @maNv , @maPt , @maSc , @ngayIn , @giaiPhap , @soLuong , @tongTien )";
+            // Thực hiện truy vấn và nhận kết quả
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { MaSuaChua });
 
-                int result1 = DataProvider.Instance.ExecuteNonQuery(query1, new object[] { MaHoaDon, MaNhanVien,
-                MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
-
-                return result1 > 0;
-            }
-            else
-            {
-                return false;
-            }
-
-
+            // Chuyển đổi kết quả sang string và kiểm tra null
+            return result != null ? result.ToString() : null;
         }
 
         public List<HoaDonYeuCauDTO> GetListHoaDon()

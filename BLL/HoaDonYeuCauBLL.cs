@@ -25,5 +25,9 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.GetListHoaDon();
         }
+        public string GetMaHoaDon(string MaSuaChua)
+        {
+            return hoaDonYeuCauDAL.GetMaHoaDon(MaSuaChua);
+        }
     }
 }
