@@ -1,5 +1,5 @@
 Cách đặt tên: 
-- Đặt tên biến và tên lớp là tiếng anh.
+
 
 Giải thích 3 lớp:
 - Lớp DTO (Data Tranfer Object): chứa các dữ liệu, các thuộc tính tương ứng với các trường trong cơ sở dữ liệu.
