@@ -167,9 +167,7 @@ namespace GUI
             dgvHoaDon.Columns["MaBooking"].FillWeight = 13;
             dgvHoaDon.Columns["TenKH"].FillWeight = 20;
             dgvHoaDon.Columns["MaXe"].FillWeight = 12;
-            dgvHoaDon.Columns["MaNV"].FillWeight = 12;
-            dgvHoaDon.Columns["NgayIn"].FillWeight = 18;
-            dgvHoaDon.Columns["TongTien"].FillWeight = 20;
+            dgvHoaDon.Columns["MaKhachHang"].FillWeight = 5;
             dgvHoaDon.Columns["Actions"].FillWeight = 5;
 
             dgvHoaDon.RowTemplate.Height = 60;
@@ -347,10 +345,7 @@ namespace GUI
             txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
             txtMaKH.Text = selectedRow.Cells["MaKhachHang"].Value.ToString();
             txtMaNV.Text = idLogin;
-            txtNgayIn.Text = selectedRow.Cells["NgayIn"].Value.ToString();
 
-
-            txtMaHoaDon.Text = "HD" + amountHdYeuCau.ToString().PadLeft(3, '0');
         }
 
         private void cmsItemSua_Click(object sender, EventArgs e)
@@ -486,7 +481,7 @@ namespace GUI
             List<HoaDonYeuCauDTO> dsHoaDon = _hoaDonYeuCauBLL.GetListHoaDon();
             foreach (var hoaDon in dsHoaDon)
             {
-                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaNhanVien,hoaDon.NgayIn,hoaDon.TongTien,hoaDon.MaKhachHang);
+                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaKhachHang);
             }
         }
 
@@ -515,8 +510,5 @@ namespace GUI
                 }
             }
         }
-
-
-
     }
 }

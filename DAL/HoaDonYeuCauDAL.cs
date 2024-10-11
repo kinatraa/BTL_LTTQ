@@ -39,27 +39,19 @@ namespace DAL
 
         public List<HoaDonYeuCauDTO> GetListHoaDon()
         {
-            string query = "select MaHoaDon,MaNhanVien, MaPhuTung ,HoaDon.MaSuaChua,TenKhachHang,MaXe,NgayIn,GiaiPhap,SoLuong,TongTien,YEUCAUSUACHUA.MaKhachHang " +
-                "from HOADON join YEUCAUSUACHUA on HOADON.MaSuaChua = YEUCAUSUACHUA.MaSuaChua " +
-                "join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang";
+            string query = "select MaSuaChua, MaXe,YEUCAUSUACHUA.MaKhachHang,TenKhachHang from " +
+                "YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             List<HoaDonYeuCauDTO> listYeuCau = new List<HoaDonYeuCauDTO>();
             foreach (DataRow row in data.Rows)
             {
-                decimal tongTien = row["TongTien"] != DBNull.Value ? Convert.ToDecimal(row["TongTien"]) : 0;
                 HoaDonYeuCauDTO hoaDonYeuCauDTO = new HoaDonYeuCauDTO(
-                    row["MaHoaDon"].ToString(),
-                    row["MaNhanVien"].ToString(),
-                    row["MaPhuTung"].ToString(),
+                   
                     row["MaSuaChua"].ToString(),
-                    row["TenKhachHang"].ToString(),
                     row["MaXe"].ToString(),
-                    DateTime.Parse(row["NgayIn"].ToString()),
-                    row["GiaiPhap"].ToString(),
-                    int.Parse(row["SoLuong"].ToString()),
-                    tongTien,
-                    row["MaKhachHAng"].ToString()
+                    row["MaKhachHAng"].ToString(),
+                    row["TenKhachHang"].ToString()
                 );
                 listYeuCau.Add(hoaDonYeuCauDTO);
             }

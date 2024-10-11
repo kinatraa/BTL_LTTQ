@@ -10,6 +10,14 @@ namespace DTO
     {
         public HoaDonYeuCauDTO() { }
 
+        public HoaDonYeuCauDTO(string maSuaChua, string tenKhachHang, string maXe, string maKhachHang)
+        {
+            MaSuaChua = maSuaChua;
+            MaXe = maXe;
+            MaKhachHang = maKhachHang;
+            TenKhachHang = tenKhachHang;
+        }
+
         public HoaDonYeuCauDTO(string MaHoaDon,string MaNhanVien,string MaPhuTung,string MaSuaChua,string TenKhachHang,string MaXe,DateTime NgayIn,
             string GiaiPhap,int SoLuong,decimal? TongTien,string MaKhachHang)
         {
