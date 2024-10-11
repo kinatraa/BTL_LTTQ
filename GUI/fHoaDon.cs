@@ -46,6 +46,7 @@ namespace GUI
             SetupDataGridView();
 
             SetupDataGridViewCMS();
+            SetupDataGridViewKqPhuTung();
 
             ListHoaDon();
 
@@ -82,6 +83,7 @@ namespace GUI
             amountPt = listPhuTung.Count;
         }
 
+        int backIndex;
 
         private void dgvCMSHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -100,12 +102,12 @@ namespace GUI
 
                 bool itemExists = false;
 
-                foreach (ListViewItem item in lvKetQua.Items)
+                foreach (DataGridViewRow item in dgvKqPhuTung.Rows)
                 {
-                    if (item.Text == maPhuTung) 
+                    if (item.Cells["Ma"].Value?.ToString() == maPhuTung)
                     {
-                        item.SubItems[2].Text = soLuong[e.RowIndex].ToString();  
-                        item.SubItems[3].Text = tongTien.ToString();             
+                        item.Cells["So"].Value = soLuong[e.RowIndex].ToString();
+                        item.Cells["ThanhTien"].Value = tongTien.ToString();
                         itemExists = true;
                         break;
                     }
@@ -113,15 +115,31 @@ namespace GUI
 
                 if (!itemExists)
                 {
-                    ListViewItem listViewItem = new ListViewItem(maPhuTung);
-                    listViewItem.SubItems.Add(tenPhuTung);
-                    listViewItem.SubItems.Add(soLuong[e.RowIndex].ToString());
-                    listViewItem.SubItems.Add(tongTien.ToString());
-
-                    lvKetQua.Items.Add(listViewItem);
+                    int newRowIndex = dgvKqPhuTung.Rows.Add();
+                    DataGridViewRow newRow = dgvKqPhuTung.Rows[newRowIndex];
+                    newRow.Cells["Ma"].Value = maPhuTung;
+                    newRow.Cells["Ten"].Value = tenPhuTung;
+                    newRow.Cells["So"].Value = soLuong[e.RowIndex].ToString();
+                    newRow.Cells["ThanhTien"].Value = tongTien.ToString();
                 }
-                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = e.RowIndex;
-                lvKetQua.EnsureVisible(lvKetQua.Items.Count - 1);
+                backIndex = e.RowIndex;
+                if (backIndex > 0) backIndex--;
+                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex;
+            }
+        }
+
+        private void dgvKqPhuTung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == dgvKqPhuTung.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvKqPhuTung.Rows[e.RowIndex];
+                string maPhuTung = selectedRow.Cells["Ma"].Value?.ToString();
+                dgvKqPhuTung.Rows.RemoveAt(e.RowIndex);
+                _phuTungBLL.SuaPhuTung(maPhuTung, 1);
+                HienThiDSPhuTung();
+
+                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex ;
             }
         }
         private void SetupDataGridView()
@@ -159,8 +177,6 @@ namespace GUI
             dgvHoaDon.ColumnHeadersHeight = 60;
 
             dgvHoaDon.Rows.Clear();
-
-
         }
 
         private void SetupDataGridViewCMS()
@@ -176,24 +192,64 @@ namespace GUI
 
             dgvCMSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+
             dgvCMSHoaDon.Columns["MaPhuTung"].FillWeight = 20;
             dgvCMSHoaDon.Columns["PhuTung"].FillWeight = 25;
             dgvCMSHoaDon.Columns["SoLuong"].FillWeight = 10;
             dgvCMSHoaDon.Columns["Gia"].FillWeight = 15;
 
-            //          dgvCMSHoaDon.Columns["ThanhTien"].FillWeight = 18;
             dgvCMSHoaDon.Columns["PhuTung"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCMSHoaDon.Columns["Gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvCMSHoaDon.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
- //           dgvCMSHoaDon.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvCMSHoaDon.RowTemplate.Height = 60;
             dgvCMSHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCMSHoaDon.ColumnHeadersHeight = 60;
 
             dgvCMSHoaDon.Rows.Clear();
-
         }
+
+        private void SetupDataGridViewKqPhuTung()
+        {
+            dgvKqPhuTung.EnableHeadersVisualStyles = false;
+            dgvKqPhuTung.GridColor = Color.LightGray;
+            dgvKqPhuTung.ColumnHeadersDefaultCellStyle.BackColor = dgvKqPhuTung.BackColor;
+            dgvKqPhuTung.ColumnHeadersDefaultCellStyle.ForeColor = dgvKqPhuTung.ForeColor;
+
+            dgvKqPhuTung.DefaultCellStyle.SelectionBackColor = dgvKqPhuTung.DefaultCellStyle.BackColor;
+            dgvKqPhuTung.DefaultCellStyle.SelectionForeColor = dgvKqPhuTung.DefaultCellStyle.ForeColor;
+
+            dgvKqPhuTung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
+            actionsColumn.Name = "Actions";
+            actionsColumn.HeaderText = "";
+            actionsColumn.Text = "X";
+            actionsColumn.UseColumnTextForButtonValue = true;
+
+            dgvKqPhuTung.Columns.Add(actionsColumn);
+
+            // Thiết lập font cho actionsColumn sau khi nó được thêm vào
+            dgvKqPhuTung.Columns["Actions"].DefaultCellStyle.Font = new Font("Arial", 10); // Giảm kích thước font
+            dgvKqPhuTung.Columns["Actions"].DefaultCellStyle.ForeColor = Color.Red; // Đặt màu chữ là đỏ
+
+            dgvKqPhuTung.Columns["Ma"].FillWeight = 15;
+            dgvKqPhuTung.Columns["Ten"].FillWeight = 20;
+            dgvKqPhuTung.Columns["So"].FillWeight = 10;
+            dgvKqPhuTung.Columns["ThanhTien"].FillWeight = 15;
+            dgvKqPhuTung.Columns["Actions"].FillWeight = 5;
+
+            //dgvKqPhuTung.Columns["PhuTung"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dgvKqPhuTung.Columns["Gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvKqPhuTung.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvKqPhuTung.RowTemplate.Height = 40;
+            dgvKqPhuTung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvKqPhuTung.ColumnHeadersHeight = 60;
+
+            dgvKqPhuTung.Rows.Clear();
+        }
+
 
         private void dgvHoaDon_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -320,26 +376,26 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập giải pháp!");
                 return;
             }
-            foreach (ListViewItem item in lvKetQua.Items)
-            {
-                // Lấy giá trị từ từng cột (SubItems)
-                string maPhuTung = item.SubItems[0].Text; // Mã phụ tùng
-                string tenPhuTung = item.SubItems[1].Text; // Phụ tùng
-                int soLuong = int.Parse(item.SubItems[2].Text); // Số lượng
-                decimal thanhTien = decimal.Parse(item.SubItems[3].Text); // Thành tiền
+            //foreach (ListViewItem item in lvKetQua.Items)
+            //{
+            //    // Lấy giá trị từ từng cột (SubItems)
+            //    string maPhuTung = item.SubItems[0].Text; // Mã phụ tùng
+            //    string tenPhuTung = item.SubItems[1].Text; // Phụ tùng
+            //    int soLuong = int.Parse(item.SubItems[2].Text); // Số lượng
+            //    decimal thanhTien = decimal.Parse(item.SubItems[3].Text); // Thành tiền
 
-                // Parse NgayIn from the TextBox
-                DateTime ngayIn = DateTime.Parse(txtNgayIn.Text); // Ensure it's a valid DateTime
+            //    // Parse NgayIn from the TextBox
+            //    DateTime ngayIn = DateTime.Parse(txtNgayIn.Text); // Ensure it's a valid DateTime
 
-                // Gọi hàm ThemHoaDon với các giá trị đã lấy
-                bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
-                if (themHd)
-                {                 
-                    MessageBox.Show("Them hoa don thanh cong");
-                    _yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
-                    HienThiDSHoaDonYeuCau();
-                }
-            }
+            //    // Gọi hàm ThemHoaDon với các giá trị đã lấy
+            //    bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(txtMaHoaDon.Text, idLogin, maPhuTung, txtMaSuaChua.Text, ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+            //    if (themHd)
+            //    {                 
+            //        MessageBox.Show("Them hoa don thanh cong");
+            //        _yeuCauSuaChuaBLL.XoaYeuCau(txtMaSuaChua.Text);
+            //        HienThiDSHoaDonYeuCau();
+            //    }
+            //}
         }
 
 
@@ -435,6 +491,22 @@ namespace GUI
         {
             if (dgvCMSHoaDon.SelectedCells.Count > 0) {
                 
+            }
+        }
+
+        private void dgvKqPhuTung_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                e.Handled = true;
+                e.PaintBackground(e.ClipBounds, true);
+
+                string cellValue = e.Value?.ToString() ?? string.Empty;
+                if (cellValue != string.Empty)
+                {
+                    Rectangle rect = e.CellBounds;
+                    e.Graphics.DrawString(cellValue, font, Brushes.Gray, rect.X, rect.Y + 15);
+                }
             }
         }
 
