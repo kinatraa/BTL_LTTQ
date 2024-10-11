@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnAddHDN = new GUI.CustomDesign.CustomButton();
@@ -73,12 +73,15 @@
             this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelHDN = new System.Windows.Forms.Panel();
-            this.lbWarning7 = new System.Windows.Forms.Label();
-            this.lbWarning6 = new System.Windows.Forms.Label();
-            this.lbWarning5 = new System.Windows.Forms.Label();
-            this.lbWarning4 = new System.Windows.Forms.Label();
-            this.lbWarning3 = new System.Windows.Forms.Label();
-            this.lbWarning2 = new System.Windows.Forms.Label();
+            this.lbWarningGiaBan1 = new System.Windows.Forms.Label();
+            this.lbWarningGiaNhap1 = new System.Windows.Forms.Label();
+            this.lbWarningSL1 = new System.Windows.Forms.Label();
+            this.lbWarningNgay = new System.Windows.Forms.Label();
+            this.lbWarningGiaBan = new System.Windows.Forms.Label();
+            this.lbWarningSL = new System.Windows.Forms.Label();
+            this.lbWarningGiaNhap = new System.Windows.Forms.Label();
+            this.lbWarningTen = new System.Windows.Forms.Label();
+            this.lbWarningMa = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -395,21 +398,21 @@
             this.dgvPhuTung.AllowUserToDeleteRows = false;
             this.dgvPhuTung.AllowUserToResizeColumns = false;
             this.dgvPhuTung.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPhuTung.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPhuTung.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dgvPhuTung.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvPhuTung.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhuTung.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvPhuTung.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPhuTung.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPhuTung.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.dgvPhuTung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhuTung.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhuTung_PhuTung,
@@ -423,14 +426,14 @@
             this.dgvPhuTung.MultiSelect = false;
             this.dgvPhuTung.Name = "dgvPhuTung";
             this.dgvPhuTung.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhuTung.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhuTung.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dgvPhuTung.RowHeadersVisible = false;
             this.dgvPhuTung.RowHeadersWidth = 51;
             this.dgvPhuTung.RowTemplate.Height = 30;
@@ -543,21 +546,21 @@
             this.dgvHDN.AllowUserToDeleteRows = false;
             this.dgvHDN.AllowUserToResizeColumns = false;
             this.dgvHDN.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHDN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHDN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.dgvHDN.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvHDN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHDN.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvHDN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHDN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHDN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvHDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHDN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHDN,
@@ -570,14 +573,14 @@
             this.dgvHDN.MultiSelect = false;
             this.dgvHDN.Name = "dgvHDN";
             this.dgvHDN.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHDN.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHDN.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvHDN.RowHeadersVisible = false;
             this.dgvHDN.RowHeadersWidth = 51;
             this.dgvHDN.RowTemplate.Height = 30;
@@ -615,12 +618,15 @@
             // panelHDN
             // 
             this.panelHDN.BackColor = System.Drawing.SystemColors.Window;
-            this.panelHDN.Controls.Add(this.lbWarning7);
-            this.panelHDN.Controls.Add(this.lbWarning6);
-            this.panelHDN.Controls.Add(this.lbWarning5);
-            this.panelHDN.Controls.Add(this.lbWarning4);
-            this.panelHDN.Controls.Add(this.lbWarning3);
-            this.panelHDN.Controls.Add(this.lbWarning2);
+            this.panelHDN.Controls.Add(this.lbWarningGiaBan1);
+            this.panelHDN.Controls.Add(this.lbWarningGiaNhap1);
+            this.panelHDN.Controls.Add(this.lbWarningSL1);
+            this.panelHDN.Controls.Add(this.lbWarningNgay);
+            this.panelHDN.Controls.Add(this.lbWarningGiaBan);
+            this.panelHDN.Controls.Add(this.lbWarningSL);
+            this.panelHDN.Controls.Add(this.lbWarningGiaNhap);
+            this.panelHDN.Controls.Add(this.lbWarningTen);
+            this.panelHDN.Controls.Add(this.lbWarningMa);
             this.panelHDN.Controls.Add(this.label23);
             this.panelHDN.Controls.Add(this.label22);
             this.panelHDN.Controls.Add(this.panel21);
@@ -650,71 +656,104 @@
             this.panelHDN.Size = new System.Drawing.Size(1088, 725);
             this.panelHDN.TabIndex = 23;
             // 
-            // lbWarning7
+            // lbWarningGiaBan1
             // 
-            this.lbWarning7.AutoSize = true;
-            this.lbWarning7.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning7.Location = new System.Drawing.Point(481, 464);
-            this.lbWarning7.Name = "lbWarning7";
-            this.lbWarning7.Size = new System.Drawing.Size(86, 13);
-            this.lbWarning7.TabIndex = 35;
-            this.lbWarning7.Text = "Nhập ngày nhập";
-            this.lbWarning7.Visible = false;
+            this.lbWarningGiaBan1.AutoSize = true;
+            this.lbWarningGiaBan1.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningGiaBan1.Location = new System.Drawing.Point(210, 464);
+            this.lbWarningGiaBan1.Name = "lbWarningGiaBan1";
+            this.lbWarningGiaBan1.Size = new System.Drawing.Size(151, 13);
+            this.lbWarningGiaBan1.TabIndex = 39;
+            this.lbWarningGiaBan1.Text = "Đơn giá bán phải là số nguyên";
+            this.lbWarningGiaBan1.Visible = false;
             // 
-            // lbWarning6
+            // lbWarningGiaNhap1
             // 
-            this.lbWarning6.AutoSize = true;
-            this.lbWarning6.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning6.Location = new System.Drawing.Point(111, 464);
-            this.lbWarning6.Name = "lbWarning6";
-            this.lbWarning6.Size = new System.Drawing.Size(93, 13);
-            this.lbWarning6.TabIndex = 34;
-            this.lbWarning6.Text = "Nhập đơn giá bán";
-            this.lbWarning6.Visible = false;
+            this.lbWarningGiaNhap1.AutoSize = true;
+            this.lbWarningGiaNhap1.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningGiaNhap1.Location = new System.Drawing.Point(210, 371);
+            this.lbWarningGiaNhap1.Name = "lbWarningGiaNhap1";
+            this.lbWarningGiaNhap1.Size = new System.Drawing.Size(157, 13);
+            this.lbWarningGiaNhap1.TabIndex = 38;
+            this.lbWarningGiaNhap1.Text = "Đơn giá nhập phải là số nguyên";
+            this.lbWarningGiaNhap1.Visible = false;
             // 
-            // lbWarning5
+            // lbWarningSL1
             // 
-            this.lbWarning5.AutoSize = true;
-            this.lbWarning5.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning5.Location = new System.Drawing.Point(481, 371);
-            this.lbWarning5.Name = "lbWarning5";
-            this.lbWarning5.Size = new System.Drawing.Size(103, 13);
-            this.lbWarning5.TabIndex = 33;
-            this.lbWarning5.Text = "Nhập số lượng nhập";
-            this.lbWarning5.Visible = false;
+            this.lbWarningSL1.AutoSize = true;
+            this.lbWarningSL1.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningSL1.Location = new System.Drawing.Point(590, 371);
+            this.lbWarningSL1.Name = "lbWarningSL1";
+            this.lbWarningSL1.Size = new System.Drawing.Size(168, 13);
+            this.lbWarningSL1.TabIndex = 37;
+            this.lbWarningSL1.Text = "Số lượng phải là số nguyên dương";
+            this.lbWarningSL1.Visible = false;
             // 
-            // lbWarning4
+            // lbWarningNgay
             // 
-            this.lbWarning4.AutoSize = true;
-            this.lbWarning4.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning4.Location = new System.Drawing.Point(111, 371);
-            this.lbWarning4.Name = "lbWarning4";
-            this.lbWarning4.Size = new System.Drawing.Size(100, 13);
-            this.lbWarning4.TabIndex = 32;
-            this.lbWarning4.Text = "Nhập Đơn giá nhập";
-            this.lbWarning4.Visible = false;
+            this.lbWarningNgay.AutoSize = true;
+            this.lbWarningNgay.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningNgay.Location = new System.Drawing.Point(481, 464);
+            this.lbWarningNgay.Name = "lbWarningNgay";
+            this.lbWarningNgay.Size = new System.Drawing.Size(86, 13);
+            this.lbWarningNgay.TabIndex = 35;
+            this.lbWarningNgay.Text = "Nhập ngày nhập";
+            this.lbWarningNgay.Visible = false;
             // 
-            // lbWarning3
+            // lbWarningGiaBan
             // 
-            this.lbWarning3.AutoSize = true;
-            this.lbWarning3.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning3.Location = new System.Drawing.Point(324, 281);
-            this.lbWarning3.Name = "lbWarning3";
-            this.lbWarning3.Size = new System.Drawing.Size(96, 13);
-            this.lbWarning3.TabIndex = 31;
-            this.lbWarning3.Text = "Nhập tên phụ tùng";
-            this.lbWarning3.Visible = false;
+            this.lbWarningGiaBan.AutoSize = true;
+            this.lbWarningGiaBan.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningGiaBan.Location = new System.Drawing.Point(111, 464);
+            this.lbWarningGiaBan.Name = "lbWarningGiaBan";
+            this.lbWarningGiaBan.Size = new System.Drawing.Size(93, 13);
+            this.lbWarningGiaBan.TabIndex = 34;
+            this.lbWarningGiaBan.Text = "Nhập đơn giá bán";
+            this.lbWarningGiaBan.Visible = false;
             // 
-            // lbWarning2
+            // lbWarningSL
             // 
-            this.lbWarning2.AutoSize = true;
-            this.lbWarning2.ForeColor = System.Drawing.Color.Red;
-            this.lbWarning2.Location = new System.Drawing.Point(111, 281);
-            this.lbWarning2.Name = "lbWarning2";
-            this.lbWarning2.Size = new System.Drawing.Size(95, 13);
-            this.lbWarning2.TabIndex = 30;
-            this.lbWarning2.Text = "Nhập mã phụ tùng";
-            this.lbWarning2.Visible = false;
+            this.lbWarningSL.AutoSize = true;
+            this.lbWarningSL.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningSL.Location = new System.Drawing.Point(481, 371);
+            this.lbWarningSL.Name = "lbWarningSL";
+            this.lbWarningSL.Size = new System.Drawing.Size(103, 13);
+            this.lbWarningSL.TabIndex = 33;
+            this.lbWarningSL.Text = "Nhập số lượng nhập";
+            this.lbWarningSL.Visible = false;
+            // 
+            // lbWarningGiaNhap
+            // 
+            this.lbWarningGiaNhap.AutoSize = true;
+            this.lbWarningGiaNhap.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningGiaNhap.Location = new System.Drawing.Point(111, 371);
+            this.lbWarningGiaNhap.Name = "lbWarningGiaNhap";
+            this.lbWarningGiaNhap.Size = new System.Drawing.Size(100, 13);
+            this.lbWarningGiaNhap.TabIndex = 32;
+            this.lbWarningGiaNhap.Text = "Nhập Đơn giá nhập";
+            this.lbWarningGiaNhap.Visible = false;
+            // 
+            // lbWarningTen
+            // 
+            this.lbWarningTen.AutoSize = true;
+            this.lbWarningTen.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningTen.Location = new System.Drawing.Point(324, 281);
+            this.lbWarningTen.Name = "lbWarningTen";
+            this.lbWarningTen.Size = new System.Drawing.Size(96, 13);
+            this.lbWarningTen.TabIndex = 31;
+            this.lbWarningTen.Text = "Nhập tên phụ tùng";
+            this.lbWarningTen.Visible = false;
+            // 
+            // lbWarningMa
+            // 
+            this.lbWarningMa.AutoSize = true;
+            this.lbWarningMa.ForeColor = System.Drawing.Color.Red;
+            this.lbWarningMa.Location = new System.Drawing.Point(111, 281);
+            this.lbWarningMa.Name = "lbWarningMa";
+            this.lbWarningMa.Size = new System.Drawing.Size(95, 13);
+            this.lbWarningMa.TabIndex = 30;
+            this.lbWarningMa.Text = "Nhập mã phụ tùng";
+            this.lbWarningMa.Visible = false;
             // 
             // label23
             // 
@@ -1315,12 +1354,12 @@
         private CustomDesign.CustomButton btnThemPhuTung;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label lbWarning2;
-        private System.Windows.Forms.Label lbWarning7;
-        private System.Windows.Forms.Label lbWarning6;
-        private System.Windows.Forms.Label lbWarning5;
-        private System.Windows.Forms.Label lbWarning4;
-        private System.Windows.Forms.Label lbWarning3;
+        private System.Windows.Forms.Label lbWarningMa;
+        private System.Windows.Forms.Label lbWarningNgay;
+        private System.Windows.Forms.Label lbWarningGiaBan;
+        private System.Windows.Forms.Label lbWarningSL;
+        private System.Windows.Forms.Label lbWarningGiaNhap;
+        private System.Windows.Forms.Label lbWarningTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhuTung_PhuTung;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPhuTung;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaNhap_PhuTung;
@@ -1330,5 +1369,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tien;
+        private System.Windows.Forms.Label lbWarningSL1;
+        private System.Windows.Forms.Label lbWarningGiaNhap1;
+        private System.Windows.Forms.Label lbWarningGiaBan1;
     }
 }
