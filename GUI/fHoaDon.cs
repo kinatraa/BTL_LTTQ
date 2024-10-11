@@ -481,7 +481,7 @@ namespace GUI
             List<HoaDonYeuCauDTO> dsHoaDon = _hoaDonYeuCauBLL.GetListHoaDon();
             foreach (var hoaDon in dsHoaDon)
             {
-                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaKhachHang);
+                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe, hoaDon.MaKhachHang);
             }
         }
 
@@ -509,6 +509,11 @@ namespace GUI
                     e.Graphics.DrawString(cellValue, font, Brushes.Gray, rect.X, rect.Y + 15);
                 }
             }
+        }
+
+        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

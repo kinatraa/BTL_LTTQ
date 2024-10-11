@@ -49,9 +49,10 @@ namespace DAL
                 HoaDonYeuCauDTO hoaDonYeuCauDTO = new HoaDonYeuCauDTO(
                    
                     row["MaSuaChua"].ToString(),
-                    row["MaXe"].ToString(),
-                    row["MaKhachHAng"].ToString(),
+                    row["MaXe"].ToString(),                  
+                    row["MaKhachHang"].ToString(),
                     row["TenKhachHang"].ToString()
+                    
                 );
                 listYeuCau.Add(hoaDonYeuCauDTO);
             }

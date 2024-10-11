@@ -10,7 +10,7 @@ namespace DTO
     {
         public HoaDonYeuCauDTO() { }
 
-        public HoaDonYeuCauDTO(string maSuaChua, string tenKhachHang, string maXe, string maKhachHang)
+        public HoaDonYeuCauDTO(string maSuaChua, string maXe,  string maKhachHang, string tenKhachHang)
         {
             MaSuaChua = maSuaChua;
             MaXe = maXe;

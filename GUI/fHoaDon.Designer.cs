@@ -39,13 +39,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
+            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemSua = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +68,9 @@
             this.txtMaHoaDon = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnTroVe = new GUI.CustomDesign.CustomButton();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             this.label14 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtNgayIn = new System.Windows.Forms.TextBox();
@@ -95,14 +103,6 @@
             this.PhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTroVe = new GUI.CustomDesign.CustomButton();
-            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
-            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -175,7 +175,37 @@
             this.dgvHoaDon.TabIndex = 2;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             this.dgvHoaDon.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvHoaDon_CellPainting);
+            // 
+            // MaBooking
+            // 
+            this.MaBooking.DataPropertyName = "MaSuaChua";
+            this.MaBooking.HeaderText = "Mã Booking";
+            this.MaBooking.Name = "MaBooking";
+            this.MaBooking.ReadOnly = true;
+            // 
+            // TenKH
+            // 
+            this.TenKH.DataPropertyName = "TenKhachHang";
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            // 
+            // MaXe
+            // 
+            this.MaXe.DataPropertyName = "MaXe";
+            this.MaXe.HeaderText = "Mã Xe";
+            this.MaXe.Name = "MaXe";
+            this.MaXe.ReadOnly = true;
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.DataPropertyName = "MaKhachHang";
+            this.MaKhachHang.HeaderText = "MaKhachHang";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
+            this.MaKhachHang.Visible = false;
             // 
             // panel2
             // 
@@ -236,6 +266,24 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // btnNhapHoaDon
+            // 
+            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnNhapHoaDon.BorderThickness = 1.5F;
+            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
+            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
+            this.btnNhapHoaDon.TabIndex = 4;
+            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
+            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
+            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Enabled = false;
@@ -257,6 +305,23 @@
             this.panel4.Size = new System.Drawing.Size(153, 56);
             this.panel4.TabIndex = 7;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // btnDSHoaDon
+            // 
+            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnDSHoaDon.BorderThickness = 1.5F;
+            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnDSHoaDon.Name = "btnDSHoaDon";
+            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
+            this.btnDSHoaDon.TabIndex = 3;
+            this.btnDSHoaDon.Text = "DS hóa đơn";
+            this.btnDSHoaDon.UseVisualStyleBackColor = false;
+            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
             // 
             // cmsHoaDon
             // 
@@ -460,6 +525,21 @@
             this.label18.TabIndex = 42;
             this.label18.Text = "Phụ tùng đã dùng";
             // 
+            // btnTroVe
+            // 
+            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
+            this.btnTroVe.BorderThickness = 1.5F;
+            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
+            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
+            this.btnTroVe.TabIndex = 40;
+            this.btnTroVe.Text = "<- Danh sách hóa đơn";
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
+            // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -469,6 +549,21 @@
             this.panel13.Size = new System.Drawing.Size(167, 49);
             this.panel13.TabIndex = 40;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
+            // 
+            // btnOKHoaDon
+            // 
+            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnOKHoaDon.BorderThickness = 1.5F;
+            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnOKHoaDon.Name = "btnOKHoaDon";
+            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
+            this.btnOKHoaDon.TabIndex = 39;
+            this.btnOKHoaDon.Text = "Xuất hóa đơn";
+            this.btnOKHoaDon.UseVisualStyleBackColor = true;
+            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
             // 
             // label14
             // 
@@ -832,100 +927,6 @@
             this.Gia.HeaderText = "Giá bán";
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
-            // 
-            // btnTroVe
-            // 
-            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
-            this.btnTroVe.BorderThickness = 1.5F;
-            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
-            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
-            this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
-            this.btnTroVe.TabIndex = 40;
-            this.btnTroVe.Text = "<- Danh sách hóa đơn";
-            this.btnTroVe.UseVisualStyleBackColor = true;
-            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
-            // 
-            // btnOKHoaDon
-            // 
-            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnOKHoaDon.BorderThickness = 1.5F;
-            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnOKHoaDon.Name = "btnOKHoaDon";
-            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
-            this.btnOKHoaDon.TabIndex = 39;
-            this.btnOKHoaDon.Text = "Xuất hóa đơn";
-            this.btnOKHoaDon.UseVisualStyleBackColor = true;
-            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
-            // 
-            // btnNhapHoaDon
-            // 
-            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnNhapHoaDon.BorderThickness = 1.5F;
-            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
-            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
-            this.btnNhapHoaDon.TabIndex = 4;
-            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
-            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
-            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
-            // 
-            // btnDSHoaDon
-            // 
-            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnDSHoaDon.BorderThickness = 1.5F;
-            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnDSHoaDon.Name = "btnDSHoaDon";
-            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
-            this.btnDSHoaDon.TabIndex = 3;
-            this.btnDSHoaDon.Text = "DS hóa đơn";
-            this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
-            // 
-            // MaBooking
-            // 
-            this.MaBooking.DataPropertyName = "MaSuaChua";
-            this.MaBooking.HeaderText = "Mã Booking";
-            this.MaBooking.Name = "MaBooking";
-            this.MaBooking.ReadOnly = true;
-            // 
-            // TenKH
-            // 
-            this.TenKH.DataPropertyName = "TenKhachHang";
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            // 
-            // MaXe
-            // 
-            this.MaXe.DataPropertyName = "MaXe";
-            this.MaXe.HeaderText = "Mã Xe";
-            this.MaXe.Name = "MaXe";
-            this.MaXe.ReadOnly = true;
-            // 
-            // MaKhachHang
-            // 
-            this.MaKhachHang.DataPropertyName = "MaKhachHang";
-            this.MaKhachHang.HeaderText = "MaKhachHang";
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.ReadOnly = true;
-            this.MaKhachHang.Visible = false;
             // 
             // fHoaDon
             // 
