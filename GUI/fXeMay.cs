@@ -17,6 +17,12 @@ namespace GUI
 {
     public partial class fXeMay : Form
     {
+        private int pageSize = 10; 
+        private int currentPage = 1;
+        private int totalPages = 1;
+        private List<XeMayDTO> allXeMayList; 
+
+
         string idLogin;
         private XeMayBLL _xeMayBLL;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
@@ -40,6 +46,7 @@ namespace GUI
 
             cmbOrder.SelectedIndex = 0;
             this.idLogin = idLogin;
+            SetupDataGridView();    
         }
         private void fXeMay_Load(object sender, EventArgs e)
         {
@@ -47,38 +54,39 @@ namespace GUI
         }
         private void ShowXeMayList()
         {
-            List<XeMayDTO> dsXeMay = _xeMayBLL.LayDanhSachXeMay();
-            SetupDataGridView(dsXeMay);
-            lblShowResult.Text = dsXeMay.Count.ToString();
+            allXeMayList = _xeMayBLL.LayDanhSachXeMay();
+            totalPages = (int)Math.Ceiling((double)allXeMayList.Count / pageSize);
+            currentPage = 1;
+
+            DisplayCurrentPage(); // No need to pass the list here anymore
         }
+
+        private void DisplayCurrentPage()
+        {
+            var itemsToShow = allXeMayList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+            SetUpListXeMay(itemsToShow);
+
+            lblShowResult.Text = $"Page {currentPage}/{totalPages}";
+        }
+
         private void SetupAddPanel()
         {
-            /*panelAddNew.Controls.Add(label2);
-            panelAddNew.Controls.Add(label3);
-            panelAddNew.Controls.Add(label4);
-            panelAddNew.Controls.Add(label5);
-            panelAddNew.Controls.Add(label6);
-            panelAddNew.Controls.Add(panel7);
-            panelAddNew.Controls.Add(panel8);
-            panelAddNew.Controls.Add(panel9);
-            panelAddNew.Controls.Add(panel10);
-            panelAddNew.Controls.Add(panel11);
-            panelAddNew.Controls.Add(panel12);
-            panelAddNew.Controls.Add(panel14);
-            panelAddNew.Controls.Add(txtTenKH);
-            panelAddNew.Controls.Add(txtSDT);
-            panelAddNew.Controls.Add(txtDiaChi);
-            panelAddNew.Controls.Add(txtMaXe);
-            panelAddNew.Controls.Add(txtNguyenNhan);
-            panelAddNew.Controls.Add(txtNgaySua);
-            panelAddNew.Controls.Add(btnAdd);*/
+
             dtpNgaySua.ValueChanged += (s, ev) =>
             {
                 txtNgaySua.Text = dtpNgaySua.Value.ToString("dddd, dd/MM/yyyy");
             };
         }
+        private void SetUpListXeMay(List<XeMayDTO> dsXeMay)
+        {
+            dgvXeMay.Rows.Clear();
 
-        private void SetupDataGridView(List<XeMayDTO> dsXeMay)
+            foreach (var xe in dsXeMay)
+            {
+                dgvXeMay.Rows.Add(xe.TenXe, xe.MaXe, xe.LoaiXe, xe.SoKhung, xe.SoMay, xe.BienSo, xe.MaMau);
+            }
+        }
+        private void SetupDataGridView()
         {
 
             dgvXeMay.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
@@ -112,24 +120,6 @@ namespace GUI
             dgvXeMay.RowTemplate.Height = 60;
             dgvXeMay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvXeMay.ColumnHeadersHeight = 60;
-
-            dgvXeMay.Rows.Clear();
-
-            foreach (var xe in dsXeMay)
-            {
-                dgvXeMay.Rows.Add(xe.TenXe, xe.MaXe, xe.LoaiXe, xe.SoKhung, xe.SoMay, xe.BienSo, xe.MaMau);
-            }
-
-            //dgvXeMay.Rows.Add("Honda Civic", "HC123", "L01", "KH123456", "M123456", "29A-123.45", "MM01");
-            //dgvXeMay.Rows.Add("Yamaha R15", "YR456", "L02", "KH654321", "M654321", "29A-456.78", "MM02");
-            //dgvXeMay.Rows.Add("Suzuki Hayabusa", "SH789", "L01", "KH987654", "M987654", "29A-789.01", "MM03");
-            //dgvXeMay.Rows.Add("Kawasaki Ninja", "KN012", "L03", "KH111222", "M111222", "29A-012.34", "MM04");
-            //dgvXeMay.Rows.Add("BMW S1000RR", "BS345", "L01", "KH333444", "M333444", "29A-345.67", "MM05");
-            //dgvXeMay.Rows.Add("Ducati Panigale", "DP678", "L02", "KH555666", "M555666", "29A-678.90", "MM06");
-            //dgvXeMay.Rows.Add("Harley Davidson", "HD901", "L03", "KH777888", "M777888", "29A-901.12", "MM07");
-            //dgvXeMay.Rows.Add("Triumph Bonneville", "TB234", "L01", "KH999000", "M999000", "29A-234.56", "MM08");
-            //dgvXeMay.Rows.Add("Aprilia RS660", "AR567", "L02", "KH123456", "M123456", "29A-567.89", "MM09");
-            //dgvXeMay.Rows.Add("KTM RC390", "KT890", "L03", "KH789012", "M789012", "29A-890.23", "MM10");
 
         }
 
@@ -342,6 +332,24 @@ namespace GUI
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
                 txtSearchBar.Text = "Search by name, email, or orthers ...";
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                DisplayCurrentPage();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                DisplayCurrentPage(); 
             }
         }
 
