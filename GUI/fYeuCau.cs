@@ -623,7 +623,13 @@ namespace GUI
 					string diaChi = txtDiaChi.Text;
 					string soDienThoai = txtSDT.Text;
 
-					bool success = datYeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
+                    if (soDienThoai.Length != 10 || !soDienThoai.All(char.IsDigit))
+                    {
+                        MessageBox.Show("Số điện thoại phải là 10 chữ số.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; 
+                    }
+
+                    bool success = datYeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
 					if (success)
 					{
 						MessageBox.Show("Thêm yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

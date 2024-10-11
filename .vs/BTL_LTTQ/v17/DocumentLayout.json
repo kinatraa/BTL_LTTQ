@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\BTL\\BTL_LTTQ\\",
+  "WorkspaceRootPath": "D:\\Games\\New folder\\BTL_LTTQ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\BTL\\BTL_LTTQ\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\Games\\New folder\\BTL_LTTQ\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|d:\\games\\new folder\\btl_lttq\\dto\\datyeucaudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|solutionrelative:dto\\datyeucaudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\games\\new folder\\btl_lttq\\dal\\datyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\datyeucaudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,15 +30,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "fHoaDon.cs [Design]",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeDocumentMoniker": "GUI\\fHoaDon.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs [Design]",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs [Design]",
               "RelativeToolTip": "GUI\\fHoaDon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T14:35:46.398Z",
@@ -43,13 +55,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "DatYeuCauDAL.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\DatYeuCauDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\DatYeuCauDAL.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\DatYeuCauDAL.cs",
+              "RelativeToolTip": "DAL\\DatYeuCauDAL.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T14:03:12.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatYeuCauDTO.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\DTO\\DatYeuCauDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DatYeuCauDTO.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\DTO\\DatYeuCauDTO.cs",
+              "RelativeToolTip": "DTO\\DatYeuCauDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T14:03:06.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fYeuCau.cs [Design]",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fYeuCau.cs [Design]",
+              "RelativeToolTip": "GUI\\fYeuCau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T13:40:04.408Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "fHoaDon.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeDocumentMoniker": "GUI\\fHoaDon.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fHoaDon.cs",
+              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fHoaDon.cs",
               "RelativeToolTip": "GUI\\fHoaDon.cs",
-              "ViewState": "AgIAANEAAAAAAAAAAAAiwPUAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAG4BAAAAAAAAAAD4v4UBAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T12:41:32.185Z",
               "EditorCaption": ""
