@@ -385,55 +385,33 @@ namespace GUI
             txtDonGiaNhap.Clear();
             txtDonGiaBan.Clear();
             txtSoLuong.Clear();
-            txtThanhTien.Clear();   
-        }
-        bool coPhuTung;
-        private void txtMaPhuTung_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtMaPhuTung.Text != "")
+            txtThanhTien.Clear();
+            foreach (Control ct in panelHDN.Controls)
             {
-                string maPt = txtMaPhuTung.Text;
-                bool kiemtraPt = _phuTungBLL.TimPhuTung(maPt);
-                if (kiemtraPt)
+                if (ct is Label lb)
                 {
-                    MessageBox.Show("Phu tung da co roi");
-                    coPhuTung = true;
-                    PhuTungDTO phuTung = _phuTungBLL.LayPhuTung(maPt);
-
-                    if (phuTung != null)
+                    if (lb.Name.Contains("lbWarning"))
                     {
-                        // Gán giá trị vào các TextBox
-                        txtTenPhuTung.Text = phuTung.TenPhuTung;
-                        // txtSoLuong.Text = phuTung.SoLuong.ToString();
-                        txtDonGiaNhap.Text = phuTung.DonGiaNhap.ToString("N0"); // Định dạng số nếu cần
-                        txtDonGiaBan.Text = phuTung.DonGiaBan.ToString("N0"); // Định dạng số nếu cần
+                        lb.Visible = false;
                     }
-                    else
-                    {
-                        // Nếu không tìm thấy, làm sạch các TextBox
-                        txtTenPhuTung.Text = string.Empty;
-                        txtSoLuong.Text = string.Empty;
-                        txtDonGiaNhap.Text = string.Empty;
-                        txtDonGiaBan.Text = string.Empty;
-                    }
-                }
-                else
-                {
-                    coPhuTung = false;
                 }
             }
+            txtMaPhuTung.Text = "MPT";
         }
+        bool coPhuTung;
+
         decimal thanhTien;
         private void btnThemPhuTung_Click(object sender, EventArgs e)
         {
             // kiem tra xem co chua
 
-            if (txtMaPhuTung.Text == "") { lbWarning2.Visible = true; return; }
-            if (txtTenPhuTung.Text == "") { lbWarning3.Visible = true; return; }
-            if (txtDonGiaNhap.Text == "") { lbWarning4.Visible = true; return; }
-            if (txtSoLuong.Text == "") { lbWarning5.Visible = true; return; }
-            if (txtDonGiaBan.Text == "") { lbWarning6.Visible = true; return; }
-            if (txtNgayNhap.Text == "") { lbWarning7.Visible = true; return; }
+            if (txtMaPhuTung.Text == "") { lbWarningMa.Visible = true; return; }
+            if (txtTenPhuTung.Text == "") { lbWarningTen.Visible = true; return; }
+            if (txtDonGiaNhap.Text == "") { lbWarningGiaNhap.Visible = true; return; }
+            if (txtSoLuong.Text == "") { lbWarningSL.Visible = true; return; }
+            if (txtDonGiaBan.Text == "") { lbWarningGiaBan.Visible = true; return; }
+            if (txtNgayNhap.Text == "") { lbWarningNgay.Visible = true; return; }
+
 
             string mahdn = txtHdn.Text;
             string maPt = txtMaPhuTung.Text;
@@ -441,8 +419,34 @@ namespace GUI
             string dgNhap = txtDonGiaNhap.Text;
             string dgBan = txtDonGiaBan.Text;
             string ngayNhap = txtNgayNhap.Text;
-            decimal donGiaNhap = decimal.Parse(txtDonGiaNhap.Text);
-            int soLuong = int.Parse(txtSoLuong.Text);
+
+            decimal donGiaNhap;
+            decimal donGiaBan;
+
+            if(!decimal.TryParse(dgNhap, out donGiaNhap) || donGiaNhap < 0)
+            {
+                lbWarningGiaNhap1.Visible = true;
+                txtDonGiaNhap.Clear();
+                txtDonGiaNhap.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(dgBan, out donGiaBan) || donGiaBan < 0)
+            {
+                lbWarningGiaBan1.Visible = true;
+                txtDonGiaBan.Clear();
+                txtDonGiaBan.Focus();
+                return;
+            }
+
+            int soLuong;
+            if(!int.TryParse(txtSoLuong.Text, out soLuong) || soLuong < 0)
+            {
+                lbWarningSL1.Visible = true; 
+                txtSoLuong.Clear();
+                txtSoLuong.Focus();
+                return;
+            }
 
             thanhTien += donGiaNhap * soLuong;
             txtThanhTien.Text = thanhTien.ToString();
@@ -462,8 +466,6 @@ namespace GUI
             // HIEN TAI LA THEM
             bool themHdn = _hoaDonNhapBLL.ThemHoaDonNhap(new HoaDonNhapDTO(mahdn, idLogin, DateTime.Parse(ngayNhap), thanhTien));
 
-
-
             if (themHdn)
             {
                 MessageBox.Show("Them duoc HDN");
@@ -480,7 +482,7 @@ namespace GUI
             }
             else
             {
-                bool themPt = _phuTungBLL.ThemPhuTung(new PhuTungDTO(maPt, tenPt, soLuong, decimal.Parse(dgNhap), decimal.Parse(dgBan)));
+                bool themPt = _phuTungBLL.ThemPhuTung(new PhuTungDTO(maPt, tenPt, soLuong, donGiaNhap, donGiaBan));
                 if (themPt)
                 {
                     MessageBox.Show("Them duoc phu tung");
