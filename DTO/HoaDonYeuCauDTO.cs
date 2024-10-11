@@ -12,7 +12,7 @@ namespace DTO
 
         public HoaDonYeuCauDTO(string maSuaChua, string maXe,  string maKhachHang, string tenKhachHang)
         {
-                MaSuaChua = maSuaChua;
+            MaSuaChua = maSuaChua;
             MaXe = maXe;
             MaKhachHang = maKhachHang;
             TenKhachHang = tenKhachHang;
@@ -44,7 +44,6 @@ namespace DTO
         public DateTime NgayIn {  get; set; }
         public string GiaiPhap { get; set; }
         public int SoLuong {  get; set; }
-
         public decimal? TongTien {  get; set; }
         public string MaKhachHang { get;set; }
     }

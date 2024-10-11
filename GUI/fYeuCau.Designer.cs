@@ -54,14 +54,6 @@
             this.lblMaBooking = new System.Windows.Forms.Label();
             this.imgXe = new System.Windows.Forms.PictureBox();
             this.dgvYeuCau = new System.Windows.Forms.DataGridView();
-            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NguyenNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnFilter = new GUI.CustomDesign.CustomButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -103,6 +95,14 @@
             this.txtMaXe = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lbBienSo = new System.Windows.Forms.Label();
+            this.MaBooking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NguyenNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -481,66 +481,6 @@
             this.dgvYeuCau.TabStop = false;
             this.dgvYeuCau.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYeuCau_CellClick);
             this.dgvYeuCau.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvYeuCau_CellPainting);
-            // 
-            // MaBooking
-            // 
-            this.MaBooking.DataPropertyName = "MaSuaChua";
-            this.MaBooking.HeaderText = "Mã Booking";
-            this.MaBooking.Name = "MaBooking";
-            this.MaBooking.ReadOnly = true;
-            // 
-            // TenKH
-            // 
-            this.TenKH.DataPropertyName = "TenKhachHang";
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            // 
-            // MaXe
-            // 
-            this.MaXe.DataPropertyName = "MaXe";
-            this.MaXe.HeaderText = "Mã xe";
-            this.MaXe.Name = "MaXe";
-            this.MaXe.ReadOnly = true;
-            // 
-            // NguyenNhan
-            // 
-            this.NguyenNhan.DataPropertyName = "NguyenNhan";
-            this.NguyenNhan.HeaderText = "Nguyên nhân";
-            this.NguyenNhan.Name = "NguyenNhan";
-            this.NguyenNhan.ReadOnly = true;
-            // 
-            // NgaySua
-            // 
-            this.NgaySua.DataPropertyName = "NgaySua";
-            this.NgaySua.HeaderText = "Ngày sửa";
-            this.NgaySua.Name = "NgaySua";
-            this.NgaySua.ReadOnly = true;
-            // 
-            // MaKhachHang
-            // 
-            this.MaKhachHang.DataPropertyName = "MaKhachHang";
-            this.MaKhachHang.HeaderText = "Mã Khách Hàng";
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.ReadOnly = true;
-            this.MaKhachHang.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.MaKhachHang.Visible = false;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Visible = false;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.DataPropertyName = "SoDienThoai";
-            this.SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            this.SoDienThoai.Visible = false;
             // 
             // panel6
             // 
@@ -1026,6 +966,66 @@
             this.lbBienSo.Size = new System.Drawing.Size(53, 17);
             this.lbBienSo.TabIndex = 5;
             this.lbBienSo.Text = "Biển Số";
+            // 
+            // MaBooking
+            // 
+            this.MaBooking.DataPropertyName = "MaSuaChua";
+            this.MaBooking.HeaderText = "Mã sửa chữa";
+            this.MaBooking.Name = "MaBooking";
+            this.MaBooking.ReadOnly = true;
+            // 
+            // TenKH
+            // 
+            this.TenKH.DataPropertyName = "TenKhachHang";
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            // 
+            // MaXe
+            // 
+            this.MaXe.DataPropertyName = "MaXe";
+            this.MaXe.HeaderText = "Mã xe";
+            this.MaXe.Name = "MaXe";
+            this.MaXe.ReadOnly = true;
+            // 
+            // NguyenNhan
+            // 
+            this.NguyenNhan.DataPropertyName = "NguyenNhan";
+            this.NguyenNhan.HeaderText = "Nguyên nhân";
+            this.NguyenNhan.Name = "NguyenNhan";
+            this.NguyenNhan.ReadOnly = true;
+            // 
+            // NgaySua
+            // 
+            this.NgaySua.DataPropertyName = "NgaySua";
+            this.NgaySua.HeaderText = "Ngày sửa";
+            this.NgaySua.Name = "NgaySua";
+            this.NgaySua.ReadOnly = true;
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.DataPropertyName = "MaKhachHang";
+            this.MaKhachHang.HeaderText = "Mã Khách Hàng";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
+            this.MaKhachHang.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.MaKhachHang.Visible = false;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Visible = false;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.DataPropertyName = "SoDienThoai";
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            this.SoDienThoai.Visible = false;
             // 
             // fYeuCau
             // 
