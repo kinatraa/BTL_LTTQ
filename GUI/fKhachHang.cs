@@ -1,6 +1,4 @@
-﻿using BLL;
-using DAL;
-using DTO;
+﻿using DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +16,8 @@ namespace GUI
 {
     public partial class fKhachHang : Form
     {
-        string idLogin;
-        private KhachHangBLL khachHangBLL;
+
+        private string tenDangNhap;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
         public int CornerRadius { get; set; } = 20;
@@ -27,13 +25,15 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private bool addNewClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
-        public fKhachHang(string idLogin)
+        private int check = 0;
+        private string mkupdate = "";
+        private KhachHangDAL khdal = new KhachHangDAL();
+        public fKhachHang(string tenDangNhap)
         {
             InitializeComponent();
 
             panelAddNew.Visible = false;
             dgvKhachHang.Location = posA;
-            khachHangBLL = new KhachHangBLL();
 
             SetupAddPanel();
             dgvKhachHang.Height += (227 - 80);
@@ -41,7 +41,7 @@ namespace GUI
             SetupDataGridView();
 
             cmbOrder.SelectedIndex = 0;
-            this.idLogin = idLogin;
+            this.tenDangNhap = tenDangNhap;
         }
 
         private void SetupAddPanel()
@@ -65,6 +65,7 @@ namespace GUI
             panelAddNew.Controls.Add(txtNguyenNhan);
             panelAddNew.Controls.Add(txtNgaySua);
             panelAddNew.Controls.Add(btnAdd);*/
+
         }
 
         private void SetupDataGridView()
@@ -98,20 +99,6 @@ namespace GUI
             dgvKhachHang.RowTemplate.Height = 60;
             dgvKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvKhachHang.ColumnHeadersHeight = 60;
-
-            ListKhachHang();
-
-        }
-
-        private void ListKhachHang()
-        {
-            dgvKhachHang.Rows.Clear();
-
-            List<KhachHangDTO> dsKhachHang = khachHangBLL.GetCustomerList();
-            foreach (var khachHang in dsKhachHang)
-            {
-                dgvKhachHang.Rows.Add(khachHang.MaKhachHang, khachHang.TenKhachHang,khachHang.SoDienThoai,khachHang.DiaChi);
-            }
         }
 
         private void dgvKhachHang_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -140,7 +127,7 @@ namespace GUI
             }
             else
             {
-                
+
                 await AnimateDataGridView(posA, dgvKhachHang.Height + (227 - 80));
                 panelAddNew.Visible = false;
                 addNewClicked = false;
@@ -166,14 +153,16 @@ namespace GUI
             dgvKhachHang.Location = targetPosition;
             dgvKhachHang.Height = targetHeight;
 
-			btnAddNew.Enabled = true;
-		}
+            btnAddNew.Enabled = true;
+        }
 
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             btnAddNew.Enabled = false;
             ToggleAddNew();
+            dgvKhachHang.Rows.Clear();
+            Load_data();
         }
 
         private void dtpNgaySua_DropDown(object sender, EventArgs e)
@@ -188,16 +177,46 @@ namespace GUI
                 var cellRectangle = dgvKhachHang.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 cmsKhachHang.Show(dgvKhachHang, cellRectangle.Left, cellRectangle.Bottom - 20);
             }
+            if (e.RowIndex >= 0)
+            {
+                // Lấy dòng được chọn
+                DataGridViewRow selectedRow = dgvKhachHang.Rows[e.RowIndex];
+
+                // Lấy dữ liệu từ các cột trong dòng
+                if (check == 1)
+                {
+                    txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
+                    txtDiaChi.Text = selectedRow.Cells["Diachi"].Value.ToString();
+                    txtSDT.Text = selectedRow.Cells["SDT"].Value.ToString();
+                    mkupdate = selectedRow.Cells["MaKH"].Value.ToString();
+                    check = 0;
+                }
+                btnAdd.Tag = selectedRow;
+            }
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Update selected!");
+            if (dgvKhachHang.CurrentRow != null)
+            {
+                txtTenKH.Text = dgvKhachHang.CurrentRow.Cells["TenKH"].Value.ToString();
+                txtDiaChi.Text = dgvKhachHang.CurrentRow.Cells["Diachi"].Value.ToString();
+                txtSDT.Text = dgvKhachHang.CurrentRow.Cells["SDT"].Value.ToString();
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Delete selected!");
+            string mkh = dgvKhachHang.CurrentRow.Cells["MaKH"].Value.ToString();
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                khdal.XoaKhachHang(mkh);
+
+                MessageBox.Show("bạn đã xóa thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dgvKhachHang.Rows.Clear();
+            Load_data();
         }
 
 
@@ -262,7 +281,6 @@ namespace GUI
         {
             DrawRoundedPanel(panel9, 15, BorderColor, BorderThickness, e);
         }
-
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
@@ -280,7 +298,7 @@ namespace GUI
 
         private void txtSearchBar_Enter(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "Search by name, email, or orthers ...")
+            if (txtSearchBar.Text == "Search by name ...")
             {
                 txtSearchBar.Text = string.Empty;
             }
@@ -294,22 +312,167 @@ namespace GUI
             }
         }
 
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchBar_Click(object sender, EventArgs e)
+        {
+            txtSearchBar.Text = "";
+        }
+
+        private void txtSearchBar_Leave_1(object sender, EventArgs e)
+        {
+            txtSearchBar.Text = "Search by...";
+        }
+
+        private void cmsKhachHang_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            string tenKhachHang = txtTenKH.Text;
-            string diaChi = txtDiaChi.Text;
-            string soDienThoai = txtSDT.Text;
-            //bool success = khachHangBLL.AddCustomer(tenKhachHang, diaChi, soDienThoai);
+
+            int check = 0;
+            string tenkh = txtTenKH.Text;
+            if (tenkh.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            string diachi = txtDiaChi.Text;
+            if (diachi.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            string sdt = txtSDT.Text;
+            if (sdt.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            bool ktsdt = sdt.Any(char.IsDigit);
+            if (!ktsdt)
+            {
+                MessageBox.Show("Số điện thoại chỉ gồm chữ số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            if (check == 0)
+            {
+                string mkh = khdal.GetNewMaKH();
+                khdal.ThemKhachHang(mkh, tenkh, diachi, sdt);
+                MessageBox.Show("Bạn đã thêm khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvKhachHang.Rows.Clear();
+                Load_data();
+            }
+
+        }
+
+        private void fKhachHang_Load(object sender, EventArgs e)
+        {
+            dgvKhachHang.ContextMenuStrip = cmsKhachHang;
+            try
+            {
+
+                foreach (DataRow row in khdal.getAllKhachHang().Rows)
+                {
+                    dgvKhachHang.Rows.Add(row.ItemArray);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Btn_capnhat_Click(object sender, EventArgs e)
+        {
+
+            string mkh = dgvKhachHang.CurrentRow.Cells["MaKH"].Value.ToString();
+            int check = 0;
+            string tenkh = txtTenKH.Text;
+            if (tenkh.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            string diachi = txtDiaChi.Text;
+            if (diachi.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            string sdt = txtSDT.Text;
+            if (sdt.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            bool ktsdt = sdt.Any(char.IsDigit);
+            if (!ktsdt)
+            {
+                MessageBox.Show("Số điện thoại chỉ gồm chữ số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                check = 1;
+            }
+            if (check == 0)
+            {
+                khdal.UpdateKhachHang(mkh, tenkh, diachi, sdt);
+                MessageBox.Show("Bạn đã cập nhật khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvKhachHang.Rows.Clear();
+            }
+
+            Load_data();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //format
-            txtTenKH.Text = string.Empty;
-            txtDiaChi.Text = string.Empty;
-            txtSDT.Text = string.Empty;
-            //
+
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            string name = txtSearchBar.Text;
+            DataTable data = new DataTable();
+            data = khdal.TimKiem(name);
+
+            try
+            {
+                dgvKhachHang.Rows.Clear();
+                foreach (DataRow row in data.Rows)
+                {
+                    dgvKhachHang.Rows.Add(row.ItemArray);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void Load_data()
+        {
+            try
+            {
+
+                foreach (DataRow row in khdal.getAllKhachHang().Rows)
+                {
+                    dgvKhachHang.Rows.Add(row.ItemArray);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

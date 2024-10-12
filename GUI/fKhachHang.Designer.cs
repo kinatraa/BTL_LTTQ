@@ -54,10 +54,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -79,6 +75,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.customButton1 = new GUI.CustomDesign.CustomButton();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -367,10 +368,10 @@
             this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenKH,
             this.MaKH,
-            this.SDT,
-            this.DiaChi});
+            this.TenKH,
+            this.DiaChi,
+            this.SDT});
             this.dgvKhachHang.GridColor = System.Drawing.SystemColors.Control;
             this.dgvKhachHang.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dgvKhachHang.Location = new System.Drawing.Point(19, 227);
@@ -394,30 +395,6 @@
             this.dgvKhachHang.TabStop = false;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             this.dgvKhachHang.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvKhachHang_CellPainting);
-            // 
-            // TenKH
-            // 
-            this.TenKH.HeaderText = "Tên khách hàng";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.ReadOnly = true;
-            // 
-            // MaKH
-            // 
-            this.MaKH.HeaderText = "Mã KH";
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
             // 
             // txtSDT
             // 
@@ -529,6 +506,7 @@
             // 
             // panelAddNew
             // 
+            this.panelAddNew.Controls.Add(this.customButton1);
             this.panelAddNew.Controls.Add(this.panel9);
             this.panelAddNew.Controls.Add(this.panel14);
             this.panelAddNew.Controls.Add(this.label2);
@@ -632,7 +610,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(623, 28);
+            this.label3.Location = new System.Drawing.Point(538, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 17);
             this.label3.TabIndex = 5;
@@ -652,11 +630,53 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.Control;
             this.panel8.Controls.Add(this.txtSDT);
-            this.panel8.Location = new System.Drawing.Point(660, 17);
+            this.panel8.Location = new System.Drawing.Point(587, 17);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(411, 40);
             this.panel8.TabIndex = 6;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.customButton1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.customButton1.BorderColor = System.Drawing.Color.Empty;
+            this.customButton1.BorderThickness = 1.5F;
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customButton1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.customButton1.Location = new System.Drawing.Point(1005, 20);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(70, 34);
+            this.customButton1.TabIndex = 11;
+            this.customButton1.Text = "Cập Nhật";
+            this.customButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.btnAdd_Click_1);
+            // 
+            // MaKH
+            // 
+            this.MaKH.HeaderText = "Mã KH";
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            // 
+            // TenKH
+            // 
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
             // 
             // fKhachHang
             // 
@@ -671,6 +691,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fKhachHang";
             this.Text = "fKhachHang";
+            this.Load += new System.EventHandler(this.fKhachHang_Load);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -745,9 +766,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
-		private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
-		private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-		private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-	}
+        private CustomDesign.CustomButton customButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+    }
 }
