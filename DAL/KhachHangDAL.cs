@@ -9,7 +9,7 @@ namespace DAL
 {
     public class KhachHangDAL
     {
-        private static string stringConection = @"Data Source=LAPTOP-3AQ7A1QF\SQLEXPRESS;Initial Catalog=QLSuaXe;Integrated Security=True;Encrypt=False";
+        private static string stringConection = @"Data Source=MHung\SQLEXPRESS;Initial Catalog=QLSuaXe;Integrated Security=True;Encrypt=False";
         SqlDataAdapter _adapter;
 
         public bool AddCustomer(KhachHangDTO khachHang)

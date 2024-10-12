@@ -27,7 +27,7 @@ namespace GUI
 
         int amountPt = 0;
         int amountHdYeuCau;
-        int[] soLuong = new int[1000];
+
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
 
@@ -84,6 +84,8 @@ namespace GUI
         }
 
         int backIndex;
+        Dictionary<string, int> soLuongDict = new Dictionary<string, int>();
+
 
         private void dgvCMSHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -93,55 +95,75 @@ namespace GUI
                 string maPhuTung = selectedRow.Cells["MaPhuTung"].Value?.ToString();
                 string tenPhuTung = selectedRow.Cells["PhuTung"].Value?.ToString();
                 decimal giaBan = decimal.Parse(selectedRow.Cells["Gia"].Value?.ToString());
-
-                soLuong[e.RowIndex]++;
-                _phuTungBLL.SuaPhuTung(maPhuTung, -1);
-                HienThiDSPhuTung();
-
-                decimal tongTien = giaBan * soLuong[e.RowIndex];
-
-                bool itemExists = false;
-
-                foreach (DataGridViewRow item in dgvKqPhuTung.Rows)
+                int soLuong1 = int.Parse(selectedRow.Cells["SoLuong"].Value?.ToString());
+                if (!soLuongDict.ContainsKey(maPhuTung))
                 {
-                    if (item.Cells["Ma"].Value?.ToString() == maPhuTung)
+                    soLuongDict[maPhuTung] = 0;
+                }
+
+                if (soLuong1 > 0)
+                {
+                    soLuongDict[maPhuTung]++;
+                    _phuTungBLL.SuaPhuTung(maPhuTung, -1);
+                    HienThiDSPhuTung();
+
+                    decimal tongTien = giaBan * soLuongDict[maPhuTung];
+
+                    bool itemExists = false;
+                    foreach (DataGridViewRow item in dgvKqPhuTung.Rows)
                     {
-                        item.Cells["So"].Value = soLuong[e.RowIndex].ToString();
-                        item.Cells["ThanhTien"].Value = tongTien.ToString();
-                        itemExists = true;
-                        break;
+                        if (item.Cells["Ma"].Value?.ToString() == maPhuTung)
+                        {
+                            item.Cells["So"].Value = soLuongDict[maPhuTung].ToString();
+                            item.Cells["ThanhTien"].Value = tongTien.ToString();
+                            itemExists = true;
+                            break;
+                        }
                     }
+
+                    if (!itemExists)
+                    {
+                        int newRowIndex = dgvKqPhuTung.Rows.Add();
+                        DataGridViewRow newRow = dgvKqPhuTung.Rows[newRowIndex];
+                        newRow.Cells["Ma"].Value = maPhuTung;
+                        newRow.Cells["Ten"].Value = tenPhuTung;
+                        newRow.Cells["So"].Value = soLuongDict[maPhuTung].ToString();
+                        newRow.Cells["ThanhTien"].Value = tongTien.ToString();
+                    }
+
+                    backIndex = e.RowIndex;
+                    if (backIndex > 0) backIndex--;
+                    dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex;
                 }
 
-                if (!itemExists)
-                {
-                    int newRowIndex = dgvKqPhuTung.Rows.Add();
-                    DataGridViewRow newRow = dgvKqPhuTung.Rows[newRowIndex];
-                    newRow.Cells["Ma"].Value = maPhuTung;
-                    newRow.Cells["Ten"].Value = tenPhuTung;
-                    newRow.Cells["So"].Value = soLuong[e.RowIndex].ToString();
-                    newRow.Cells["ThanhTien"].Value = tongTien.ToString();
-                }
-                backIndex = e.RowIndex;
-                if (backIndex > 0) backIndex--;
-                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex;
             }
         }
-
-        private void dgvKqPhuTung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvKqPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == dgvKqPhuTung.Columns["Actions"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dgvKqPhuTung.Rows[e.RowIndex];
                 string maPhuTung = selectedRow.Cells["Ma"].Value?.ToString();
+                int soLuong1 = int.Parse(selectedRow.Cells["So"].Value?.ToString());
+
+                if (soLuongDict.ContainsKey(maPhuTung))
+                {
+                    soLuongDict[maPhuTung] -= soLuong1;
+                    if (soLuongDict[maPhuTung] <= 0)
+                    {
+                        soLuongDict.Remove(maPhuTung);
+                    }
+                }
+
                 dgvKqPhuTung.Rows.RemoveAt(e.RowIndex);
-                _phuTungBLL.SuaPhuTung(maPhuTung, 1);
+                _phuTungBLL.SuaPhuTung(maPhuTung, soLuong1);
                 HienThiDSPhuTung();
 
-                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex ;
+                dgvCMSHoaDon.FirstDisplayedScrollingRowIndex = backIndex;
             }
+
         }
+
         private void SetupDataGridView()
         {
 
@@ -239,7 +261,7 @@ namespace GUI
 
             //dgvKqPhuTung.Columns["PhuTung"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             //dgvKqPhuTung.Columns["Gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //dgvKqPhuTung.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvKqPhuTung.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvKqPhuTung.RowTemplate.Height = 40;
             dgvKqPhuTung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -501,23 +523,36 @@ namespace GUI
 
         private void dgvKqPhuTung_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) 
             {
-                e.Handled = true;
-                e.PaintBackground(e.ClipBounds, true);
+                Font consistentFont = new Font("Segoe UI", 10, FontStyle.Bold);
+                e.CellStyle.Font = consistentFont;
 
-                string cellValue = e.Value?.ToString() ?? string.Empty;
-                if (cellValue != string.Empty)
+                if (e.ColumnIndex == dgvKqPhuTung.Columns["Actions"].Index)
                 {
-                    Rectangle rect = e.CellBounds;
-                    e.Graphics.DrawString(cellValue, font, Brushes.Gray, rect.X, rect.Y + 15);
+                    e.Handled = true;
+                    e.PaintBackground(e.ClipBounds, true);
+                    string cellValue = e.Value?.ToString() ?? string.Empty;
+
+                    if (cellValue != string.Empty)
+                    {
+                        Rectangle rect = e.CellBounds;
+                        using (Brush brush = new SolidBrush(Color.Red)) 
+                        {
+                            e.Graphics.DrawString(cellValue, consistentFont, brush, rect.X + 5, rect.Y + 5);
+                        }
+                    }
+                }
+                else
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 }
             }
         }
 
-        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
+
+
+
     }
 }

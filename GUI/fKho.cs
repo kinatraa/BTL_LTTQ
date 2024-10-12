@@ -152,11 +152,11 @@ namespace GUI
             dgvPhuTung.Columns.Add(actionsColumn);
 
 
-            dgvPhuTung.Columns["MaPhuTung_PhuTung"].FillWeight = 17;
+            dgvPhuTung.Columns["MaPhuTung_PhuTung"].FillWeight = 15;
             dgvPhuTung.Columns["TenPhuTung"].FillWeight = 23;
-            dgvPhuTung.Columns["DonGiaNhap_PhuTung"].FillWeight = 17;
-            dgvPhuTung.Columns["DonGiaBan"].FillWeight = 17;
             dgvPhuTung.Columns["SoLuong"].FillWeight = 15;
+            dgvPhuTung.Columns["DonGiaNhap_PhuTung"].FillWeight = 15;
+            dgvPhuTung.Columns["DonGiaBan"].FillWeight = 15;
             dgvPhuTung.Columns["Actions"].FillWeight = 5;
 
             dgvPhuTung.RowTemplate.Height = 60;
@@ -219,18 +219,22 @@ namespace GUI
             }
         }
 
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvHDN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvPhuTung.Columns["Actions"].Index && e.RowIndex >= 0)
-            {
-                var cellRectangle = dgvPhuTung.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                cmsKho.Show(dgvPhuTung, cellRectangle.Left, cellRectangle.Bottom - 20);
-            }
-            else if (e.ColumnIndex == dgvHDN.Columns["Actions"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dgvHDN.Columns["Actions"].Index && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 var cellRectangle = dgvHDN.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 cmsKho.Show(dgvHDN, cellRectangle.Left, cellRectangle.Bottom - 20);
             }
+        }
+        private void dgvPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvPhuTung.Columns["Actions"].Index && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var cellRectangle = dgvPhuTung.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                cmsKho.Show(dgvPhuTung, cellRectangle.Left, cellRectangle.Bottom - 20);
+            }
+         
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -283,6 +287,7 @@ namespace GUI
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
+                panelDS.Enabled = true;
             }
 
             if (panelHDN.Visible == true)

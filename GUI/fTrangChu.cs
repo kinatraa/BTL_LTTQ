@@ -9,12 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GUI
 {
 	public partial class fTrangChu : Form
 	{
+		DatYeuCauBLL _datYeuCauBLL;
+
 		string idLogin;
 		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
 		private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -24,15 +28,21 @@ namespace GUI
         private Image[] avatars = new Image[5];
         public fTrangChu(string idLogin)
 		{
-			InitializeComponent();
+            _datYeuCauBLL = new DatYeuCauBLL();
+            InitializeComponent();
 
             ImportAvatar();
 
             SetupDataGridView();
 
 			this.idLogin = idLogin;
-		}
-
+			
+           
+        }
+        private void fTrangChu_Load(object sender, EventArgs e)
+        {
+            HienThiDSYeuCau();
+        }
         private void ImportAvatar()
         {
             avatars[0] = Properties.Resources.Avatar;
@@ -47,7 +57,21 @@ namespace GUI
             return random.Next(min, max);
         }
 
+		private void SetUpData(List<DatYeuCauDTO> listYeuCau) {
+            dgvTrangChu.Rows.Clear();
+            int stt = 1;
+            foreach (var x in listYeuCau)
+            {
+                dgvTrangChu.Rows.Add(stt++, x.TenKhachHang, x.NguyenNhan, x.NgaySua);
+            }
+        }
+		private void HienThiDSYeuCau()
+		{
+			List<DatYeuCauDTO> listYeuCau = _datYeuCauBLL.GetListTop10();
+			SetUpData(listYeuCau);	
 
+
+        }
         private void SetupDataGridView()
 		{
 
@@ -65,11 +89,11 @@ namespace GUI
 			dgvTrangChu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 			dgvTrangChu.Columns["No"].FillWeight = 7;
-			dgvTrangChu.Columns["UserName"].FillWeight = 30;
-			dgvTrangChu.Columns["OrderDate"].FillWeight = 20;
-			dgvTrangChu.Columns["Status"].FillWeight = 15;
-			dgvTrangChu.Columns["Price"].FillWeight = 12;
-			dgvTrangChu.Columns["Customers"].FillWeight = 16;
+			dgvTrangChu.Columns["TenKhachHang"].FillWeight = 25;
+            dgvTrangChu.Columns["NguyenNhan"].FillWeight = 30;
+            dgvTrangChu.Columns["NgaySua"].FillWeight = 20;
+			
+
 
 			// Tùy chỉnh
 			/*dgvTrangChu.Dock = DockStyle.Fill;*/
@@ -81,16 +105,7 @@ namespace GUI
 			dgvTrangChu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			dgvTrangChu.ColumnHeadersHeight = 60;
 
-			// Thêm dữ liệu mẫu
-			dgvTrangChu.Rows.Add("01", "Shirt Creme\n#A4064B", DateTime.Now, "Received", "£130", "Jenny Wilson");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
-			dgvTrangChu.Rows.Add("02", "Shirt Creme\n#A4064B", DateTime.Now, "Shipping", "£130", "Devon Lane");
+
 
 			/*this.Controls.Add(dgvTrangChu);*/
 		}
@@ -148,84 +163,96 @@ namespace GUI
 		}
 
 
-		private void dgvTrangChu_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-		{
-			
-		}
 
 		private void dgvTrangChu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
 		{
-			if (e.RowIndex >= 0)
-			{
-				e.Handled = true;
-				e.PaintBackground(e.ClipBounds, true);
+            if (e.RowIndex >= 0)
+            {
+                e.Handled = true;
+                e.PaintBackground(e.ClipBounds, true);
 
-				if (e.ColumnIndex == dgvTrangChu.Columns["No"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["No"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+                string cellValue = e.Value?.ToString() ?? string.Empty;
+                if (cellValue != string.Empty)
+                {
+                    Rectangle rect = e.CellBounds;
+                    e.Graphics.DrawString(cellValue, font, Brushes.Black, rect.X, rect.Y + 15);
+                }
+            }
+            //if (e.RowIndex >= 0)
+            //{
+            //	e.Handled = true;
+            //	e.PaintBackground(e.ClipBounds, true);
 
-					string no = (string)dgvTrangChu.Rows[e.RowIndex].Cells["No"].Value;
+            //	if (e.ColumnIndex == dgvTrangChu.Columns["No"].Index &&
+            //		dgvTrangChu.Rows[e.RowIndex].Cells["No"].Value != null)
+            //	{
+            //		Rectangle rect = e.CellBounds;
 
-					e.Graphics.DrawString(no, font, Brushes.Gray, rect.X + 5, rect.Y + 5);
-				}
-				else if (e.ColumnIndex == dgvTrangChu.Columns["UserName"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["UserName"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+            //		string no = (string)dgvTrangChu.Rows[e.RowIndex].Cells["No"].Value;
 
-					Image img = avatars[RandId(0, 5)];
-					Rectangle imgRect = new Rectangle(rect.X + 5, rect.Y + 5, 40, 40);
-					e.Graphics.DrawImage(img, imgRect);
+            //		e.Graphics.DrawString(no, font, Brushes.Gray, rect.X + 5, rect.Y + 5);
+            //	}
+            //	else if (e.ColumnIndex == dgvTrangChu.Columns["TenKhachHang"].Index &&
+            //		dgvTrangChu.Rows[e.RowIndex].Cells["TenKhachHang"].Value != null)
+            //	{
+            //		Rectangle rect = e.CellBounds;
 
-					string[] parts = ((string)dgvTrangChu.Rows[e.RowIndex].Cells["UserName"].Value).Split('\n');
-					string userName = parts[0];
-					string userCode = parts[1];
+            //		Image img = avatars[RandId(0, 5)];
+            //		Rectangle imgRect = new Rectangle(rect.X + 5, rect.Y + 5, 40, 40);
+            //		e.Graphics.DrawImage(img, imgRect);
+
+            //		string[] parts = ((string)dgvTrangChu.Rows[e.RowIndex].Cells["TenKhachHang"].Value).Split('\n');
+            //		string userName = parts[0];
+            //		//string userCode = parts[1];
 
 
-					e.Graphics.DrawString(userName, font, Brushes.Black, rect.X + 50, rect.Y + 5);
-					e.Graphics.DrawString(userCode, fontSub, Brushes.Gray, rect.X + 50, rect.Y + 25);
-				}
-				else if (e.ColumnIndex == dgvTrangChu.Columns["OrderDate"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["OrderDate"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+            //		e.Graphics.DrawString(userName, font, Brushes.Black, rect.X + 50, rect.Y + 5);
+            //		//e.Graphics.DrawString(userCode, fontSub, Brushes.Gray, rect.X + 50, rect.Y + 25);
+            //	}
+            //	else if (e.ColumnIndex == dgvTrangChu.Columns["NgaySua"].Index &&
+            //		dgvTrangChu.Rows[e.RowIndex].Cells["NgaySua"].Value != null)
 
-					DateTime dateValue = (DateTime)dgvTrangChu.Rows[e.RowIndex].Cells["OrderDate"].Value;
-					string datePart = dateValue.ToString("dd/MM/yyyy");
-					string timePart = dateValue.ToString("HH:mm:ss");
+            //             {
+            //		Rectangle rect = e.CellBounds;
 
-					e.Graphics.DrawString(datePart, font, Brushes.Black, rect.X, rect.Y + 5);
-					e.Graphics.DrawString(timePart, fontSub, Brushes.Gray, rect.X, rect.Y + 25);
-				}
-				else if (e.ColumnIndex == dgvTrangChu.Columns["Status"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["Status"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+            //		DateTime dateValue = (DateTime)dgvTrangChu.Rows[e.RowIndex].Cells["NgaySua"].Value;
+            //		string datePart = dateValue.ToString("dd/MM/yyyy");
+            //		string timePart = dateValue.ToString("HH:mm:ss");
 
-					string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["Status"].Value;
+            //		e.Graphics.DrawString(datePart, font, Brushes.Black, rect.X, rect.Y + 5);
+            //		e.Graphics.DrawString(timePart, fontSub, Brushes.Gray, rect.X, rect.Y + 25);
+            //	}
+            //	else if (e.ColumnIndex == dgvTrangChu.Columns["NguyenNhan"].Index &&
+            //		dgvTrangChu.Rows[e.RowIndex].Cells["NguyenNhan"].Value != null)
+            //	{
+            //		Rectangle rect = e.CellBounds;
 
-					e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
-				}
-				else if (e.ColumnIndex == dgvTrangChu.Columns["Price"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["Price"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+            //		string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["NguyenNhan"].Value;
 
-					string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["Price"].Value;
+            //		e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
+            //	}
+            //	//else if (e.ColumnIndex == dgvTrangChu.Columns["Price"].Index &&
+            //	//	dgvTrangChu.Rows[e.RowIndex].Cells["Price"].Value != null)
+            //	//{
+            //	//	Rectangle rect = e.CellBounds;
 
-					e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
-				}
-				else if (e.ColumnIndex == dgvTrangChu.Columns["Customers"].Index &&
-					dgvTrangChu.Rows[e.RowIndex].Cells["Customers"].Value != null)
-				{
-					Rectangle rect = e.CellBounds;
+            //	//	string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["Price"].Value;
 
-					string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["Customers"].Value;
+            //	//	e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
+            //	//}
+            //	//else if (e.ColumnIndex == dgvTrangChu.Columns["Customers"].Index &&
+            //	//	dgvTrangChu.Rows[e.RowIndex].Cells["Customers"].Value != null)
+            //	//{
+            //	//	Rectangle rect = e.CellBounds;
 
-					e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
-				}
-			}
+            //	//	string status = (string)dgvTrangChu.Rows[e.RowIndex].Cells["Customers"].Value;
+
+            //	//	e.Graphics.DrawString(status, font, Brushes.Black, rect.X, rect.Y + 5);
+            //	//}
+
+        
 		}
-	}
+
+
+    }
 }

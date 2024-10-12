@@ -37,7 +37,29 @@ namespace DAL
 
             return listYeuCau;
         }
+        public List<DatYeuCauDTO> GetTop10YeuCau()
+        {
+            string query = "select top 10 TenKhachHang, NguyenNhan, NgaySua " +
+    "from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang " + // thêm khoảng trắng ở đây
+    "order by NgaySua desc";
 
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            List<DatYeuCauDTO> listYeuCau = new List<DatYeuCauDTO>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                DatYeuCauDTO yeuCauDTO = new DatYeuCauDTO(
+                    row["TenKhachHang"].ToString(),
+                    row["NguyenNhan"].ToString(),
+                    DateTime.Parse(row["NgaySua"].ToString())
+                );
+
+                listYeuCau.Add(yeuCauDTO);
+            }
+
+            return listYeuCau;
+        }
         public bool AddYeuCau(string TenKhachHang, string BienSo, string TenNguyenNhan, DateTime NgaySua, string DiaChi, string SoDienThoai)
         {
             string query = "EXEC addThings @tenkhachhang , @bienso , @tennguyennhan , @ngaysua , @diachi , @sodienthoai ";

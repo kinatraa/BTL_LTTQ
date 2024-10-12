@@ -8,6 +8,12 @@ namespace DTO
 {
     public class DatYeuCauDTO
     {
+        public DatYeuCauDTO(string tenKhachHang, string nguyenNhan, DateTime ngaySua)
+        {
+            TenKhachHang = tenKhachHang;
+            NguyenNhan = nguyenNhan;
+            NgaySua = ngaySua;
+        }
 
         public DatYeuCauDTO(string MaSuaChua,string TenKhachHang,string MaXe,string NguyenNhan,DateTime NgaySua,string MaKhachHang,string DiaChi,string SoDienThoai) {
             this.MaSuaChua = MaSuaChua;
