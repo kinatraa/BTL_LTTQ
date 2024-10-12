@@ -1,30 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Games\\New folder\\BTL_LTTQ\\",
+  "WorkspaceRootPath": "D:\\Code\\BTL_LTTQ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fkhachhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkhachhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\games\\new folder\\btl_lttq\\dal\\khachhangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\khachhangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|d:\\games\\new folder\\btl_lttq\\bll\\khachhangbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|solutionrelative:bll\\khachhangbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\games\\new folder\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,78 +42,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fKhachHang.Designer.cs",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\fKhachHang.Designer.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.Designer.cs",
-              "RelativeToolTip": "GUI\\fKhachHang.Designer.cs",
-              "ViewState": "AgIAAH4CAAAAAAAAAAAcwKgCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T10:03:27.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fKhachHang.cs",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.cs",
-              "RelativeDocumentMoniker": "GUI\\fKhachHang.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.cs",
-              "RelativeToolTip": "GUI\\fKhachHang.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAAAIwMAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T09:42:10.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "fKhachHang.cs [Design]",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.cs",
-              "RelativeDocumentMoniker": "GUI\\fKhachHang.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fKhachHang.cs [Design]",
-              "RelativeToolTip": "GUI\\fKhachHang.cs [Design]",
+              "Title": "fYeuCau.cs",
+              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
+              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeToolTip": "GUI\\fYeuCau.cs",
+              "ViewState": "AQIAAHsBAAAAAAAAAAAswIEBAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T09:42:08.673Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "KhachHangBLL.cs",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\BLL\\KhachHangBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\KhachHangBLL.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\BLL\\KhachHangBLL.cs",
-              "RelativeToolTip": "BLL\\KhachHangBLL.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T09:41:46.721Z",
+              "WhenOpened": "2024-10-12T14:28:11.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "KhachHangDAL.cs",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\KhachHangDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\KhachHangDAL.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\DAL\\KhachHangDAL.cs",
-              "RelativeToolTip": "DAL\\KhachHangDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAACXAAAAAAAAAA==",
+              "Title": "fYeuCau.cs [Design]",
+              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
+              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
+              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs [Design]",
+              "RelativeToolTip": "GUI\\fYeuCau.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T09:41:37.255Z",
+              "WhenOpened": "2024-10-12T14:20:27.128Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "fNhanVien.Designer.cs",
+              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\fNhanVien.Designer.cs",
+              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.Designer.cs",
+              "RelativeToolTip": "GUI\\fNhanVien.Designer.cs",
+              "ViewState": "AQIAANQDAAAAAAAAAIAwwMcEAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T13:58:35.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "fYeuCau.cs [Design]",
-              "DocumentMoniker": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fYeuCau.cs",
-              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
-              "ToolTip": "D:\\Games\\New folder\\BTL_LTTQ\\GUI\\fYeuCau.cs [Design]",
-              "RelativeToolTip": "GUI\\fYeuCau.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "fNhanVien.cs",
+              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
+              "RelativeDocumentMoniker": "GUI\\fNhanVien.cs",
+              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
+              "RelativeToolTip": "GUI\\fNhanVien.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACYAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T22:54:54.382Z",
+              "WhenOpened": "2024-10-12T12:52:50.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
+              "RelativeDocumentMoniker": "GUI\\fNhanVien.cs",
+              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs [Design]",
+              "RelativeToolTip": "GUI\\fNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:49:17.803Z",
               "EditorCaption": " [Design]"
             }
           ]

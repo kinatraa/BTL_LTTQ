@@ -103,6 +103,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_left_small {
+            get {
+                object obj = ResourceManager.GetObject("arrow_left_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Avatar {
             get {
                 object obj = ResourceManager.GetObject("Avatar", resourceCulture);
@@ -186,6 +196,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap Bars {
             get {
                 object obj = ResourceManager.GetObject("Bars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bg {
+            get {
+                object obj = ResourceManager.GetObject("Bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -736,6 +756,36 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap tool2 {
             get {
                 object obj = ResourceManager.GetObject("tool2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trophy_star {
+            get {
+                object obj = ResourceManager.GetObject("trophy_star", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trophy_star__1_ {
+            get {
+                object obj = ResourceManager.GetObject("trophy_star__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trophy_star__2_ {
+            get {
+                object obj = ResourceManager.GetObject("trophy_star__2_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

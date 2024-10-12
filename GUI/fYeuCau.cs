@@ -57,7 +57,7 @@ namespace GUI
 
 		private void SetupAddPanel()
 		{
-			/*panelAddNew.Controls.Add(label2);
+            /*panelAddNew.Controls.Add(label2);
             panelAddNew.Controls.Add(label3);
             panelAddNew.Controls.Add(label4);
             panelAddNew.Controls.Add(label5);
@@ -76,11 +76,11 @@ namespace GUI
             panelAddNew.Controls.Add(txtNguyenNhan);
             panelAddNew.Controls.Add(txtNgaySua);
             panelAddNew.Controls.Add(btnAdd);*/
-			dtpNgaySua.ValueChanged += (s, ev) =>
-			{
-				txtNgaySua.Text = dtpNgaySua.Value.ToString("dddd, dd/MM/yyyy");
-			};
-		}
+            dtpNgaySua.ValueChanged += (s, ev) =>
+            {
+                txtNgaySua.Text = dtpNgaySua.Value.ToString("dddd, dd/MM/yyyy");
+            };
+        }
 
 		private void DoubleBuffering()
 		{

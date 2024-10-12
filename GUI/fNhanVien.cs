@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,14 +21,32 @@ namespace GUI
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
         private Image[] avatars = new Image[5];
+        private Point posThongTinPanel = new Point(3, 265);
+        private Point posThemNhanVienPanel = new Point(730, 0);
+        private int CongViecOrCaNhan = 1;
         public fNhanVien(string idLogin)
         {
             InitializeComponent();
+
+            panelThongTinCongViec.Location = posThongTinPanel;
+            panelThongTinCaNhan.Location = posThongTinPanel;
+            panelThongTinCaNhan.Visible = false;
+
+            panelThemNhanVien.Location = posThemNhanVienPanel;
+            panelThemNhanVien.Visible = false;
+
+            panelBangXepHang.Visible = false;
+            panelBangXepHang.Location = new Point(40, 22);
 
             ImportAvatar();
 
             SetupDataGridView();
             this.idLogin = idLogin;
+
+            dtpNgayBatDau.ValueChanged += (s, ev) =>
+            {
+                txtNgayBatDau.Text = dtpNgayBatDau.Value.ToString("dddd, dd/MM/yyyy");
+            };
         }
 
         private void ImportAvatar()
@@ -92,6 +111,46 @@ namespace GUI
             dgvNhanVien.Rows.Add("Ava Bennett\nLawyer", "Apr 18, 2020\nJoined from 820 days", "$3,750\n22 Apr 2020");
 
 
+            dgvBXH.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
+            dgvBXH.GridColor = SystemColors.Window;
+            dgvBXH.EnableHeadersVisualStyles = false;
+            dgvBXH.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.Window;
+            dgvBXH.ColumnHeadersDefaultCellStyle.ForeColor = dgvBXH.ForeColor;
+
+            dgvBXH.DefaultCellStyle.SelectionBackColor = dgvBXH.DefaultCellStyle.BackColor;
+            dgvBXH.DefaultCellStyle.SelectionForeColor = dgvBXH.DefaultCellStyle.ForeColor;
+
+            dgvBXH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
+            actionsColumn.Name = "Actions";
+            actionsColumn.HeaderText = "";
+            actionsColumn.Text = "...";
+            actionsColumn.UseColumnTextForButtonValue = true;
+            dgvBXH.Columns.Add(actionsColumn);
+
+            dgvBXH.Columns["ThuHang"].FillWeight = 10;
+            dgvBXH.Columns["TenNhanVien"].FillWeight = 20;
+            dgvBXH.Columns["MaNhanVien"].FillWeight = 15;
+            dgvBXH.Columns["DiaChi"].FillWeight = 20;
+            dgvBXH.Columns["YeuCau"].FillWeight = 15;
+            dgvBXH.Columns["TongDoanhThu"].FillWeight = 15;
+            dgvBXH.Columns["Actions"].FillWeight = 5;
+
+            dgvBXH.RowTemplate.Height = 60;
+            dgvBXH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvBXH.ColumnHeadersHeight = 60;
+
+            dgvBXH.Rows.Add("1", "Nguyễn Văn A", "NV001", "Hà Nội", "Yêu cầu 1", "1000000");
+            dgvBXH.Rows.Add("2", "Trần Thị B", "NV002", "Hồ Chí Minh", "Yêu cầu 2", "1500000");
+            dgvBXH.Rows.Add("3", "Phạm Văn C", "NV003", "Đà Nẵng", "Yêu cầu 3", "1200000");
+            dgvBXH.Rows.Add("4", "Lê Thị D", "NV004", "Hải Phòng", "Yêu cầu 4", "1300000");
+            dgvBXH.Rows.Add("5", "Hoàng Văn E", "NV005", "Cần Thơ", "Yêu cầu 5", "900000");
+            dgvBXH.Rows.Add("6", "Đinh Thị F", "NV006", "Nha Trang", "Yêu cầu 6", "1100000");
+            dgvBXH.Rows.Add("7", "Vũ Văn G", "NV007", "Huế", "Yêu cầu 7", "1700000");
+            dgvBXH.Rows.Add("8", "Bùi Thị H", "NV008", "Quảng Ninh", "Yêu cầu 8", "950000");
+            dgvBXH.Rows.Add("9", "Phan Văn I", "NV009", "Bình Dương", "Yêu cầu 9", "1250000");
+            dgvBXH.Rows.Add("10", "Ngô Thị J", "NV010", "Bắc Giang", "Yêu cầu 10", "1400000");
         }
 
         private void dgvNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -171,6 +230,171 @@ namespace GUI
                     e.Graphics.DrawString(p1, font, Brushes.Black, rect.X, rect.Y + 5);
                     e.Graphics.DrawString(p2, fontSub, Brushes.Gray, rect.X, rect.Y + 25);
                 }
+            }
+        }
+
+        private void lblThongTin_Click(object sender, EventArgs e)
+        {
+            if(CongViecOrCaNhan == 1)
+            {
+                lblThongTin.Text = "Thông tin công việc";
+
+                panelThongTinCaNhan.Visible = true;
+                panelThongTinCongViec.Visible = false;
+
+                CongViecOrCaNhan = 2;
+            }
+            else
+            {
+                lblThongTin.Text = "Thông tin cá nhân";
+
+                panelThongTinCongViec.Visible = true;
+                panelThongTinCaNhan.Visible = false;
+
+                CongViecOrCaNhan = 1;
+            }
+        }
+
+        private void lblBangXepHang_Click(object sender, EventArgs e)
+        {
+            panelBangXepHang.Visible = true;
+
+            panel1.Visible = false;
+            panelThongTin.Visible = false;
+            panelThemNhanVien.Visible = false;
+        }
+
+        private void lblDanhSachNV_Click(object sender, EventArgs e)
+        {
+            panelBangXepHang.Visible = false;
+
+            panel1.Visible = true;
+            panelThongTin.Visible = true;
+            panelThemNhanVien.Visible = false;
+        }
+
+        private void lblThemNhanVien_Click(object sender, EventArgs e)
+        {
+            txtHoTen.Text = string.Empty;
+            txtNgaySinh.Text = string.Empty;
+            rbtnNam.Checked = false;
+            rbtnNu.Checked = false;
+            txtDiaChi.Text = string.Empty;
+            txtChucVu.Text = string.Empty;
+            txtNgayBatDau.Text = string.Empty;
+            txtSoDienThoai.Text = string.Empty;
+            txtLuongCoBan.Text = string.Empty;
+
+            panelThemNhanVien.Visible = true;
+            panelThongTin.Visible = false;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            panelThongTin.Visible = true;
+            panelThemNhanVien.Visible = false;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picAddImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DrawRoundedPanel(Panel panel, int radius, Color borderColor, float borderThickness, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            GraphicsPath path = new GraphicsPath();
+            Rectangle rect = new Rectangle(0, 0, panel.Width - 1, panel.Height - 1);
+
+            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+            path.AddArc(rect.X + rect.Width - radius, rect.Y, radius, radius, 270, 90);
+            path.AddArc(rect.X + rect.Width - radius, rect.Y + rect.Height - radius, radius, radius, 0, 90);
+            path.AddArc(rect.X, rect.Y + rect.Height - radius, radius, radius, 90, 90);
+            path.CloseFigure();
+
+            panel.Region = new Region(path);
+
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                g.DrawPath(pen, path);
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel4, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel6, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel7, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel8, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel9, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel10, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel2, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void dgvBXH_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                e.Handled = true;
+                e.PaintBackground(e.ClipBounds, true);
+
+                string cellValue = e.Value?.ToString() ?? string.Empty;
+                if (cellValue != string.Empty)
+                {
+                    Rectangle rect = e.CellBounds;
+                    e.Graphics.DrawString(cellValue, font, Brushes.Black, rect.X, rect.Y + 15);
+                }
+            }
+        }
+
+        private void dgvBXH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvBXH.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                var cellRectangle = dgvBXH.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                cmsNhanVien.Show(dgvBXH, cellRectangle.Left, cellRectangle.Bottom - 20);
             }
         }
     }
