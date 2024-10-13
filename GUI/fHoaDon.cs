@@ -78,7 +78,7 @@ namespace GUI
         }
         private void HienThiDSPhuTung()
         {
-            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
+            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDSPhuTung();
             ThemDuLieuPhuTung(listPhuTung);
             amountPt = listPhuTung.Count;
         }

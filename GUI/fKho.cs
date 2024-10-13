@@ -15,10 +15,19 @@ namespace GUI
 {
     public partial class fKho : Form
     {
+        private int pageSize = 10;
+        private int currentPagePT = 1;
+        private int currentPageHDN = 1;
+        private int totalPagesPT = 1;
+        private int totalPagesHDN = 1;
+
         private string idLogin;
         private PhuTungBLL _phuTungBLL;
         private HoaDonNhapBLL _hoaDonNhapBLL;
         private ChiTietHoaDonNhapBLL _chiTietHoaDonNhapBLL;
+
+        private List<HoaDonNhapDTO> listHoaDon;
+        List<PhuTungDTO> listPhuTung;
 
         private int countHdn;
         private int countPt;
@@ -28,7 +37,7 @@ namespace GUI
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
-        private int whatIsRunning = 1; // 0 là ds hđn, 1 là ds phụ tùng
+        private string whatIsRunning = "PhuTung"; // 0 là ds hđn, 1 là ds phụ tùng
         public fKho(string idLogin)
         {
             InitializeComponent();
@@ -36,20 +45,6 @@ namespace GUI
             _hoaDonNhapBLL = new HoaDonNhapBLL();
             _chiTietHoaDonNhapBLL = new ChiTietHoaDonNhapBLL();
             this.idLogin = idLogin;
-
-
-        }
-        public void HienThiDSHoaDon()
-        {
-            List<HoaDonNhapDTO> listHoaDon = _hoaDonNhapBLL.LayHoaDonNhap();
-            ThemDuLieuHoaDon(listHoaDon);
-            countHdn = listHoaDon.Count;
-        }
-        private void HienThiDSPhuTung()
-        {
-            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
-            ThemDuLieuPhuTung(listPhuTung);
-            countPt = listPhuTung.Count;
         }
         private void fKho_Load(object sender, EventArgs e)
         {
@@ -57,7 +52,7 @@ namespace GUI
             SetupDGVPhuTung();
             SetupDGVHDN();
 
-            HienThiDSHoaDon();
+            HienThiDSHoaDonNhap();
             HienThiDSPhuTung();
 
             SetupPanelHDN();
@@ -65,6 +60,60 @@ namespace GUI
             btnPhuTung_Click(this, EventArgs.Empty);
             cmbOrder.SelectedIndex = 0;
         }
+        public void HienThiDSHoaDonNhap()
+        {
+            listHoaDon = _hoaDonNhapBLL.LayHoaDonNhap();
+            totalPagesHDN = (int)Math.Ceiling((double)listHoaDon.Count / pageSize);
+            currentPageHDN = 1;
+
+            DisplayCurrentPage_HoaDon();
+
+            countHdn = listHoaDon.Count;
+        }
+        private void DisplayCurrentPage_HoaDon()
+        {
+            var itemsToShow = listHoaDon.Skip((currentPageHDN - 1) * pageSize).Take(pageSize).ToList();
+            ThemDuLieuHoaDon(itemsToShow);
+
+            lblShowResult.Text = $"Page {currentPageHDN}/{totalPagesHDN}";
+        }
+        private void ThemDuLieuHoaDon(List<HoaDonNhapDTO> dsHoaDonNhap)
+        {
+            dgvHDN.Rows.Clear();
+            int i = (currentPageHDN - 1) * pageSize + 1; ;
+            foreach (var hdn in dsHoaDonNhap)
+            {
+                string formattedDate = hdn.NgayNhap.ToString("dd/MM/yyyy");
+                dgvHDN.Rows.Add(i++, hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
+            }
+        }
+        private void HienThiDSPhuTung()
+        {
+            listPhuTung = _phuTungBLL.LayDSPhuTung();
+            totalPagesPT = (int)Math.Ceiling((double)listHoaDon.Count / pageSize);
+            currentPagePT = 1;
+
+            DisplayCurrentPage_PhuTung();
+
+            countPt = listPhuTung.Count;
+        }
+        private void DisplayCurrentPage_PhuTung()
+        {
+            var itemsToShow = listPhuTung.Skip((currentPagePT - 1) * pageSize).Take(pageSize).ToList();
+            ThemDuLieuPhuTung(itemsToShow);
+
+            lblShowResult.Text = $"Page {currentPagePT}/{totalPagesPT}";
+        }
+        private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
+        {
+            dgvPhuTung.Rows.Clear();
+            int i = (currentPagePT - 1) * pageSize + 1;
+            foreach (var phuTung in dsPhuTung)
+            {
+                dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
+            }
+        }
+
         private void SetupPanelHDN()
         {
             panelHDN.Location = new Point(48, 118);
@@ -76,38 +125,23 @@ namespace GUI
 
             panelHDN.Visible = false;
         }
-        private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
-        {
-            dgvPhuTung.Rows.Clear();
-            int i = 1;
-            foreach (var phuTung in dsPhuTung)
-            {
-                dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
-            }
-        }
-        private void ThemDuLieuHoaDon(List<HoaDonNhapDTO> dsHoaDonNhap)
-        {
-            dgvHDN.Rows.Clear();
-            int i = 1;
-            foreach (var hdn in dsHoaDonNhap)
-            {
-                string formattedDate = hdn.NgayNhap.ToString("dd/MM/yyyy");
-                dgvHDN.Rows.Add(i++, hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
-            }
-        }
+
+
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
-            if (whatIsRunning == 1)
+            if (whatIsRunning == "PhuTung")
             {
-                if (txtSearchBar.Text != "")
+                if (string.IsNullOrEmpty(txtSearchBar.Text))
                 {
-                    List<PhuTungDTO> listPhuTung = _phuTungBLL.TimDsTheoTen(txtSearchBar.Text);
-                    ThemDuLieuPhuTung(listPhuTung);
+                    listPhuTung = _phuTungBLL.LayDSPhuTung();
                 }
                 else
                 {
-                    HienThiDSPhuTung();
+                    listPhuTung = _phuTungBLL.TimDsTheoTen(txtSearchBar.Text);
                 }
+                currentPagePT = 1;
+                totalPagesPT = (int)Math.Ceiling((double)listPhuTung.Count / pageSize);
+                DisplayCurrentPage_PhuTung();
             }
 
         }
@@ -122,10 +156,20 @@ namespace GUI
 
         private void txtSearchBar_Leave(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "")
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
                 txtSearchBar.Text = "Search...";
             }
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search...")
+            {
+                listPhuTung = _phuTungBLL.LayDSPhuTung();
+                currentPagePT = 1;
+                totalPagesPT = (int)Math.Ceiling((double)listPhuTung.Count / pageSize);
+
+                DisplayCurrentPage_PhuTung();
+            }
+
+
         }
         private void SetupDGVPhuTung()
         {
@@ -277,7 +321,7 @@ namespace GUI
         }
         private void btnHDN_Click(object sender, EventArgs e)
         {
-
+            lblShowResult.Text = $"Page {currentPageHDN}/{totalPagesPT}";
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -312,13 +356,13 @@ namespace GUI
             btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
-            whatIsRunning = 0;
-           lblShowResult.Text = countHdn.ToString(); 
+            whatIsRunning = "HoaDonNhap";
+
         }
 
         private void btnPhuTung_Click(object sender, EventArgs e)
         {
-
+            lblShowResult.Text = $"Page {currentPagePT}/{totalPagesPT}";
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -352,8 +396,7 @@ namespace GUI
             btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnAddHDN.ForeColor = SystemColors.ControlText;
             panel14.BackColor = SystemColors.GradientActiveCaption;
-            whatIsRunning = 1; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
-            lblShowResult.Text = countPt.ToString();
+            whatIsRunning = "PhuTung"; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
         }
 
 
@@ -502,7 +545,7 @@ namespace GUI
             txtSoLuong.Clear();
             //txtNgayNhap.Clear();
 
-            HienThiDSHoaDon();
+            HienThiDSHoaDonNhap();
             HienThiDSPhuTung();
         }
 
@@ -619,6 +662,35 @@ namespace GUI
             DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
 
+            if(whatIsRunning == "HoaDonNhap" && currentPageHDN < totalPagesHDN)
+            {
+                currentPageHDN++;
+                DisplayCurrentPage_HoaDon(); 
+            }
+            else if(whatIsRunning == "PhuTung" && currentPagePT < totalPagesPT){
+                currentPagePT++;
+                DisplayCurrentPage_PhuTung(); 
+            }
+            
+        }
+        // 1 la phu tung
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+
+            if (whatIsRunning == "HoaDonNhap" && currentPageHDN > 1)
+            {
+                currentPageHDN--;
+                DisplayCurrentPage_HoaDon();
+            }
+            else if (whatIsRunning == "PhuTung" && currentPagePT > 1)
+            {
+                currentPagePT--;
+                DisplayCurrentPage_PhuTung();
+            }
+            
+        }
     }
 }
