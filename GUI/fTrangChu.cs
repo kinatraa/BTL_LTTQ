@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using LiveCharts.Wpf;
+using LiveCharts;
+using System.Windows;
+using FontStyle = System.Drawing.FontStyle;
 
 namespace GUI
 {
@@ -21,8 +22,8 @@ namespace GUI
         HoaDonYeuCauBLL _hoaDonYeuCauBLL;
 
 		string idLogin;
-		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
-		private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
+        private Font font = new Font("Segoe UI", 12f, FontStyle.Bold);
+		private Font fontSub = new Font("Segoe UI", 10f, FontStyle.Regular);
 		public int CornerRadius { get; set; } = 20;
 		public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
 		public float BorderThickness { get; set; } = 0.5f;
@@ -45,9 +46,91 @@ namespace GUI
         private void fTrangChu_Load(object sender, EventArgs e)
         {
             HienThiDSYeuCau();
-            lbTongYeuCau.Text = _hoaDonYeuCauBLL.LaySLYeuCau().ToString();
-            lbTongHoaDon.Text = _hoaDonYeuCauBLL.LaySLHoaDon().ToString();
+            lbTongYeuCau.Text = _hoaDonYeuCauBLL.LaySLYeuCau().ToString() + " đơn";
+            lbTongHoaDon.Text = _hoaDonYeuCauBLL.LaySLHoaDon().ToString() + " đơn";
+            SetUpChartDoanhThuThang();             
+            SetUpChartThongKeTuan();
         }
+        private void SetUpChartThongKeTuan()
+        {
+            List<Tuple<int, decimal>> doanhThu = _hoaDonYeuCauBLL.LayDoanhThuTuan();
+
+            var doanhThuValues = new ChartValues<double>();
+
+            for (int i = 2; i <= 8; i++) 
+            {
+                var thangData = doanhThu.FirstOrDefault(dt => dt.Item1 == i);
+                doanhThuValues.Add((double)(thangData?.Item2 ?? 0)); 
+            }
+
+            BieuDoTongKet.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Doanh Thu Theo Tuần",
+                    Values = doanhThuValues
+                }
+            };
+
+            BieuDoTongKet.AxisX.Add(new Axis
+            {
+                Title = "Ngày Trong Tuần",
+                Labels = new[] {  "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật" },
+                Separator = new Separator
+                {
+                    Step = 1,
+                    IsEnabled = true
+                }
+            });
+
+            BieuDoTongKet.AxisY.Add(new Axis
+            {
+                Title = "Số Lượng Hóa Đơn",
+                LabelFormatter = value => value.ToString("N0"), 
+
+            });
+
+        }
+        private void SetUpChartDoanhThuThang()
+        {
+            List<Tuple<int, decimal>> doanhThu = _hoaDonYeuCauBLL.LayDoanhThuThang();
+
+            var doanhThuValues = new ChartValues<double>();
+
+            for (int i = 0; i < 12; i++)
+            {
+                var thangData = doanhThu.FirstOrDefault(dt => dt.Item1 == i + 1);
+                doanhThuValues.Add((double)thangData.Item2);
+            }
+
+            BieuDoDoanhThu.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Doanh Thu",
+                    Values = doanhThuValues
+                }
+            };
+
+            BieuDoDoanhThu.AxisX.Add(new Axis
+            {
+                Title = "Tháng",
+                Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" },
+                Separator = new Separator
+                {
+                    Step = 1,
+                    IsEnabled = true
+                }
+            });
+
+            BieuDoDoanhThu.AxisY.Add(new Axis
+            {
+                Title = "Doanh Thu (VNĐ)",
+                LabelFormatter = value => value.ToString("C0"),
+                Margin = new Thickness(0, 0, 20, 0)
+            });
+        }
+
         private void ImportAvatar()
         {
             avatars[0] = Properties.Resources.Avatar;
@@ -62,15 +145,18 @@ namespace GUI
             return random.Next(min, max);
         }
 
-		private void SetUpData(List<DatYeuCauDTO> listYeuCau) {
+        private void SetUpData(List<DatYeuCauDTO> listYeuCau)
+        {
             dgvTrangChu.Rows.Clear();
             int stt = 1;
             foreach (var x in listYeuCau)
             {
-                dgvTrangChu.Rows.Add(stt++, x.TenKhachHang, x.NguyenNhan, x.NgaySua);
+                string ngaySuaFormatted = x.NgaySua.ToString("dd/mm/yyyy"); 
+                dgvTrangChu.Rows.Add(stt++, x.TenKhachHang, x.NguyenNhan, ngaySuaFormatted);
             }
         }
-		private void HienThiDSYeuCau()
+
+        private void HienThiDSYeuCau()
 		{
 			List<DatYeuCauDTO> listYeuCau = _datYeuCauBLL.GetListTop10();
 			SetUpData(listYeuCau);	
@@ -93,10 +179,10 @@ namespace GUI
 
 			dgvTrangChu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-			dgvTrangChu.Columns["No"].FillWeight = 7;
-			dgvTrangChu.Columns["TenKhachHang"].FillWeight = 25;
+			dgvTrangChu.Columns["No"].FillWeight = 5;
+			dgvTrangChu.Columns["TenKhachHang"].FillWeight = 18;
             dgvTrangChu.Columns["NguyenNhan"].FillWeight = 30;
-            dgvTrangChu.Columns["NgaySua"].FillWeight = 20;
+            dgvTrangChu.Columns["NgaySua"].FillWeight = 12;
 			
 
 

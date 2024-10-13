@@ -29,6 +29,14 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.ThemHoaDon(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien);
         }
+        public List<Tuple<int, decimal>> LayDoanhThuThang()
+        {
+            return hoaDonYeuCauDAL.LayDoanhThuTheoThang();  
+        }
+        public List<Tuple<int, decimal>> LayDoanhThuTuan()
+        {
+            return hoaDonYeuCauDAL.LayDoanhThuTheoTuan();
+        }
         public List<HoaDonYeuCauDTO> GetListHoaDon()
         {
             return hoaDonYeuCauDAL.GetListHoaDon();
