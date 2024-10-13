@@ -79,25 +79,22 @@ namespace GUI
         private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
         {
             dgvPhuTung.Rows.Clear();
-
+            int i = 1;
             foreach (var phuTung in dsPhuTung)
             {
-                dgvPhuTung.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
+                dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
             }
         }
         private void ThemDuLieuHoaDon(List<HoaDonNhapDTO> dsHoaDonNhap)
         {
             dgvHDN.Rows.Clear();
-
+            int i = 1;
             foreach (var hdn in dsHoaDonNhap)
             {
-                // Định dạng ngày theo kiểu "dd/MM/yyyy"
                 string formattedDate = hdn.NgayNhap.ToString("dd/MM/yyyy");
-
-                dgvHDN.Rows.Add(hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
+                dgvHDN.Rows.Add(i++, hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
             }
         }
-        // tìm bị nhảy nhảy
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
             if (whatIsRunning == 1)
@@ -151,7 +148,7 @@ namespace GUI
             actionsColumn.UseColumnTextForButtonValue = true;
             dgvPhuTung.Columns.Add(actionsColumn);
 
-
+            dgvPhuTung.Columns["No"].FillWeight = 5;
             dgvPhuTung.Columns["MaPhuTung_PhuTung"].FillWeight = 15;
             dgvPhuTung.Columns["TenPhuTung"].FillWeight = 23;
             dgvPhuTung.Columns["SoLuong"].FillWeight = 15;
@@ -162,9 +159,6 @@ namespace GUI
             dgvPhuTung.RowTemplate.Height = 60;
             dgvPhuTung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPhuTung.ColumnHeadersHeight = 60;
-
-
-
         }
 
         private void SetupDGVHDN()
@@ -188,7 +182,7 @@ namespace GUI
             actionsColumn.UseColumnTextForButtonValue = true;
             dgvHDN.Columns.Add(actionsColumn);
 
-
+            dgvHDN.Columns["Stt"].FillWeight = 5;
             dgvHDN.Columns["MaHDN"].FillWeight = 15;
             dgvHDN.Columns["MaNV"].FillWeight = 15;
             dgvHDN.Columns["NgayNhap"].FillWeight = 15;

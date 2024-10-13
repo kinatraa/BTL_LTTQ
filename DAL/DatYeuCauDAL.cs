@@ -12,6 +12,7 @@ namespace DAL
 {
     public class DatYeuCauDAL
     {
+
         public List<DatYeuCauDTO> GetListYeuCau()
         {
             string query = "select MaSuaChua, TenKhachHang, MaXe, NguyenNhan, NgaySua,YEUCAUSUACHUA.MaKhachHang,DiaChi,SoDienThoai from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang";

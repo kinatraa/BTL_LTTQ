@@ -32,7 +32,10 @@ namespace BLL
         {
             _xeMayDAL.XoaXeMay(maXe);
         }
-
+        public List<XeMayDTO> TimXeMayTheoTen(string ten)
+        {
+            return _xeMayDAL.TimXeMayTheoTen(ten);
+        }
         public List<XeMayDTO> LayDanhSachXeMay()
         {
             return _xeMayDAL.LayDanhSachXeMay();

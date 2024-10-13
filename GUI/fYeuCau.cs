@@ -18,8 +18,9 @@ namespace GUI
 	public partial class fYeuCau : Form
 	{
 		string idLogin;
-		private DatYeuCauBLL datYeuCauBLL;
-		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
+		private DatYeuCauBLL _datYeuCauBLL;
+        PhuTungBLL _phuTungBLL;
+        private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
 		private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
 		public int CornerRadius { get; set; } = 20;
 		public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
@@ -30,19 +31,22 @@ namespace GUI
 		private int status = 1;
 		private bool isAddNew = true;
 		private int rowIndex = -1;
-		public fYeuCau(string idLogin)
+        private Point panelPos = new Point(48, 118);
+        public fYeuCau(string idLogin)
 		{
 			InitializeComponent();
-
-			panelThongTin.Visible = false;
+            panelChiTiet.Location = panelPos;
+            panelChiTiet.Visible = false;
+            panelThongTin.Visible = false;
 
 			panelAddNew.Visible = false;
 			dgvYeuCau.Location = posAy;
 			panelThongTin.Location = new Point(763, posAy.Y);
 
-			datYeuCauBLL = new DatYeuCauBLL();
+			_datYeuCauBLL = new DatYeuCauBLL();
+            _phuTungBLL = new PhuTungBLL();
 
-			SetupAddPanel();
+            SetupAddPanel();
 
 
 			SetupDataGridView();
@@ -54,8 +58,25 @@ namespace GUI
 			SetStatus();
 			this.idLogin = idLogin;
 		}
+        private void fYeuCau_Load(object sender, EventArgs e)
+        {
+            HienThiDSPhuTung();
+        }
+        private void HienThiDSPhuTung()
+        {
+            List<PhuTungDTO> listPhuTung = _phuTungBLL.LayDsPhuTung();
+            ThemDuLieuPhuTung(listPhuTung);
+        }
+        private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
+        {
+            dgvCMSHoaDon.Rows.Clear();
 
-		private void SetupAddPanel()
+            foreach (var phuTung in dsPhuTung)
+            {
+                dgvCMSHoaDon.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaBan);
+            }
+        }
+        private void SetupAddPanel()
 		{
             /*panelAddNew.Controls.Add(label2);
             panelAddNew.Controls.Add(label3);
@@ -139,7 +160,7 @@ namespace GUI
 		{
 			dgvYeuCau.Rows.Clear();
 			
-			List<DatYeuCauDTO> dsYeuCau = datYeuCauBLL.GetListYeuCau();
+			List<DatYeuCauDTO> dsYeuCau = _datYeuCauBLL.GetListYeuCau();
 			foreach(var yeuCau in dsYeuCau)
 			{
 				dgvYeuCau.Rows.Add(yeuCau.MaSuaChua,yeuCau.TenKhachHang,yeuCau.MaXe,yeuCau.NguyenNhan,yeuCau.NgaySua,yeuCau.MaKhachHang,yeuCau.DiaChi,yeuCau.SoDienThoai);
@@ -346,16 +367,16 @@ namespace GUI
 			}
 		}
 
-		private async Task ToggleThongTin()
-		{
-			if (!thongTinReveal)
-			{
-				if (addNewClicked || updateClicked)
-				{
-					await ToggleAddNew();
-					addNewClicked = false;
-					updateClicked = false;
-				}
+        private async Task ToggleThongTin()
+        {
+            if (!thongTinReveal)
+            {
+                if (addNewClicked || updateClicked)
+                {
+                    await ToggleAddNew();
+                    addNewClicked = false;
+                    updateClicked = false;
+                }
 
                 try
                 {
@@ -372,33 +393,59 @@ namespace GUI
                 }
 
                 panelThongTin.Visible = true;
-				await AnimateDataGridView2(smallerDGVSize.Width);
-				thongTinReveal = true;
-			}
-			else
-			{
-				await AnimateDataGridView2(defaultDGVSize.Width);
-				panelThongTin.Visible = false;
-				thongTinReveal = false;
-			}
-		}
-		string maXeChon;
-		private async void dgvYeuCau_CellClick(object sender, DataGridViewCellEventArgs e)
-		{
-			if (e.ColumnIndex == dgvYeuCau.Columns["Actions"].Index && e.RowIndex >= 0)
-			{
-				var cellRectangle = dgvYeuCau.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-				rowIndex = e.RowIndex;
-               
-                cmsYeuCau.Show(dgvYeuCau, cellRectangle.Left, cellRectangle.Bottom - 20);
-			}
-			else if(e.ColumnIndex != dgvYeuCau.Columns["Actions"].Index && e.RowIndex >= 0)
-			{
-				dgvYeuCau.BringToFront();
-                maXeChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();
-                await ToggleThongTin();
-			}
-		}
+                await AnimateDataGridView2(smallerDGVSize.Width);
+                thongTinReveal = true;
+            }
+            else
+            {
+                try
+                {
+                    imgXe.Image = (Image)Properties.Resources.ResourceManager.GetObject(maXeChon);
+
+                    if (imgXe.Image == null)
+                    {
+                        imgXe.Image = Properties.Resources.bike;
+                    }
+                }
+                catch
+                {
+                    imgXe.Image = Properties.Resources.bike;
+                }
+
+            }
+        }
+
+
+        string maXeChon;
+        private async void dgvYeuCau_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                foreach (DataGridViewRow row in dgvYeuCau.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White; 
+                    row.DefaultCellStyle.SelectionBackColor = Color.White; 
+                }
+
+                dgvYeuCau.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue; 
+                dgvYeuCau.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightBlue; 
+
+                if (e.ColumnIndex == dgvYeuCau.Columns["Actions"].Index)
+                {
+                    var cellRectangle = dgvYeuCau.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    rowIndex = e.RowIndex;
+                    cmsYeuCau.Show(dgvYeuCau, cellRectangle.Left, cellRectangle.Bottom - 20);
+                }
+                else if (e.ColumnIndex != dgvYeuCau.Columns["Actions"].Index)
+                {
+                    dgvYeuCau.BringToFront();
+                    maXeChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();
+                    await ToggleThongTin();
+                }
+            }
+        }
+
+
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -410,7 +457,7 @@ namespace GUI
                 {
                     string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
                     string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
-                    datYeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
+                    _datYeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
                     ListYeuCau();
                     dgvYeuCau.Refresh();
                 }
@@ -453,7 +500,7 @@ namespace GUI
 
 		private void panel1_Paint(object sender, PaintEventArgs e)
 		{
-			DrawRoundedPanel(panel1, 15, BorderColor, BorderThickness, e);
+			DrawRoundedPanel(panelYeuCau, 15, BorderColor, BorderThickness, e);
 		}
 
 		private void panel2_Paint(object sender, PaintEventArgs e)
@@ -576,7 +623,45 @@ namespace GUI
 			}
 		}
 
-		private void txtSearchBar_Leave(object sender, EventArgs e)
+        private void btnChinhSua_Click(object sender, EventArgs e)
+        {
+            if (rowIndex >= 0 && rowIndex < dgvYeuCau.Rows.Count)
+            {
+                panelChiTiet.Visible = true;
+                panelYeuCau.Visible = false;
+                txtNgayIn.Text = DateTime.Today.ToString();
+                DataGridViewRow selectedRow = dgvYeuCau.Rows[rowIndex];
+                txtMaSuaChua.Text = selectedRow.Cells["MaBooking"].Value.ToString();
+                txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
+                txtMaKH.Text = selectedRow.Cells["MaKhachHang"].Value.ToString();
+                txtMaNV.Text = idLogin;
+            }
+            else
+            {
+                MessageBox.Show("Invalid row selected.");
+            }
+
+        }
+
+
+
+        private async void btnExitPanel_Click(object sender, EventArgs e)
+        {
+            if (panelThongTin.Visible)
+            {
+                panelThongTin.Visible = false;
+                thongTinReveal = false;
+                await AnimateDataGridView2(defaultDGVSize.Width);
+            }
+            else
+            {
+                await ToggleThongTin();
+            }
+        }
+
+
+
+        private void txtSearchBar_Leave(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
 			{
@@ -646,7 +731,7 @@ namespace GUI
                         return; 
                     }
 
-                    bool success = datYeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
+                    bool success = _datYeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
 					if (success)
 					{
 						MessageBox.Show("Thêm yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -668,7 +753,7 @@ namespace GUI
 				string maKhachHang = dgvYeuCau.Rows[rowIndex].Cells["MaKhachHang"].Value.ToString();
 				string maSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
 
-				bool success = datYeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang,maSuaChua);
+				bool success = _datYeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang,maSuaChua);
                 if (success)
                 {
                     MessageBox.Show("Sửa yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

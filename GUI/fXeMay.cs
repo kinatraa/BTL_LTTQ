@@ -20,7 +20,7 @@ namespace GUI
         private int pageSize = 10; 
         private int currentPage = 1;
         private int totalPages = 1;
-        private List<XeMayDTO> allXeMayList; 
+
 
 
         string idLogin;
@@ -52,13 +52,14 @@ namespace GUI
         {
             ShowXeMayList();
         }
+        private List<XeMayDTO> allXeMayList;
         private void ShowXeMayList()
         {
             allXeMayList = _xeMayBLL.LayDanhSachXeMay();
             totalPages = (int)Math.Ceiling((double)allXeMayList.Count / pageSize);
             currentPage = 1;
 
-            DisplayCurrentPage(); // No need to pass the list here anymore
+            DisplayCurrentPage();
         }
 
         private void DisplayCurrentPage()
@@ -67,6 +68,24 @@ namespace GUI
             SetUpListXeMay(itemsToShow);
 
             lblShowResult.Text = $"Page {currentPage}/{totalPages}";
+        }
+
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSearchBar.Text))
+            {
+                allXeMayList = _xeMayBLL.LayDanhSachXeMay(); 
+            }
+            else
+            {
+                allXeMayList = _xeMayBLL.TimXeMayTheoTen(txtSearchBar.Text);
+            }
+
+            currentPage = 1;
+
+            totalPages = (int)Math.Ceiling((double)allXeMayList.Count / pageSize);
+
+            DisplayCurrentPage();
         }
 
         private void SetupAddPanel()
@@ -80,10 +99,10 @@ namespace GUI
         private void SetUpListXeMay(List<XeMayDTO> dsXeMay)
         {
             dgvXeMay.Rows.Clear();
-
+            int i = (currentPage - 1) * pageSize + 1;
             foreach (var xe in dsXeMay)
             {
-                dgvXeMay.Rows.Add(xe.TenXe, xe.MaXe, xe.LoaiXe, xe.SoKhung, xe.SoMay, xe.BienSo, xe.MaMau);
+                dgvXeMay.Rows.Add(i++, xe.TenXe, xe.MaXe, xe.LoaiXe, xe.SoKhung, xe.SoMay, xe.BienSo, xe.MaMau);
             }
         }
         private void SetupDataGridView()
@@ -107,7 +126,7 @@ namespace GUI
             actionsColumn.UseColumnTextForButtonValue = true;
             dgvXeMay.Columns.Add(actionsColumn);
 
-
+            dgvXeMay.Columns["No"].FillWeight = 5;
             dgvXeMay.Columns["TenXe"].FillWeight = 20;
             dgvXeMay.Columns["MaXe"].FillWeight = 10;
             dgvXeMay.Columns["MaLoai"].FillWeight = 10;
@@ -332,6 +351,14 @@ namespace GUI
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
                 txtSearchBar.Text = "Search by name, email, or orthers ...";
+            }
+            if(string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search by name, email, or orthers ...")
+            {
+                allXeMayList = _xeMayBLL.LayDanhSachXeMay();
+                currentPage = 1; 
+                totalPages = (int)Math.Ceiling((double)allXeMayList.Count / pageSize); 
+
+                DisplayCurrentPage();
             }
         }
 
