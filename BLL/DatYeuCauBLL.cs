@@ -15,7 +15,6 @@ namespace BLL
         {
             datYeuCauDAL = new DatYeuCauDAL();
         }
-
         public List<DatYeuCauDTO> GetListYeuCau()
         {
             return datYeuCauDAL.GetListYeuCau();

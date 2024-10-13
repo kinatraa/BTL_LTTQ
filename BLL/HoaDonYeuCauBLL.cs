@@ -12,6 +12,14 @@ namespace BLL
     {
         private HoaDonYeuCauDAL hoaDonYeuCauDAL;
 
+        public int LaySLHoaDon()
+        {
+            return hoaDonYeuCauDAL.LaySLHoaDon();
+        }
+        public int LaySLYeuCau()
+        {
+            return hoaDonYeuCauDAL.LaySLYeuCau();
+        }
         public HoaDonYeuCauBLL()
         {
             hoaDonYeuCauDAL = new HoaDonYeuCauDAL();

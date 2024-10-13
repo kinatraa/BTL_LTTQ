@@ -11,7 +11,19 @@ namespace DAL
 {
     public class HoaDonYeuCauDAL
     {
+        public int LaySLHoaDon()
+        {
+            string query = "SELECT COUNT(*) FROM HOADON";
+            object result = DataProvider.Instance.ExecuteScalar(query);
+            return (int)result;
+        }
 
+        public int LaySLYeuCau()
+        {
+            string query = "SELECT COUNT(*) FROM YEUCAUSUACHUA";
+            object result = DataProvider.Instance.ExecuteScalar(query);
+            return (int)result;
+        }
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua,
             DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
         {
@@ -25,16 +37,15 @@ namespace DAL
         {
             string query = "SELECT MaHoaDon FROM HoaDon WHERE MaSuaChua = @masuachua ";
 
-            // Sử dụng ExecuteQuery để lấy kết quả dưới dạng DataTable
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { MaSuaChua });
 
-            if (dataTable.Rows.Count > 0) // Nếu có bản ghi
+            if (dataTable.Rows.Count > 0) 
             {
-                DataRow row = dataTable.Rows[0]; // Lấy hàng đầu tiên
-                return row["MaHoaDon"].ToString(); // Trả về giá trị MaHoaDon
+                DataRow row = dataTable.Rows[0]; 
+                return row["MaHoaDon"].ToString(); 
             }
 
-            return null; // Trả về null nếu không tìm thấy bản ghi
+            return null; 
         }
 
 

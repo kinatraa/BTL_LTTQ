@@ -18,6 +18,7 @@ namespace GUI
 	public partial class fTrangChu : Form
 	{
 		DatYeuCauBLL _datYeuCauBLL;
+        HoaDonYeuCauBLL _hoaDonYeuCauBLL;
 
 		string idLogin;
 		private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
@@ -29,6 +30,8 @@ namespace GUI
         public fTrangChu(string idLogin)
 		{
             _datYeuCauBLL = new DatYeuCauBLL();
+            _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
+
             InitializeComponent();
 
             ImportAvatar();
@@ -42,6 +45,8 @@ namespace GUI
         private void fTrangChu_Load(object sender, EventArgs e)
         {
             HienThiDSYeuCau();
+            lbTongYeuCau.Text = _hoaDonYeuCauBLL.LaySLYeuCau().ToString();
+            lbTongHoaDon.Text = _hoaDonYeuCauBLL.LaySLHoaDon().ToString();
         }
         private void ImportAvatar()
         {

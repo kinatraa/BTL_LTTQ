@@ -66,6 +66,14 @@ namespace GUI
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvXeMay = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoKhung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BienSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
@@ -80,14 +88,6 @@ namespace GUI
             this.cmsXeMay = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoKhung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BienSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImport = new GUI.CustomDesign.CustomButton();
             this.btnAddNew = new GUI.CustomDesign.CustomButton();
             this.btnAdd = new GUI.CustomDesign.CustomButton();
@@ -146,10 +146,12 @@ namespace GUI
             // btnNext
             // 
             this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.btnNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNext.Location = new System.Drawing.Point(892, 667);
+            this.btnNext.Location = new System.Drawing.Point(900, 665);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(35, 35);
             this.btnNext.TabIndex = 23;
@@ -161,10 +163,12 @@ namespace GUI
             // btnPrevious
             // 
             this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnPrevious.Location = new System.Drawing.Point(851, 667);
+            this.btnPrevious.Location = new System.Drawing.Point(880, 665);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(35, 35);
             this.btnPrevious.TabIndex = 22;
@@ -510,6 +514,71 @@ namespace GUI
             this.dgvXeMay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
             this.dgvXeMay.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvXeMay_CellPainting);
             // 
+            // No
+            // 
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // TenXe
+            // 
+            this.TenXe.DataPropertyName = "TenXe";
+            this.TenXe.HeaderText = "Tên xe";
+            this.TenXe.MinimumWidth = 6;
+            this.TenXe.Name = "TenXe";
+            this.TenXe.ReadOnly = true;
+            this.TenXe.Width = 125;
+            // 
+            // MaXe
+            // 
+            this.MaXe.DataPropertyName = "MaXe";
+            this.MaXe.HeaderText = "Mã xe";
+            this.MaXe.MinimumWidth = 6;
+            this.MaXe.Name = "MaXe";
+            this.MaXe.ReadOnly = true;
+            this.MaXe.Width = 125;
+            // 
+            // MaLoai
+            // 
+            this.MaLoai.DataPropertyName = "MaLoai";
+            this.MaLoai.HeaderText = "Mã loại";
+            this.MaLoai.MinimumWidth = 6;
+            this.MaLoai.Name = "MaLoai";
+            this.MaLoai.ReadOnly = true;
+            this.MaLoai.Width = 125;
+            // 
+            // SoKhung
+            // 
+            this.SoKhung.DataPropertyName = "SoKhung";
+            this.SoKhung.HeaderText = "Số khung";
+            this.SoKhung.MinimumWidth = 6;
+            this.SoKhung.Name = "SoKhung";
+            this.SoKhung.ReadOnly = true;
+            this.SoKhung.Width = 125;
+            // 
+            // SoMay
+            // 
+            this.SoMay.DataPropertyName = "SoMay";
+            this.SoMay.HeaderText = "Số máy";
+            this.SoMay.MinimumWidth = 6;
+            this.SoMay.Name = "SoMay";
+            this.SoMay.ReadOnly = true;
+            this.SoMay.Width = 125;
+            // 
+            // BienSo
+            // 
+            this.BienSo.DataPropertyName = "BienSo";
+            this.BienSo.HeaderText = "Biển số";
+            this.BienSo.Name = "BienSo";
+            this.BienSo.ReadOnly = true;
+            // 
+            // MaMau
+            // 
+            this.MaMau.DataPropertyName = "MaMau";
+            this.MaMau.HeaderText = "Mã màu";
+            this.MaMau.Name = "MaMau";
+            this.MaMau.ReadOnly = true;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.Control;
@@ -663,71 +732,6 @@ namespace GUI
             this.toolStripMenuItem2.Size = new System.Drawing.Size(118, 22);
             this.toolStripMenuItem2.Text = "Delete";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // No
-            // 
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            // 
-            // TenXe
-            // 
-            this.TenXe.DataPropertyName = "TenXe";
-            this.TenXe.HeaderText = "Tên xe";
-            this.TenXe.MinimumWidth = 6;
-            this.TenXe.Name = "TenXe";
-            this.TenXe.ReadOnly = true;
-            this.TenXe.Width = 125;
-            // 
-            // MaXe
-            // 
-            this.MaXe.DataPropertyName = "MaXe";
-            this.MaXe.HeaderText = "Mã xe";
-            this.MaXe.MinimumWidth = 6;
-            this.MaXe.Name = "MaXe";
-            this.MaXe.ReadOnly = true;
-            this.MaXe.Width = 125;
-            // 
-            // MaLoai
-            // 
-            this.MaLoai.DataPropertyName = "MaLoai";
-            this.MaLoai.HeaderText = "Mã loại";
-            this.MaLoai.MinimumWidth = 6;
-            this.MaLoai.Name = "MaLoai";
-            this.MaLoai.ReadOnly = true;
-            this.MaLoai.Width = 125;
-            // 
-            // SoKhung
-            // 
-            this.SoKhung.DataPropertyName = "SoKhung";
-            this.SoKhung.HeaderText = "Số khung";
-            this.SoKhung.MinimumWidth = 6;
-            this.SoKhung.Name = "SoKhung";
-            this.SoKhung.ReadOnly = true;
-            this.SoKhung.Width = 125;
-            // 
-            // SoMay
-            // 
-            this.SoMay.DataPropertyName = "SoMay";
-            this.SoMay.HeaderText = "Số máy";
-            this.SoMay.MinimumWidth = 6;
-            this.SoMay.Name = "SoMay";
-            this.SoMay.ReadOnly = true;
-            this.SoMay.Width = 125;
-            // 
-            // BienSo
-            // 
-            this.BienSo.DataPropertyName = "BienSo";
-            this.BienSo.HeaderText = "Biển số";
-            this.BienSo.Name = "BienSo";
-            this.BienSo.ReadOnly = true;
-            // 
-            // MaMau
-            // 
-            this.MaMau.DataPropertyName = "MaMau";
-            this.MaMau.HeaderText = "Mã màu";
-            this.MaMau.Name = "MaMau";
-            this.MaMau.ReadOnly = true;
             // 
             // btnImport
             // 
