@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Code\\BTL_LTTQ\\",
+  "WorkspaceRootPath": "D:\\BTL\\BTL_LTTQ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fyeucau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\code\\btl_lttq\\gui\\fnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,65 +30,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "fYeuCau.cs",
-              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
-              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
-              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
-              "RelativeToolTip": "GUI\\fYeuCau.cs",
-              "ViewState": "AQIAAHsBAAAAAAAAAAAswIEBAAACAAAA",
+              "DocumentIndex": 0,
+              "Title": "fKho.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
+              "RelativeDocumentMoniker": "GUI\\fKho.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
+              "RelativeToolTip": "GUI\\fKho.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAIAwwOwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T14:28:11.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "fYeuCau.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs",
-              "RelativeDocumentMoniker": "GUI\\fYeuCau.cs",
-              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fYeuCau.cs [Design]",
-              "RelativeToolTip": "GUI\\fYeuCau.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T14:20:27.128Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fNhanVien.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\fNhanVien.Designer.cs",
-              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.Designer.cs",
-              "RelativeToolTip": "GUI\\fNhanVien.Designer.cs",
-              "ViewState": "AQIAANQDAAAAAAAAAIAwwMcEAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T13:58:35.583Z",
+              "WhenOpened": "2024-10-12T17:42:49.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "fNhanVien.cs",
-              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
-              "RelativeDocumentMoniker": "GUI\\fNhanVien.cs",
-              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
-              "RelativeToolTip": "GUI\\fNhanVien.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACYAAAA6AAAA",
+              "Title": "fKho.cs [Design]",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs",
+              "RelativeDocumentMoniker": "GUI\\fKho.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKho.cs [Design]",
+              "RelativeToolTip": "GUI\\fKho.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T12:52:50.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fNhanVien.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs",
-              "RelativeDocumentMoniker": "GUI\\fNhanVien.cs",
-              "ToolTip": "D:\\Code\\BTL_LTTQ\\GUI\\fNhanVien.cs [Design]",
-              "RelativeToolTip": "GUI\\fNhanVien.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T12:49:17.803Z",
+              "WhenOpened": "2024-10-12T17:42:03.742Z",
               "EditorCaption": " [Design]"
             }
           ]

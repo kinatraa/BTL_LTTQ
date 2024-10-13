@@ -48,8 +48,10 @@
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemSua = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,8 +64,13 @@
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.So = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnTroVe = new GUI.CustomDesign.CustomButton();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             this.label14 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtNgayIn = new System.Windows.Forms.TextBox();
@@ -96,13 +103,6 @@
             this.PhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
-            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnTroVe = new GUI.CustomDesign.CustomButton();
-            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -113,6 +113,7 @@
             this.panelDSHoaDon.SuspendLayout();
             this.panelChiTiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKqPhuTung)).BeginInit();
+            this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -123,7 +124,6 @@
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCMSHoaDon)).BeginInit();
-            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvHoaDon
@@ -175,7 +175,6 @@
             this.dgvHoaDon.TabIndex = 2;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
-            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             this.dgvHoaDon.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvHoaDon_CellPainting);
             // 
             // MaBooking
@@ -266,6 +265,24 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // btnNhapHoaDon
+            // 
+            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnNhapHoaDon.BorderThickness = 1.5F;
+            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
+            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
+            this.btnNhapHoaDon.TabIndex = 4;
+            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
+            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
+            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Enabled = false;
@@ -288,6 +305,23 @@
             this.panel4.TabIndex = 7;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // btnDSHoaDon
+            // 
+            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnDSHoaDon.BorderThickness = 1.5F;
+            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnDSHoaDon.Name = "btnDSHoaDon";
+            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
+            this.btnDSHoaDon.TabIndex = 3;
+            this.btnDSHoaDon.Text = "DS hóa đơn";
+            this.btnDSHoaDon.UseVisualStyleBackColor = false;
+            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
+            // 
             // cmsHoaDon
             // 
             this.cmsHoaDon.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -297,26 +331,26 @@
             this.cmsItemXoa});
             this.cmsHoaDon.Name = "cmsXeMay";
             this.cmsHoaDon.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHoaDon.Size = new System.Drawing.Size(181, 92);
+            this.cmsHoaDon.Size = new System.Drawing.Size(113, 70);
             // 
             // cmsItemChiTiet
             // 
             this.cmsItemChiTiet.Name = "cmsItemChiTiet";
-            this.cmsItemChiTiet.Size = new System.Drawing.Size(180, 22);
+            this.cmsItemChiTiet.Size = new System.Drawing.Size(112, 22);
             this.cmsItemChiTiet.Text = "Chi tiết";
             this.cmsItemChiTiet.Click += new System.EventHandler(this.cmsItemChiTiet_Click);
             // 
             // cmsItemSua
             // 
             this.cmsItemSua.Name = "cmsItemSua";
-            this.cmsItemSua.Size = new System.Drawing.Size(180, 22);
+            this.cmsItemSua.Size = new System.Drawing.Size(112, 22);
             this.cmsItemSua.Text = "Sửa";
             this.cmsItemSua.Click += new System.EventHandler(this.cmsItemSua_Click);
             // 
             // cmsItemXoa
             // 
             this.cmsItemXoa.Name = "cmsItemXoa";
-            this.cmsItemXoa.Size = new System.Drawing.Size(180, 22);
+            this.cmsItemXoa.Size = new System.Drawing.Size(112, 22);
             this.cmsItemXoa.Text = "Xóa";
             this.cmsItemXoa.Click += new System.EventHandler(this.cmsItemXoa_Click);
             // 
@@ -421,7 +455,7 @@
             this.dgvKqPhuTung.Size = new System.Drawing.Size(900, 94);
             this.dgvKqPhuTung.TabIndex = 46;
             this.dgvKqPhuTung.TabStop = false;
-            this.dgvKqPhuTung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKqPhuTung_CellContentClick);
+            this.dgvKqPhuTung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKqPhuTung_CellClick);
             this.dgvKqPhuTung.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvKqPhuTung_CellPainting);
             // 
             // Ma
@@ -448,6 +482,37 @@
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.ReadOnly = true;
             // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.Control;
+            this.panel11.Controls.Add(this.txtMaHoaDon);
+            this.panel11.Location = new System.Drawing.Point(470, 41);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(145, 42);
+            this.panel11.TabIndex = 44;
+            // 
+            // txtMaHoaDon
+            // 
+            this.txtMaHoaDon.BackColor = System.Drawing.SystemColors.Control;
+            this.txtMaHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaHoaDon.Enabled = false;
+            this.txtMaHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHoaDon.Location = new System.Drawing.Point(15, 8);
+            this.txtMaHoaDon.Name = "txtMaHoaDon";
+            this.txtMaHoaDon.Size = new System.Drawing.Size(127, 22);
+            this.txtMaHoaDon.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label15.Location = new System.Drawing.Point(467, 21);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 17);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Mã hóa đơn";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -459,6 +524,21 @@
             this.label18.TabIndex = 42;
             this.label18.Text = "Phụ tùng đã dùng";
             // 
+            // btnTroVe
+            // 
+            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
+            this.btnTroVe.BorderThickness = 1.5F;
+            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
+            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
+            this.btnTroVe.TabIndex = 40;
+            this.btnTroVe.Text = "<- Danh sách hóa đơn";
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
+            // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -468,6 +548,21 @@
             this.panel13.Size = new System.Drawing.Size(167, 49);
             this.panel13.TabIndex = 40;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
+            // 
+            // btnOKHoaDon
+            // 
+            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnOKHoaDon.BorderThickness = 1.5F;
+            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnOKHoaDon.Name = "btnOKHoaDon";
+            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
+            this.btnOKHoaDon.TabIndex = 39;
+            this.btnOKHoaDon.Text = "Xuất hóa đơn";
+            this.btnOKHoaDon.UseVisualStyleBackColor = true;
+            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
             // 
             // label14
             // 
@@ -832,102 +927,6 @@
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(467, 21);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 17);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Mã hóa đơn";
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.SystemColors.Control;
-            this.panel11.Controls.Add(this.txtMaHoaDon);
-            this.panel11.Location = new System.Drawing.Point(470, 41);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(145, 42);
-            this.panel11.TabIndex = 44;
-            // 
-            // txtMaHoaDon
-            // 
-            this.txtMaHoaDon.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMaHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaHoaDon.Enabled = false;
-            this.txtMaHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHoaDon.Location = new System.Drawing.Point(15, 8);
-            this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(127, 22);
-            this.txtMaHoaDon.TabIndex = 0;
-            // 
-            // btnNhapHoaDon
-            // 
-            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnNhapHoaDon.BorderThickness = 1.5F;
-            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
-            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
-            this.btnNhapHoaDon.TabIndex = 4;
-            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
-            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
-            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
-            // 
-            // btnDSHoaDon
-            // 
-            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnDSHoaDon.BorderThickness = 1.5F;
-            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnDSHoaDon.Name = "btnDSHoaDon";
-            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
-            this.btnDSHoaDon.TabIndex = 3;
-            this.btnDSHoaDon.Text = "DS hóa đơn";
-            this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
-            // 
-            // btnTroVe
-            // 
-            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
-            this.btnTroVe.BorderThickness = 1.5F;
-            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
-            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
-            this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
-            this.btnTroVe.TabIndex = 40;
-            this.btnTroVe.Text = "<- Danh sách hóa đơn";
-            this.btnTroVe.UseVisualStyleBackColor = true;
-            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
-            // 
-            // btnOKHoaDon
-            // 
-            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnOKHoaDon.BorderThickness = 1.5F;
-            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnOKHoaDon.Name = "btnOKHoaDon";
-            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
-            this.btnOKHoaDon.TabIndex = 39;
-            this.btnOKHoaDon.Text = "Xuất hóa đơn";
-            this.btnOKHoaDon.UseVisualStyleBackColor = true;
-            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
-            // 
             // fHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -956,6 +955,8 @@
             this.panelChiTiet.ResumeLayout(false);
             this.panelChiTiet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKqPhuTung)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -974,8 +975,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCMSHoaDon)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }

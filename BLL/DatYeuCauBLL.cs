@@ -20,7 +20,10 @@ namespace BLL
         {
             return datYeuCauDAL.GetListYeuCau();
         }
-
+        public List<DatYeuCauDTO> GetListTop10()
+        {
+            return datYeuCauDAL.GetTop10YeuCau();
+        }
         public bool AddYeuCau(string TenKhachHang, string BienSo, string TenNguyenNhan, DateTime NgaySua, string DiaChi, string SoDienThoai)
         {
             return datYeuCauDAL.AddYeuCau(TenKhachHang, BienSo, TenNguyenNhan, NgaySua, DiaChi, SoDienThoai);

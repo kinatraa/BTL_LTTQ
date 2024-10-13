@@ -360,7 +360,7 @@ namespace GUI
                     Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
 
-        private void btnYeuCau_Click(object sender, EventArgs e)
+        public void btnYeuCau_Click(object sender, EventArgs e)
         {
             if (activeBtn == btnYeuCau) return;
             ShowForm(4);
