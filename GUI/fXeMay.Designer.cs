@@ -32,20 +32,20 @@ namespace GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblShowResult = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.pnRes = new System.Windows.Forms.Panel();
+            this.lbAmountResult = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelAddNew = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.btnAdd = new GUI.CustomDesign.CustomButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -66,15 +66,7 @@ namespace GUI
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvXeMay = new System.Windows.Forms.DataGridView();
-            this.TenXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoKhung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BienSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnFilter = new GUI.CustomDesign.CustomButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -83,14 +75,23 @@ namespace GUI
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnAddNew = new GUI.CustomDesign.CustomButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnImport = new GUI.CustomDesign.CustomButton();
             this.cmsXeMay = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbAmountResult = new System.Windows.Forms.Label();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoKhung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BienSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImport = new GUI.CustomDesign.CustomButton();
+            this.btnAddNew = new GUI.CustomDesign.CustomButton();
+            this.btnAdd = new GUI.CustomDesign.CustomButton();
+            this.btnFilter = new GUI.CustomDesign.CustomButton();
             this.panel1.SuspendLayout();
             this.pnRes.SuspendLayout();
             this.panelAddNew.SuspendLayout();
@@ -182,6 +183,17 @@ namespace GUI
             this.pnRes.TabIndex = 13;
             this.pnRes.Paint += new System.Windows.Forms.PaintEventHandler(this.panel16_Paint);
             // 
+            // lbAmountResult
+            // 
+            this.lbAmountResult.AutoSize = true;
+            this.lbAmountResult.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAmountResult.Location = new System.Drawing.Point(23, 9);
+            this.lbAmountResult.Name = "lbAmountResult";
+            this.lbAmountResult.Size = new System.Drawing.Size(23, 20);
+            this.lbAmountResult.TabIndex = 1;
+            this.lbAmountResult.Text = "10";
+            this.lbAmountResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -242,24 +254,6 @@ namespace GUI
             this.panel14.Size = new System.Drawing.Size(66, 40);
             this.panel14.TabIndex = 10;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
-            this.btnAdd.BorderThickness = 1.5F;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(60, 34);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel15
             // 
@@ -467,23 +461,24 @@ namespace GUI
             this.dgvXeMay.AllowUserToDeleteRows = false;
             this.dgvXeMay.AllowUserToResizeColumns = false;
             this.dgvXeMay.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvXeMay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvXeMay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvXeMay.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvXeMay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvXeMay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvXeMay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXeMay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXeMay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvXeMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvXeMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
             this.TenXe,
             this.MaXe,
             this.MaLoai,
@@ -497,14 +492,14 @@ namespace GUI
             this.dgvXeMay.MultiSelect = false;
             this.dgvXeMay.Name = "dgvXeMay";
             this.dgvXeMay.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvXeMay.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvXeMay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvXeMay.RowHeadersVisible = false;
             this.dgvXeMay.RowHeadersWidth = 51;
             this.dgvXeMay.RowTemplate.Height = 30;
@@ -515,65 +510,6 @@ namespace GUI
             this.dgvXeMay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
             this.dgvXeMay.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvXeMay_CellPainting);
             // 
-            // TenXe
-            // 
-            this.TenXe.DataPropertyName = "TenXe";
-            this.TenXe.HeaderText = "Tên xe";
-            this.TenXe.MinimumWidth = 6;
-            this.TenXe.Name = "TenXe";
-            this.TenXe.ReadOnly = true;
-            this.TenXe.Width = 125;
-            // 
-            // MaXe
-            // 
-            this.MaXe.DataPropertyName = "MaXe";
-            this.MaXe.HeaderText = "Mã xe";
-            this.MaXe.MinimumWidth = 6;
-            this.MaXe.Name = "MaXe";
-            this.MaXe.ReadOnly = true;
-            this.MaXe.Width = 125;
-            // 
-            // MaLoai
-            // 
-            this.MaLoai.DataPropertyName = "MaLoai";
-            this.MaLoai.HeaderText = "Mã loại";
-            this.MaLoai.MinimumWidth = 6;
-            this.MaLoai.Name = "MaLoai";
-            this.MaLoai.ReadOnly = true;
-            this.MaLoai.Width = 125;
-            // 
-            // SoKhung
-            // 
-            this.SoKhung.DataPropertyName = "SoKhung";
-            this.SoKhung.HeaderText = "Số khung";
-            this.SoKhung.MinimumWidth = 6;
-            this.SoKhung.Name = "SoKhung";
-            this.SoKhung.ReadOnly = true;
-            this.SoKhung.Width = 125;
-            // 
-            // SoMay
-            // 
-            this.SoMay.DataPropertyName = "SoMay";
-            this.SoMay.HeaderText = "Số máy";
-            this.SoMay.MinimumWidth = 6;
-            this.SoMay.Name = "SoMay";
-            this.SoMay.ReadOnly = true;
-            this.SoMay.Width = 125;
-            // 
-            // BienSo
-            // 
-            this.BienSo.DataPropertyName = "BienSo";
-            this.BienSo.HeaderText = "Biển số";
-            this.BienSo.Name = "BienSo";
-            this.BienSo.ReadOnly = true;
-            // 
-            // MaMau
-            // 
-            this.MaMau.DataPropertyName = "MaMau";
-            this.MaMau.HeaderText = "Mã màu";
-            this.MaMau.Name = "MaMau";
-            this.MaMau.ReadOnly = true;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.Control;
@@ -583,23 +519,6 @@ namespace GUI
             this.panel6.Size = new System.Drawing.Size(110, 56);
             this.panel6.TabIndex = 1;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BorderColor = System.Drawing.Color.Empty;
-            this.btnFilter.BorderThickness = 1.5F;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnFilter.Location = new System.Drawing.Point(3, 3);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(104, 50);
-            this.btnFilter.TabIndex = 2;
-            this.btnFilter.Text = "Filters";
-            this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFilter.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -624,6 +543,7 @@ namespace GUI
             this.txtSearchBar.TabIndex = 1;
             this.txtSearchBar.Text = "Search by name, email, or orthers ...";
             this.txtSearchBar.WordWrap = false;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             this.txtSearchBar.Enter += new System.EventHandler(this.txtSearchBar_Enter);
             this.txtSearchBar.Leave += new System.EventHandler(this.txtSearchBar_Leave);
             // 
@@ -696,24 +616,6 @@ namespace GUI
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
-            // btnAddNew
-            // 
-            this.btnAddNew.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnAddNew.BorderColor = System.Drawing.Color.Empty;
-            this.btnAddNew.BorderThickness = 1.5F;
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddNew.Location = new System.Drawing.Point(3, 3);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(157, 50);
-            this.btnAddNew.TabIndex = 4;
-            this.btnAddNew.Text = "Add new";
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.UseVisualStyleBackColor = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
@@ -735,22 +637,6 @@ namespace GUI
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.SystemColors.Window;
-            this.btnImport.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnImport.BorderColor = System.Drawing.Color.Empty;
-            this.btnImport.BorderThickness = 1.5F;
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImport.Location = new System.Drawing.Point(3, 3);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(147, 50);
-            this.btnImport.TabIndex = 3;
-            this.btnImport.Text = "Import";
-            this.btnImport.UseVisualStyleBackColor = false;
             // 
             // cmsXeMay
             // 
@@ -778,16 +664,139 @@ namespace GUI
             this.toolStripMenuItem2.Text = "Delete";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // lbAmountResult
+            // No
             // 
-            this.lbAmountResult.AutoSize = true;
-            this.lbAmountResult.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAmountResult.Location = new System.Drawing.Point(23, 9);
-            this.lbAmountResult.Name = "lbAmountResult";
-            this.lbAmountResult.Size = new System.Drawing.Size(23, 20);
-            this.lbAmountResult.TabIndex = 1;
-            this.lbAmountResult.Text = "10";
-            this.lbAmountResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // TenXe
+            // 
+            this.TenXe.DataPropertyName = "TenXe";
+            this.TenXe.HeaderText = "Tên xe";
+            this.TenXe.MinimumWidth = 6;
+            this.TenXe.Name = "TenXe";
+            this.TenXe.ReadOnly = true;
+            this.TenXe.Width = 125;
+            // 
+            // MaXe
+            // 
+            this.MaXe.DataPropertyName = "MaXe";
+            this.MaXe.HeaderText = "Mã xe";
+            this.MaXe.MinimumWidth = 6;
+            this.MaXe.Name = "MaXe";
+            this.MaXe.ReadOnly = true;
+            this.MaXe.Width = 125;
+            // 
+            // MaLoai
+            // 
+            this.MaLoai.DataPropertyName = "MaLoai";
+            this.MaLoai.HeaderText = "Mã loại";
+            this.MaLoai.MinimumWidth = 6;
+            this.MaLoai.Name = "MaLoai";
+            this.MaLoai.ReadOnly = true;
+            this.MaLoai.Width = 125;
+            // 
+            // SoKhung
+            // 
+            this.SoKhung.DataPropertyName = "SoKhung";
+            this.SoKhung.HeaderText = "Số khung";
+            this.SoKhung.MinimumWidth = 6;
+            this.SoKhung.Name = "SoKhung";
+            this.SoKhung.ReadOnly = true;
+            this.SoKhung.Width = 125;
+            // 
+            // SoMay
+            // 
+            this.SoMay.DataPropertyName = "SoMay";
+            this.SoMay.HeaderText = "Số máy";
+            this.SoMay.MinimumWidth = 6;
+            this.SoMay.Name = "SoMay";
+            this.SoMay.ReadOnly = true;
+            this.SoMay.Width = 125;
+            // 
+            // BienSo
+            // 
+            this.BienSo.DataPropertyName = "BienSo";
+            this.BienSo.HeaderText = "Biển số";
+            this.BienSo.Name = "BienSo";
+            this.BienSo.ReadOnly = true;
+            // 
+            // MaMau
+            // 
+            this.MaMau.DataPropertyName = "MaMau";
+            this.MaMau.HeaderText = "Mã màu";
+            this.MaMau.Name = "MaMau";
+            this.MaMau.ReadOnly = true;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.SystemColors.Window;
+            this.btnImport.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnImport.BorderColor = System.Drawing.Color.Empty;
+            this.btnImport.BorderThickness = 1.5F;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnImport.Location = new System.Drawing.Point(3, 3);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(147, 50);
+            this.btnImport.TabIndex = 3;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = false;
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnAddNew.BorderColor = System.Drawing.Color.Empty;
+            this.btnAddNew.BorderThickness = 1.5F;
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddNew.Location = new System.Drawing.Point(3, 3);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(157, 50);
+            this.btnAddNew.TabIndex = 4;
+            this.btnAddNew.Text = "Add new";
+            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
+            this.btnAdd.BorderThickness = 1.5F;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(60, 34);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFilter.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnFilter.BorderColor = System.Drawing.Color.Empty;
+            this.btnFilter.BorderThickness = 1.5F;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnFilter.Location = new System.Drawing.Point(3, 3);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(104, 50);
+            this.btnFilter.TabIndex = 2;
+            this.btnFilter.Text = "Filters";
+            this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFilter.UseVisualStyleBackColor = false;
             // 
             // fXeMay
             // 
@@ -887,6 +896,10 @@ namespace GUI
         private Label label7;
         private Panel pnRes;
         private Label lblShowResult;
+        private Button btnPrevious;
+        private Button btnNext;
+        private Label lbAmountResult;
+        private DataGridViewTextBoxColumn No;
         private DataGridViewTextBoxColumn TenXe;
         private DataGridViewTextBoxColumn MaXe;
         private DataGridViewTextBoxColumn MaLoai;
@@ -894,8 +907,5 @@ namespace GUI
         private DataGridViewTextBoxColumn SoMay;
         private DataGridViewTextBoxColumn BienSo;
         private DataGridViewTextBoxColumn MaMau;
-        private Button btnPrevious;
-        private Button btnNext;
-        private Label lbAmountResult;
     }
 }

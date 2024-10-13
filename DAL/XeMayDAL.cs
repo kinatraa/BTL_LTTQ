@@ -10,10 +10,10 @@ namespace DAL
     {
         public bool CheckDuplication(string maXe, string currentMaXe = null)
         {
-            string query = "SELECT COUNT(*) FROM XeMay WHERE maxe = @maXe";
+            string query = "SELECT COUNT(*) FROM XeMay WHERE maxe = @maXe ";
             if (currentMaXe != null)
             {
-                query += " AND maxe != @currentMaXe";
+                query += " AND maxe != @currentMaXe ";
             }
 
             object[] parameters;
@@ -69,11 +69,35 @@ namespace DAL
 
         public bool XoaXeMay(string maXe)
         {
-            string query = "DELETE FROM XeMay WHERE maxe = @value1";
+            string query = "DELETE FROM XeMay WHERE maxe = @value1 ";
 
             int res = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maXe });
 
             return res > 0;
+        }
+
+        public List<XeMayDTO> TimXeMayTheoTen(string tenXe)
+        {
+            string query = "SELECT * FROM XEMAY WHERE TenXe LIKE '%' + @ten + '%'";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] {tenXe});
+
+            List<XeMayDTO> xeMayList = new List<XeMayDTO>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                XeMayDTO xeMay = new XeMayDTO
+                {
+                    MaXe = row["MaXe"].ToString(),
+                    TenXe = row["TenXe"].ToString(),
+                    LoaiXe = row["LoaiXe"].ToString(),
+                    SoKhung = row["SoKhung"].ToString(),
+                    SoMay = row["SoMay"].ToString(),
+                    BienSo = row["BienSo"].ToString(),
+                    MaMau = row["MaMau"].ToString()
+                };
+                xeMayList.Add(xeMay);
+            }
+            return xeMayList;
         }
 
         public List<XeMayDTO> LayDanhSachXeMay()

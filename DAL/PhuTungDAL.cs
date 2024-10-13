@@ -24,7 +24,7 @@ namespace DAL
 
             if (dataTable.Rows.Count > 0) // Nếu có bản ghi
             {
-                DataRow row = dataTable.Rows[0]; // Lấy hàng đầu tiên
+                DataRow row = dataTable.Rows[0]; 
                 return new object[]
                 {
                     row["TenPhuTung"],
@@ -34,7 +34,7 @@ namespace DAL
                 };
             }
 
-            return null; // Trả về null nếu không tìm thấy bản ghi
+            return null;
         }
         public bool SuaPhuTung(string ma, int sl)
         {
@@ -69,6 +69,7 @@ namespace DAL
             }
             return listKho;
         }
+
         public List<PhuTungDTO> LayDSKhoPhuTung()
         {
             string query = "SELECT * FROM PHUTUNG ";
