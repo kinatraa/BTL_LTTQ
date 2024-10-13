@@ -46,7 +46,7 @@ namespace GUI
 
             forms = new Form[7];
             forms[0] = new fTrangChu(idLogin);
-            forms[1] = new fKho(idLogin);
+            forms[1] = new fKhoPhuTung(idLogin);
             forms[2] = new fXeMay(idLogin);
             forms[3] = new fKhachHang(idLogin);
             forms[4] = new fYeuCau(idLogin);

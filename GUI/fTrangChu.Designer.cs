@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPanel = new System.Windows.Forms.Panel();
             this.btnMoreYeuCau = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,12 +59,11 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BieuDoDoanhThu = new LiveCharts.WinForms.CartesianChart();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.BieuDoTongKet = new LiveCharts.WinForms.CartesianChart();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.dgvPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrangChu)).BeginInit();
             this.panel1.SuspendLayout();
@@ -83,10 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPanel
@@ -95,9 +91,9 @@
             this.dgvPanel.Controls.Add(this.btnMoreYeuCau);
             this.dgvPanel.Controls.Add(this.label1);
             this.dgvPanel.Controls.Add(this.dgvTrangChu);
-            this.dgvPanel.Location = new System.Drawing.Point(29, 241);
+            this.dgvPanel.Location = new System.Drawing.Point(30, 140);
             this.dgvPanel.Name = "dgvPanel";
-            this.dgvPanel.Size = new System.Drawing.Size(739, 592);
+            this.dgvPanel.Size = new System.Drawing.Size(742, 720);
             this.dgvPanel.TabIndex = 6;
             this.dgvPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvPanel_Paint);
             // 
@@ -120,7 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(16, 14);
+            this.label1.Location = new System.Drawing.Point(16, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 37);
             this.label1.TabIndex = 1;
@@ -136,15 +132,15 @@
             this.dgvTrangChu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTrangChu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvTrangChu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrangChu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTrangChu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTrangChu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrangChu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
@@ -153,15 +149,16 @@
             this.NgaySua});
             this.dgvTrangChu.GridColor = System.Drawing.SystemColors.Control;
             this.dgvTrangChu.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvTrangChu.Location = new System.Drawing.Point(16, 63);
+            this.dgvTrangChu.Location = new System.Drawing.Point(16, 50);
             this.dgvTrangChu.MultiSelect = false;
             this.dgvTrangChu.Name = "dgvTrangChu";
             this.dgvTrangChu.ReadOnly = true;
             this.dgvTrangChu.RowHeadersVisible = false;
             this.dgvTrangChu.RowHeadersWidth = 51;
             this.dgvTrangChu.RowTemplate.Height = 30;
+            this.dgvTrangChu.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvTrangChu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvTrangChu.Size = new System.Drawing.Size(702, 516);
+            this.dgvTrangChu.Size = new System.Drawing.Size(710, 655);
             this.dgvTrangChu.TabIndex = 0;
             this.dgvTrangChu.TabStop = false;
             this.dgvTrangChu.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvTrangChu_CellPainting);
@@ -207,9 +204,9 @@
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(29, 29);
+            this.panel1.Location = new System.Drawing.Point(30, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 190);
+            this.panel1.Size = new System.Drawing.Size(360, 120);
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -227,7 +224,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 77);
+            this.label5.Location = new System.Drawing.Point(88, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 37);
             this.label5.TabIndex = 8;
@@ -266,7 +263,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.dothi;
-            this.pictureBox2.Location = new System.Drawing.Point(243, 99);
+            this.pictureBox2.Location = new System.Drawing.Point(243, 55);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(98, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -283,9 +280,9 @@
             this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(408, 29);
+            this.panel2.Location = new System.Drawing.Point(412, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(360, 190);
+            this.panel2.Size = new System.Drawing.Size(360, 120);
             this.panel2.TabIndex = 8;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -303,11 +300,11 @@
             // 
             this.lbTongYeuCau.AutoSize = true;
             this.lbTongYeuCau.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongYeuCau.Location = new System.Drawing.Point(16, 77);
+            this.lbTongYeuCau.Location = new System.Drawing.Point(70, 55);
             this.lbTongYeuCau.Name = "lbTongYeuCau";
-            this.lbTongYeuCau.Size = new System.Drawing.Size(65, 37);
+            this.lbTongYeuCau.Size = new System.Drawing.Size(122, 37);
             this.lbTongYeuCau.TabIndex = 9;
-            this.lbTongYeuCau.Text = "256";
+            this.lbTongYeuCau.Text = "256 đơn";
             // 
             // label2
             // 
@@ -342,7 +339,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.dothi;
-            this.pictureBox3.Location = new System.Drawing.Point(241, 99);
+            this.pictureBox3.Location = new System.Drawing.Point(241, 55);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(98, 55);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -360,9 +357,9 @@
             this.panel3.Controls.Add(this.pictureBox12);
             this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Controls.Add(this.pictureBox4);
-            this.panel3.Location = new System.Drawing.Point(794, 29);
+            this.panel3.Location = new System.Drawing.Point(794, 10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 190);
+            this.panel3.Size = new System.Drawing.Size(360, 120);
             this.panel3.TabIndex = 9;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -380,11 +377,11 @@
             // 
             this.lbTongHoaDon.AutoSize = true;
             this.lbTongHoaDon.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongHoaDon.Location = new System.Drawing.Point(18, 77);
+            this.lbTongHoaDon.Location = new System.Drawing.Point(70, 55);
             this.lbTongHoaDon.Name = "lbTongHoaDon";
-            this.lbTongHoaDon.Size = new System.Drawing.Size(88, 37);
+            this.lbTongHoaDon.Size = new System.Drawing.Size(145, 37);
             this.lbTongHoaDon.TabIndex = 10;
-            this.lbTongHoaDon.Text = "1,256";
+            this.lbTongHoaDon.Text = "1,256 đơn";
             // 
             // label3
             // 
@@ -419,7 +416,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources.dothi;
-            this.pictureBox4.Location = new System.Drawing.Point(243, 99);
+            this.pictureBox4.Location = new System.Drawing.Point(243, 55);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(98, 55);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -429,13 +426,21 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.Controls.Add(this.BieuDoDoanhThu);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(794, 241);
+            this.panel4.Location = new System.Drawing.Point(794, 140);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(360, 340);
+            this.panel4.Size = new System.Drawing.Size(360, 400);
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // BieuDoDoanhThu
+            // 
+            this.BieuDoDoanhThu.Location = new System.Drawing.Point(15, 42);
+            this.BieuDoDoanhThu.Name = "BieuDoDoanhThu";
+            this.BieuDoDoanhThu.Size = new System.Drawing.Size(330, 350);
+            this.BieuDoDoanhThu.TabIndex = 14;
+            this.BieuDoDoanhThu.Text = "cartesianChart1";
             // 
             // label11
             // 
@@ -443,41 +448,28 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(20, 14);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(128, 25);
+            this.label11.Size = new System.Drawing.Size(179, 25);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Báo cáo sales";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::GUI.Properties.Resources.Deposit_Illustration;
-            this.pictureBox8.Location = new System.Drawing.Point(79, 42);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(213, 267);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
+            this.label11.Text = "Báo cáo doanh thu";
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Window;
-            this.panel5.Controls.Add(this.pictureBox16);
+            this.panel5.Controls.Add(this.BieuDoTongKet);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(794, 604);
+            this.panel5.Location = new System.Drawing.Point(794, 556);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(360, 229);
+            this.panel5.Size = new System.Drawing.Size(360, 300);
             this.panel5.TabIndex = 11;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // pictureBox16
+            // BieuDoTongKet
             // 
-            this.pictureBox16.Image = global::GUI.Properties.Resources.Dates;
-            this.pictureBox16.Location = new System.Drawing.Point(30, 193);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(290, 11);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox16.TabIndex = 15;
-            this.pictureBox16.TabStop = false;
+            this.BieuDoTongKet.Location = new System.Drawing.Point(20, 39);
+            this.BieuDoTongKet.Name = "BieuDoTongKet";
+            this.BieuDoTongKet.Size = new System.Drawing.Size(320, 240);
+            this.BieuDoTongKet.TabIndex = 15;
+            this.BieuDoTongKet.Text = "cartesianChart1";
             // 
             // label12
             // 
@@ -488,16 +480,6 @@
             this.label12.Size = new System.Drawing.Size(138, 25);
             this.label12.TabIndex = 14;
             this.label12.Text = "Tổng kết tuần";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::GUI.Properties.Resources.Bars;
-            this.pictureBox9.Location = new System.Drawing.Point(25, 75);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(300, 98);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
             // 
             // fTrangChu
             // 
@@ -538,11 +520,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -562,8 +541,6 @@
 		private System.Windows.Forms.PictureBox pictureBox3;
 		private System.Windows.Forms.PictureBox pictureBox7;
 		private System.Windows.Forms.PictureBox pictureBox4;
-		private System.Windows.Forms.PictureBox pictureBox8;
-		private System.Windows.Forms.PictureBox pictureBox9;
 		private System.Windows.Forms.PictureBox pictureBox10;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.PictureBox pictureBox11;
@@ -578,12 +555,13 @@
 		private System.Windows.Forms.PictureBox pictureBox15;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.DataGridView dgvTrangChu;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn NguyenNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySua;
         private System.Windows.Forms.Button btnMoreYeuCau;
+        private LiveCharts.WinForms.CartesianChart BieuDoDoanhThu;
+        private LiveCharts.WinForms.CartesianChart BieuDoTongKet;
     }
 }

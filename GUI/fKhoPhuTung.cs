@@ -13,7 +13,7 @@ using DTO;
 using BLL;
 namespace GUI
 {
-    public partial class fKho : Form
+    public partial class fKhoPhuTung : Form
     {
         private int pageSize = 10;
         private int currentPagePT = 1;
@@ -38,7 +38,7 @@ namespace GUI
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
         private string whatIsRunning = "PhuTung"; // 0 là ds hđn, 1 là ds phụ tùng
-        public fKho(string idLogin)
+        public fKhoPhuTung(string idLogin)
         {
             InitializeComponent();
             _phuTungBLL = new PhuTungBLL();
