@@ -28,11 +28,18 @@ namespace GUI
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
-        private bool addNewClicked = false;
+        private bool addNewClicked = false, thongTinReveal = false, updateClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
+
+        private Size defaultDGVSize = new Size(1060, 402 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
+        private int rowIndex = -1;
         public fXeMay(string idLogin)
         {
             InitializeComponent();
+
+            panelThongTin.Visible = false;
+
+            panelThongTin.Location = new Point(763, posA.Y);
 
             _xeMayBLL = new XeMayBLL();
 
@@ -44,8 +51,12 @@ namespace GUI
 
             cmbOrder.SelectedIndex = 0;
             this.idLogin = idLogin;
-            SetupDataGridView();    
+            SetupDataGridView();
+
+            DoubleBuffering();
         }
+        
+
         private void fXeMay_Load(object sender, EventArgs e)
         {
             ShowXeMayList();
@@ -58,6 +69,19 @@ namespace GUI
             currentPage = 1;
 
             DisplayCurrentPage();
+        }
+
+        private void DoubleBuffering()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.SetProperty,
+                null, dgvXeMay, new object[] { true });
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.SetProperty,
+                null, panelFooter, new object[] { true });
         }
 
         private void DisplayCurrentPage()
@@ -105,6 +129,9 @@ namespace GUI
         }
         private void SetupDataGridView()
         {
+            dgvXeMay.Size = defaultDGVSize;
+            panelFooter.Width = defaultDGVSize.Width;
+            thongTinReveal = false;
 
             dgvXeMay.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             dgvXeMay.EnableHeadersVisualStyles = false;
@@ -156,7 +183,7 @@ namespace GUI
             }
         }
 
-        private async void ToggleAddNew()
+        private async Task ToggleAddNew()
         {
             if (!addNewClicked)
             {
@@ -196,11 +223,90 @@ namespace GUI
 			btnAddNew.Enabled = true;
 		}
 
-
-        private void btnAddNew_Click(object sender, EventArgs e)
+        private async Task AnimateDataGridView2(int targerWidth)
         {
-			btnAddNew.Enabled = false;
-			ToggleAddNew();
+            int steps = 10;
+            int stepWidth = (dgvXeMay.Width - targerWidth) / steps;
+
+            for (int i = 0; i < steps; i++)
+            {
+                dgvXeMay.Width -= stepWidth;
+                panelFooter.Width -= stepWidth;
+
+                Application.DoEvents();
+
+                await Task.Delay(5);
+            }
+
+            dgvXeMay.Width = targerWidth;
+            panelFooter.Width = targerWidth;
+        }
+
+        private async Task ToggleThongTin()
+        {
+            if (!thongTinReveal)
+            {
+                if (addNewClicked || updateClicked)
+                {
+                    await ToggleAddNew();
+                    addNewClicked = false;
+                    updateClicked = false;
+                }
+
+                panelThongTin.Visible = true;
+                await AnimateDataGridView2(smallerDGVSize.Width);
+                thongTinReveal = true;
+            }
+            else
+            {
+                
+            }
+        }
+
+
+        private async void btnAddNew_Click(object sender, EventArgs e)
+        {
+            btnAddNew.Enabled = false;
+
+            ClearAddNewPanel();
+
+            if (addNewClicked)
+            {
+                await ToggleAddNew();
+
+                addNewClicked = false;
+            }
+            else
+            {
+                if (!updateClicked)
+                {
+                    btnAddNew.Enabled = false;
+
+                    panelThongTin.Visible = false;
+                    thongTinReveal = false;
+                    await AnimateDataGridView2(defaultDGVSize.Width);
+
+                    await ToggleAddNew();
+                }
+                else
+                {
+                    updateClicked = false;
+                }
+
+                addNewClicked = true;
+            }
+
+            btnAddNew.Enabled = true;
+        }
+
+        private void ClearAddNewPanel()
+        {
+            txtTenKH.Text = String.Empty;
+            txtSDT.Text = String.Empty;
+            txtDiaChi.Text = String.Empty;
+            txtMaXe.Text = String.Empty;
+            txtNguyenNhan.Text = "Nguyên nhân sửa chữa";
+            txtNgaySua.Text = String.Empty;
         }
 
         private void dtpNgaySua_DropDown(object sender, EventArgs e)
@@ -208,12 +314,30 @@ namespace GUI
 
         }
 
-        private void yourDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvXeMay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvXeMay.Columns["Actions"].Index && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                var cellRectangle = dgvXeMay.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                cmsXeMay.Show(dgvXeMay, cellRectangle.Left, cellRectangle.Bottom - 20);
+                foreach (DataGridViewRow row in dgvXeMay.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.SelectionBackColor = Color.White;
+                }
+
+                dgvXeMay.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+                dgvXeMay.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+
+                if (e.ColumnIndex == dgvXeMay.Columns["Actions"].Index)
+                {
+                    var cellRectangle = dgvXeMay.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    rowIndex = e.RowIndex;
+                    cmsXeMay.Show(dgvXeMay, cellRectangle.Left, cellRectangle.Bottom - 20);
+                }
+                else if (e.ColumnIndex != dgvXeMay.Columns["Actions"].Index)
+                {
+                    dgvXeMay.BringToFront();
+                    await ToggleThongTin();
+                }
             }
         }
 
@@ -320,6 +444,36 @@ namespace GUI
             DrawRoundedPanel(pnRes, 15, BorderColor, BorderThickness, e);
         }
 
+        private void panel16_Paint_1(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel18_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel18, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel19_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel19, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel20_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel20, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel21_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel21, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel17_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel17, 15, BorderColor, BorderThickness, e);
+        }
+
         private void txtNguyenNhan_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNguyenNhan.Text))
@@ -342,6 +496,27 @@ namespace GUI
             {
                 txtSearchBar.Text = string.Empty;
             }
+        }
+
+        private async void btnExitPanel_Click(object sender, EventArgs e)
+        {
+            if (panelThongTin.Visible)
+            {
+                panelThongTin.Visible = false;
+                thongTinReveal = false;
+                await AnimateDataGridView2(defaultDGVSize.Width);
+            }
+            else
+            {
+                await ToggleThongTin();
+            }
+        }
+
+        private async void btnXong_Click(object sender, EventArgs e)
+        {
+            panelThongTin.Visible = false;
+            thongTinReveal = false;
+            await AnimateDataGridView2(defaultDGVSize.Width);
         }
 
         private void txtSearchBar_Leave(object sender, EventArgs e)

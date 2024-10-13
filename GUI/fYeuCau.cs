@@ -48,14 +48,12 @@ namespace GUI
 
             SetupAddPanel();
 
-
 			SetupDataGridView();
 
 			cmbOrder.SelectedIndex = 0;
 
 			DoubleBuffering();
 
-			SetStatus();
 			this.idLogin = idLogin;
 		}
         private void fYeuCau_Load(object sender, EventArgs e)
@@ -184,7 +182,7 @@ namespace GUI
 		}
 		
 
-		private void SetStatus()
+		/*private void SetStatus()
 		{
 			if(status == 1)
 			{
@@ -219,7 +217,7 @@ namespace GUI
 				panelDoing.BackColor = SystemColors.GradientActiveCaption;
 				panelDoing.ForeColor = Color.Black;
 			}
-		}
+		}*/
 
 		private async Task AnimateDataGridView(Point targetPosition, int targetHeight)
 		{
@@ -264,7 +262,9 @@ namespace GUI
 
 		private async void btnAddNew_Click(object sender, EventArgs e)
 		{
-			ClearAddNewPanel();
+            btnAddNew.Enabled = false;
+
+            ClearAddNewPanel();
 
 			isAddNew = true;
 			btnAdd.Text = "Thêm";
@@ -285,7 +285,12 @@ namespace GUI
 				if (!updateClicked)
 				{
 					btnAddNew.Enabled = false;
-					await ToggleAddNew();
+
+                    panelThongTin.Visible = false;
+                    thongTinReveal = false;
+                    await AnimateDataGridView2(defaultDGVSize.Width);
+
+                    await ToggleAddNew();
 				}
 				else
 				{
@@ -294,7 +299,9 @@ namespace GUI
 
 				addNewClicked = true;
 			}
-		}
+
+            btnAddNew.Enabled = true;
+        }
 
 		private async void Update_Click(object sender, EventArgs e)
 		{
@@ -464,7 +471,6 @@ namespace GUI
             }
         }
 
-
         private void ClearAddNewPanel()
 		{
 			txtTenKH.Text = String.Empty;
@@ -568,32 +574,37 @@ namespace GUI
 			DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
 		}
 
-		private void panelToDo_Paint(object sender, PaintEventArgs e)
-		{
-			DrawRoundedPanel(panelToDo, 15, BorderColor, BorderThickness, e);
-		}
-
-		private void panelDoing_Paint(object sender, PaintEventArgs e)
-		{
-			DrawRoundedPanel(panelDoing, 15, BorderColor, BorderThickness, e);
-		}
-
-		private void panelDone_Paint(object sender, PaintEventArgs e)
-		{
-			DrawRoundedPanel(panelDone, 15, BorderColor, BorderThickness, e);
-		}
-
 		private void panel15_Paint(object sender, PaintEventArgs e)
 		{
 			DrawRoundedPanel(panel15, 15, BorderColor, BorderThickness, e);
 		}
 
-		/*private void panel17_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel1, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel27_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel27, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel28_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel28, 15, BorderColor, BorderThickness, e);
+        }
+
+        private void panel29_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panel29, 15, BorderColor, BorderThickness, e);
+        }
+
+        /*private void panel17_Paint(object sender, PaintEventArgs e)
 		{
 			DrawRoundedPanel(panel17, 15, BorderColor, BorderThickness, e);
 		}*/
 
-		private void txtNguyenNhan_Leave(object sender, EventArgs e)
+        private void txtNguyenNhan_Leave(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(txtNguyenNhan.Text))
 			{
@@ -658,8 +669,6 @@ namespace GUI
                 await ToggleThongTin();
             }
         }
-
-
 
         private void txtSearchBar_Leave(object sender, EventArgs e)
 		{
