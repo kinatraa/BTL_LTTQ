@@ -47,7 +47,7 @@ namespace BLL
         {
             return _phuTungDAL.TimDsTheoTen(ma);
         }
-        public List<PhuTungDTO> LayDsPhuTung()
+        public List<PhuTungDTO> LayDSPhuTung()
         {
             return _phuTungDAL.LayDSKhoPhuTung();
         }

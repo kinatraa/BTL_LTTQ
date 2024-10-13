@@ -21,8 +21,6 @@ namespace GUI
         private int currentPage = 1;
         private int totalPages = 1;
 
-
-
         string idLogin;
         private XeMayBLL _xeMayBLL;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
