@@ -8,6 +8,31 @@ namespace DAL
 {
     public class XeMayDAL
     {
+
+        public XeMayDTO LayXeTheoMa(string maXe)
+        {
+            string query = "SELECT MaXe, TenXe, LoaiXe, SoKhung, SoMay, BienSo FROM XEMAY WHERE maXe = @maXe ";
+
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { maXe });
+
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow row = dataTable.Rows[0];
+                XeMayDTO xeMay = new XeMayDTO
+                {
+                    MaXe = row["MaXe"].ToString(),
+                    TenXe = row["TenXe"].ToString(),
+                    LoaiXe = row["LoaiXe"].ToString(),
+                    SoKhung = row["SoKhung"].ToString(),
+                    SoMay = row["SoMay"].ToString(),
+                    BienSo = row["BienSo"].ToString(),
+                };
+                return xeMay;
+            }
+
+            return null;
+        }
+
         public bool CheckDuplication(string maXe, string currentMaXe = null)
         {
             string query = "SELECT COUNT(*) FROM XeMay WHERE maxe = @maXe ";
@@ -79,7 +104,7 @@ namespace DAL
         public List<XeMayDTO> TimXeMayTheoTen(string tenXe)
         {
             string query = "SELECT * FROM XEMAY WHERE TenXe LIKE '%' + @ten + '%'";
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] {tenXe});
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { tenXe });
 
             List<XeMayDTO> xeMayList = new List<XeMayDTO>();
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DTO;
 using DAL;
+using Microsoft.SqlServer.Server;
 
 namespace BLL
 {
@@ -12,7 +13,10 @@ namespace BLL
         {
             _xeMayDAL = new XeMayDAL();
         }
-
+        public XeMayDTO LayXeTheoMa(string ma)
+        {
+            return _xeMayDAL.LayXeTheoMa(ma);   
+        }
         public bool CheckDuplication(string maXe, string currentMaXe = null)
         {
             return _xeMayDAL.CheckDuplication(maXe, currentMaXe);
