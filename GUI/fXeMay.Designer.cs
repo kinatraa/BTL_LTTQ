@@ -807,7 +807,7 @@ namespace GUI
             this.dgvXeMay.Size = new System.Drawing.Size(738, 402);
             this.dgvXeMay.TabIndex = 2;
             this.dgvXeMay.TabStop = false;
-            this.dgvXeMay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXeMay_CellClick);
+            this.dgvXeMay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXeMay_CellClick);
             this.dgvXeMay.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvXeMay_CellPainting);
             // 
             // No
